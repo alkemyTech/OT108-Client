@@ -20,15 +20,11 @@ export class SlidesFormComponent implements OnInit {
     ) {
     
     this.formulario = this.frB.group( {
-      'id': [''],
+      
       'name': ['', [Validators.required]],
       'description': ['', Validators.required],
       'image': [atob('')],
       'order': ['', [Validators.required]],
-      'userId': [''],
-      'created_at': [''],
-      'updated_at': [''],
-      'deleted_at': [''],
     });
    }
 
