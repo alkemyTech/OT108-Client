@@ -12,9 +12,12 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { MembersComponent } from './pages/members/members.component';
 import { OrganizationComponent } from './pages/organization/organization.component';
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 @NgModule({
   declarations: [
+
     ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
@@ -37,6 +40,11 @@ import { OrganizationComponent } from './pages/organization/organization.compone
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule],
+  imports: [
+    CommonModule,
+    AppRoutingModule, 
+    RouterModule,
+    ReactiveFormsModule
+  ],
 })
 export class FeaturesModule {}
