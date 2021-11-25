@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-formulariomodelo',
   templateUrl: './formulariomodelo.component.html',
@@ -19,8 +21,7 @@ export class FORMULARIOMODELOComponent implements OnInit {
       'foto': ['', [Validators.required]],
       'password': ['', [Validators.required,Validators.minLength(6)]],
       'email': ['', [Validators.required,Validators.email]],
-      'especialidades':['', [Validators.required]],
-      'reCaptha':['',[Validators.required]]
+     
     });
    }
 

@@ -1,6 +1,4 @@
-<div *ngIf="admin">
-    <app-navbar></app-navbar>
-  </div>
+
   <div class="container mt-5">
       <form [formGroup]="formulario"  (ngSubmit)="aceptar()">
           <div class="row">
@@ -73,33 +71,15 @@
   
           </div>
   
-              <div class="col-md-6 mb-5">
-  
-                  <label for="juego" class="form-label"> Selecciona Especialidad &nbsp;&nbsp;</label>
-                  <div *ngFor ="let especialidad of especialidades;let i=index">
-                    <label class="form-label" for="especialiad" >{{especialidad.nombre}}</label>
-                    <input type="checkbox" name="EspecialidadCheck" (change)="caputurarRadioEspecialidad($event)"  [value]="especialidad.nombre"   >
-                  </div>
-                  <button class="botonSubmit" type="button"  (click)="cargarEspecialidad()" >Agregar especialidad</button>
-  
-  
-              </div>
+<!--               
               <div class="col-md-6 mb-5">
                 <label for="foto" class="form-label"  >Foto</label>
                 <input class="form-control" type="file"  accept="image/png,image/jpeg"   (change)="subirArchivo($event)"   formControlName="foto" id="foto">
                 <small class="invalid" *ngIf="formulario.get('foto')?.errors?.required && formulario.get('foto')?.touched ">La foto es requerida</small>
   
-              </div>
+              </div> -->
   
-              <div class="col-md-6">
-                <re-captcha
-                formControlName="reCaptcha"
-  
-                (resolved)="resolved($event)"
-                siteKey="6LcwBv4cAAAAAGuO-kT4nj5Z_mEoNniCXo2DVgRv"
-              ></re-captcha>
-              <small class="invalid" *ngIf="formulario.get('reCaptcha')?.errors?.required && formulario.get('reCaptcha')?.touched ">es requerido el  reCaptcha</small>
-              </div>
+             
   
           </div>
   
