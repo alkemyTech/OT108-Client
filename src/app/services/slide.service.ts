@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Slides } from '../../models/slides'
+import { Slides } from '../models/slides'
 import { Observable } from 'rxjs';
 
 @Injectable({

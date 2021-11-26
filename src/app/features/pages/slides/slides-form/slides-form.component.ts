@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SlideService } from '../slide.service';
+import { SlideService } from '../../../../services/slide.service';
 import Swal from 'sweetalert2'
 import { Observable, Subscriber } from 'rxjs';
-import { Slides } from '../../../models/slides'
+import { Slides } from '../../../../models/slides'
 import { Router, ActivatedRoute } from '@angular/router'
 import { CKEditorComponent } from 'ng2-ckeditor';
 
