@@ -1,1 +1,129 @@
-<p>user-form works!</p>
+<div class="container mt-5">
+  <form [formGroup]="formulario" (ngSubmit)="creacionYEdicionUsuario()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2>
+          <b>{{ titulo }}</b>
+        </h2>
+      </div>
+    </div>
+    <div class="row formulario">
+      <select>
+        <option id="1">administrador</option>
+        <option id="2">regular</option>
+      </select>
+      <div class="col-md-6 mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          minlength="4"
+          type="text"
+          class="form-control"
+          id="nombre"
+          placeholder="Name"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('nombre')?.errors?.required &&
+            formulario.get('nombre')?.touched
+          "
+        >
+          El nombre es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('email')?.errors?.required &&
+            formulario.get('email')?.touched
+          "
+        >
+          El email es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder="Description"
+          formControlName="description"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('description')?.errors?.required &&
+            formulario.get('description')?.touched
+          "
+        >
+          La descripcion es requerida
+        </small>
+        <small
+          class="invalid"
+          *ngIf="formulario.get('description')?.errors?.minLength"
+        >
+          La descripcion debe tener como minimo 10 caracteres
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="apellido" class="form-label">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder="password"
+          formControlName="password"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('description')?.errors?.required &&
+            formulario.get('description')?.touched
+          "
+        >
+          El password es requerid
+        </small>
+      </div>
+      <div class="col-md-6 mb-5">
+        <label for="foto" class="form-label">Profile Photo</label>
+        <input
+          class="form-control"
+          type="file"
+          accept="image/png,image/jpeg"
+          formControlName="foto"
+          id="foto"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('foto')?.errors?.required &&
+            formulario.get('foto')?.touched
+          "
+          >La foto es requerida</small
+        >
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

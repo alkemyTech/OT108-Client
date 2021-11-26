@@ -12,10 +12,8 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 
-
 @NgModule({
   declarations: [
-
     ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
@@ -36,11 +34,6 @@ import { ReactiveFormsModule } from "@angular/forms";
     UserFormComponent,
     RouterModule
   ],
-  imports: [
-    CommonModule,
-    AppRoutingModule, 
-    RouterModule,
-    ReactiveFormsModule
-  ],
+  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
 })
 export class FeaturesModule {}

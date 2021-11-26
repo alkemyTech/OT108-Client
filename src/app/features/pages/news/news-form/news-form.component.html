@@ -1,1 +1,100 @@
-<p>news-form works!</p>
+<div class="container mt-5">
+  <form [formGroup]="formulario" (ngSubmit)="creacionYEdicionDeNovedad()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2>
+          <b>{{titulo}}</b>
+        </h2>
+      </div>
+    </div>
+    <div class="row formulario">
+      <div class="col-md-6 mb-3">
+        <label for="titulo" class="form-label">Titulo</label>
+        <input
+          minlength="4"
+          type="text"
+          class="form-control"
+          id="titulo"
+          placeholder="Titulo"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
+          "
+        >
+          El titulo es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="contenido" class="form-label">Contenido</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contenido"
+          placeholder="Contenido"
+          formControlName="content"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('content')?.errors?.required &&
+            formulario.get('content')?.touched
+          "
+        >
+          El contenido es requerido
+        </small>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="categoria" class="form-label">Categoria</label>
+        <input
+          type="text"
+          class="form-control"
+          id="categoria"
+          placeholder="Categoria"
+          formControlName="category_id"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('category_id')?.errors?.required &&
+            formulario.get('category_id')?.touched
+          "
+        >
+          La categoria es requerida
+        </small>
+      </div>
+      <div class="col-md-6 mb-5">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input
+          class="form-control"
+          type="file"
+          accept="image/png,image/jpeg"
+          formControlName="image"
+          id="imagen"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('image')?.errors?.required &&
+            formulario.get('image')?.touched
+          "
+          >La imagen es requerida</small
+        >
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          type="submit"
+          class="btn btn-primary btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
