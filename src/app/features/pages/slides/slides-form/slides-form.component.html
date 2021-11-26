@@ -1,51 +1,52 @@
 <div class="container mt-5">
-    <form [formGroup]="formulario"  (ngSubmit)="aceptar()">
+    <form [formGroup]="formulario" (ngSubmit)="aceptar()">
         <div class="row">
             <div class="col-md-12 mb-5">
-                <h2><b>Registro Especialista</b></h2>
+                <h2><b>Slides</b></h2>
             </div>
         </div>
-        <div class="row formulario">
+        <div class="column formulario">
             <div class="col-md-6 mb-3">
-                <label for="nombre" class="form-label">Name</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" formControlName="name">
-                <small class="invalid" *ngIf="formulario.get('nombre')?.errors?.required && formulario.get('nombre')?.touched">
+                <label for="nombre" class="form-label">Name (minimo 4 caracteres)</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre" minlength="4"
+                    [(ngModel)]="slides!.name" formControlName="name">
+                <small class="invalid"
+                    *ngIf="formulario.get('name')?.errors?.required && formulario.get('name')?.touched">
                     El nombre es requerido
                 </small>
             </div>
 
+
             <div class="col-md-6 mb-3">
-                <label for="apellido" class="form-label">Description</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Ingrese apellido" formControlName="description">
-                <small class="invalid" *ngIf="formulario.get('apellido')?.errors?.required && formulario.get('apellido')?.touched ">
-                    El apellido es requerido
+
+                <label for="apellido" class="form-label">Order</label>
+                <input type="text" class="form-control" id="apellido" placeholder="Orden" [(ngModel)]="slides!.order"
+                    formControlName="order">
+                <small class="invalid"
+                    *ngIf="formulario.get('order')?.errors?.required && formulario.get('order')?.touched ">
+                    La orden es requerida
                 </small>
             </div>
-            <div class="col-md-6 mb-3">
-
-              <label for="apellido" class="form-label">Order</label>
-              <input type="text" class="form-control" id="apellido" placeholder="Ingrese DNI" formControlName="order">
-              <small class="invalid" *ngIf="formulario.get('dni')?.errors?.required && formulario.get('dni')?.touched ">
-                  El dni es requerido
-              </small>
-              <small class="invalid" *ngIf="formulario.get('edad')?.errors?.minLength ||formulario.get('dni')?.errors?.maxLength && formulario.get('dni')?.touched  ">
-                el dni no es valido
-            </small>
-          </div>
 
 
-            
+
             <div class="col-md-6 mb-5">
-              <label for="foto" class="form-label"  >Image</label>
-              <input class="form-control" type="file"  accept="image/png,image/jpeg" formControlName="image" id="foto">
-              <small class="invalid" *ngIf="formulario.get('foto')?.errors?.required && formulario.get('foto')?.touched ">La foto es requerida</small>
+                <label for="foto" class="form-label">Image</label>
+                <input class="form-control" type="file" (change)="onChange($event)" accept="image/png,image/jpg"
+                    [(ngModel)]="slides!.image" formControlName="slides.image" id="foto">
+                <small class="invalid"
+                    *ngIf="formulario.get('image')?.errors?.required && formulario.get('image')?.touched ">La foto es
+                    requerida</small>
 
             </div>
 
-            
-
-
-          
+            <div class="col-md-6 mb-3">
+                <label for="apellido" class="form-label">Description
+                    <ckeditor name="desc" type="text-area" class="form-control" rows="3" id="apellido"
+                        placeholder="Ingrese apellido" [(ngModel)]="slides!.description" formControlName="description">
+                    </ckeditor>
+                </label>
+            </div>
 
         </div>
 
@@ -54,15 +55,16 @@
 
             <div class="col-md-12 d-grid gap-2">
 
-                <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid" >
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="formulario.invalid">
                     Aceptar
                 </button>
             </div>
 
+
+
+
         </div>
     </form>
+
+
 </div>
-
-
-
-

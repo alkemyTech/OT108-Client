@@ -18,14 +18,7 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },*/
-  {
-    path: "slides/form",
-    component: SlidesFormComponent
-  },
-  {
-    path: "slides/form/:id",
-    component: SlidesFormComponent
-  },
+  
 ];
 
 @NgModule({
