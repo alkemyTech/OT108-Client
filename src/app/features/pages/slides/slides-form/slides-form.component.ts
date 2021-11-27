@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {  FormBuilder, FormGroup, Validators,AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { SlideService } from '../../../../services/slide.service';
 import Swal from 'sweetalert2'
 import { Observable, Subscriber } from 'rxjs';
@@ -21,6 +21,7 @@ export class SlidesFormComponent implements OnInit {
   @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent;
 
   ngAfterViewChecked() {
+
     let editor = this.ckEditor.instance;
 
     editor.config.toolbarGroups = [
@@ -45,6 +46,9 @@ export class SlidesFormComponent implements OnInit {
   }
 
   slides?: Slides = new Slides()
+  slidesArray?:Slides[]
+  orderChk?:any = []
+  ordPres:any
 
 
   public formulario: FormGroup;
@@ -55,36 +59,50 @@ export class SlidesFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.formulario = this.frB.group({
-      'name': [this.slides?.name, [Validators.required]],
-      'description': [this.slides?.description, Validators.required],
-      'image': [this.slides?.image],
-      'order': [this.slides?.order],
+      'name': ["", [Validators.required]],
+      'order': ["",[Validators.required,this.orderPresent()]],
+      'description': ["", [Validators.required]],
+      'image': ["",[Validators.required]],
+      
     });
   }
 
   ngOnInit(): void {
-    //CKEDITOR.replace( 'desc' );
+     this.slideService.getAllSlides().subscribe((slide) => {
+       if(slide.success){
+      this.slidesArray = slide.data;
+       this.checkOrder();
+      }}
+      )
+    
+    
     this.loadSlide()
+
   }
 
+  
+
   aceptar() {
+    const {name,description,image,order} = this.formulario.value;
     if (this.slides?.id != null) {
 
-      this.slideService.update(this.formulario.value, this.slides.id).subscribe(res =>
-        console.log(res))
+      this.slideService.update(this.formulario.value, this.slides.id)
     } else if (this.slides?.id == null) {
-      this.slideService.create(this.formulario.value).subscribe(res =>
-        console.log(res))
+      this.slideService.create(this.formulario.value)
     }
 
-    console.log(this.formulario.value);
-    this.mensajeError("un mensaje de error muy rapido");
+    
+    this.mensajeError(`
+    El slide:
+    "${this.formulario.controls["name"].value}"
+    fue creado exitosamente!
+    `);
   }
 
   mensajeError(texto: string) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
+      icon: 'success',
+      title: 'Exito!',
       text: texto,
     });
   }
@@ -97,6 +115,7 @@ export class SlidesFormComponent implements OnInit {
 
       this.converToBase64(files)
     }
+    
   }
 
   converToBase64(file: File) {
@@ -138,4 +157,32 @@ export class SlidesFormComponent implements OnInit {
   }
 
 
-}
+  checkOrder(){
+    if(this.slidesArray !=null){
+   for(let i = 0; i < this.slidesArray?.length;i++){
+     this.orderChk?.push(this.slidesArray[i].order)
+   }
+  }
+
+  }
+
+  orderPresent():ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+      const value = control.value;
+      
+
+      this.ordPres = this.orderChk.includes(Number(value))
+
+
+      return this.ordPres ? {orderTaken :true} : null
+    }
+  }
+  
+
+  
+  
+    
+  }
+
+
+

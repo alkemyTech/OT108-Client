@@ -4,16 +4,19 @@
 .container {
   max-width: 900px;
   padding: 50px;
-
+  background-color: #9AC9FB;
   /* SHADOW */
   -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
 }
 
 h2 {
   text-align: center;
-  color: rgba(55, 34, 146, 0.6);
+  color: #DB5752;
+  
+  
 }
 
 .invalid {
@@ -49,11 +52,12 @@ p.clasificacion input:checked ~ label {
 div button {
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: rgb(16, 70, 156);
+  background-color: #FAFA88;
+  
   margin: 0.3rem 0.6rem;
   border-radius: 0.5rem;
   border: 1px solid #666;
-  color: #fff;
+  color: black;
   filter: drop-shadow(0px 0px 2px#666);
   font-weight: 400;
 }
@@ -81,3 +85,7 @@ div .botones_resultados {
   -o-background-size: cover;
   background-size: cover;
 }
+
+
+
+

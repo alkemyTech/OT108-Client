@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Slides } from '../models/slides'
-import { Observable } from 'rxjs';
+import { Observable  } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
+import { AbstractControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SlideService {
+
+  slidesArr?:Slides[]
 
   private urlEndPoint:string = "http://ongapi.alkemy.org/api/slides";
 
@@ -22,8 +26,14 @@ export class SlideService {
     return this.http.put<Slides>(`${this.urlEndPoint}/${id}`,slides,{headers:this.httpHeaders})
   }
 
+  getAllSlides():Observable<any>{
+    return this.http.get<any>(this.urlEndPoint,{headers:this.httpHeaders})
+  }
 
   getSlide(id:any):Observable<any>{
     return this.http.get<any>(`${this.urlEndPoint}/${id}`)
   }
+
+
+  
 }
