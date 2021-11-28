@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     FeaturesModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
