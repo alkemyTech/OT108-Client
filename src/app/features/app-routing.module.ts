@@ -3,6 +3,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 
 const routes: Routes = [
   { 
@@ -26,6 +27,7 @@ const routes: Routes = [
     path: "slides/form/:id",
     component: SlidesFormComponent
   },
+  {path:"login",component:LoginFormComponent}
 ];
 
 @NgModule({

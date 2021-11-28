@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
@@ -11,13 +11,15 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
 
 
 @NgModule({
   declarations: [
 
     ActivityFormComponent,
-    LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
@@ -27,7 +29,6 @@ import { ReactiveFormsModule } from "@angular/forms";
   ],
   exports: [
     ActivityFormComponent,
-    LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
@@ -40,7 +41,10 @@ import { ReactiveFormsModule } from "@angular/forms";
     CommonModule,
     AppRoutingModule, 
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    LoginFormModule
+    
+
   ],
 })
 export class FeaturesModule {}
