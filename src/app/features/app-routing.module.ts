@@ -3,7 +3,6 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-import { OrganizationComponent } from "./pages/organization/organization.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
@@ -36,10 +35,7 @@ const routes: Routes = [
     path: "backoffice/members/edit/:id",
     component: MembersFormComponent
   },
-  {
-    path: "backoffice/organization/edit",
-    component: OrganizationComponent
-  },
+  
 ];
 
 @NgModule({

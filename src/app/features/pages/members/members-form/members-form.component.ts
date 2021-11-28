@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Observable, Subscriber } from 'rxjs';
-import { MembersService } from '../members.service';
+import { MembersService } from '../../../../services/members.service';
 import { CKEditorComponent } from 'ng2-ckeditor';
-import { Members } from 'src/app/features/pages/members/models/members'; 
+import { Members } from 'src/app/models/members'; 
 import { Router, ActivatedRoute } from '@angular/router'
 
 
@@ -14,14 +14,14 @@ import { Router, ActivatedRoute } from '@angular/router'
   styleUrls: ['./members-form.component.scss']
 })
 export class MembersFormComponent implements OnInit {
- // ckeditorContent: string ="<b>probando contenido</b>";
+ 
    
  @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent;
  titulo: string = "AGREGAR MIEMBROS";
 
  ngAfterViewChecked() {
    let editor = this.ckEditor.instance;
-
+//Arreglo de los botones de nuestro CkEditor
    editor.config.toolbarGroups = [
      { name: 'document', groups: ['mode', 'document', 'doctools'] },
      { name: 'clipboard', groups: ['clipboard', 'undo'] },
@@ -62,35 +62,35 @@ export class MembersFormComponent implements OnInit {
       'linkedinUrl': ['', [Validators.required, Validators.pattern(reg)]],
      
     });
-    // this.id = this.router.snapshot.paramMap.get("id");
    }
 
 
   ngOnInit(): void {
     this.loadMember();
   }
-  aceptar(){
-   
+  aceptar(){   
 
     if (this.members?.id != null) {
        this.membersService.editarMembers(this.formulario.value, this.members.id).subscribe(res =>
-        console.log(res))
+        this.mensajeCreado('Los Datos fueron actualizados exitosamente!'))
+ 
     } else if (this.members?.id == null) {
       this.membersService.create(this.formulario.value).subscribe(res =>
-        console.log(res))
+        this.mensajeCreado(' Los Datos fueron creado exitosamente!'))
+
     }
 
-    console.log(this.formulario.value);
-    this.mensajeError("un mensaje de error muy rapido");
+    
   }
   
-
-  mensajeError(texto: string){
+  mensajeCreado(texto: string) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text:texto,
+      icon: 'success',
+      title: 'Exito!',
+      text: texto,
     });
+  
+
   }
   onChange($event: Event) {
 

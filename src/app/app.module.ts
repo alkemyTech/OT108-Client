@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-
+import { CKEditorModule } from "ng2-ckeditor";
 
 
 
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     FeaturesModule,
     ReactiveFormsModule,
     FormsModule,
+    CKEditorModule
    
 
   ],
