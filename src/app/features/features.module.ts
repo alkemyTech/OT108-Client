@@ -1,6 +1,7 @@
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { SlidesRoutingModule } from "./pages/slides/slides-routing.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 
@@ -12,8 +13,8 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
+import { CKEditorModule } from "ng2-ckeditor";
 
 
 @NgModule({
@@ -39,12 +40,14 @@ import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
   ],
   imports: [
     CommonModule,
+    SlidesRoutingModule,
     AppRoutingModule, 
     RouterModule,
     ReactiveFormsModule,
-    LoginFormModule
+    LoginFormModule,
     
 
+    CKEditorModule
   ],
 })
 export class FeaturesModule {}

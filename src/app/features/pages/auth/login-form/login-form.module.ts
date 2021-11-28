@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from './login-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -14,7 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CommonModule,
     BrowserModule,
     ReactiveFormsModule, 
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
     
   ]
 })

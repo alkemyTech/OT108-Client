@@ -28,6 +28,7 @@ const routes: Routes = [
     component: SlidesFormComponent
   },
   {path:"login",component:LoginFormComponent}
+  
 ];
 
 @NgModule({

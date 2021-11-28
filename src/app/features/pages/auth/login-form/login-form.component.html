@@ -1,51 +1,65 @@
 
-    
-      <div class="col-md-6 mx-auto mt-5" >
-        <div class="card" >
-          <div class="card-body" >
-            <h1 class="text-center">INGRESAR</h1>
-            <form [formGroup]="loginForm"    novalidate>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="ingrese correo electronico" 
-                formControlName="email" [ngClass]="{'is-invalid':( email?.invalid && email?.touched) , 'is-valid':email?.valid}"
-                 required autofocus >
-                 <span span class="invalid-feedback" *ngIf="email?.errors?.required && email?.touched">
-                    *El campo email esta vacio.
-                  </span>
-                  <span  span class="invalid-feedback" *ngIf="!email?.valid && !email?.errors?.required && (email?.dirty || email?.touched) " >
-                    *El Email no es valido.
-                  </span>
-              </div>
-              <div class="form-group" >
-                <label for="Password" >Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="ingrese contraseña"  
-                formControlName="password"  
-                [ngClass]="{'is-invalid':( password?.invalid && password?.touched) , 'is-valid':password?.valid}" required autofocus>
-
-                
-                <span class="invalid-feedback" *ngIf=" password?.errors?.required &&  (password?.invalid && (password?.dirty || password?.touched))">
-                    *El campo password esta vacio
-                  </span>
-          
-                  <span class="invalid-feedback" *ngIf=" password?.errors?.minlength  &&(password?.invalid && (password?.dirty || password?.touched))">
-                    *El campo password tiene q tener 6 digitos por lo menos
-                  </span>
-
-
-              </div>
-
-
-              <div class="d-grid gap-2">
-                <button class="btn btn-lg btn-primary btn-block" type="button" (click)="onLogin()" [disabled]="loginForm.invalid">Sign in</button>
-              </div>
-            </form>
-  
-            <div >
-              <p>No tienes una cuenta?<a routerLink='../registro'>Registrarse</a></p>
+<div class="col-md-3 mx-auto mt-5" >
+  <div   class="container mt-5" @enterState >
+      <form [formGroup]="loginForm"    novalidate>
+        <div class="row">
+            <div class="col-md-12 mb-5 ">
+              <h2><b>LOGIN</b></h2>
             </div>
-          </div>
         </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="inputEmail" class="form-control" placeholder="Ingrese correo electronico" 
+            formControlName="email" [ngClass]="{'is-invalid':( email?.invalid && email?.touched) , 'is-valid':email?.valid}"
+            required autofocus >
+          <span span class="invalid-feedback" *ngIf="email?.errors?.required && email?.touched">
+            *El campo email esta vacio.
+          </span>
+          <span  span class="invalid-feedback" *ngIf="!email?.valid && !email?.errors?.required && (email?.dirty || email?.touched) " >
+            *El Email no es valido.
+          </span>
+        </div>
+        <div class="form-group" >
+          <label for="Password" >Password</label>
+          <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese contraseña"  
+            formControlName="password"  
+            [ngClass]="{'is-invalid':( password?.invalid && password?.touched) , 'is-valid':password?.valid}" required autofocus>
+
+                  <!-- TANTOS SPAN ESTAN MAL PERO NO PUEDO HACERLO DE OTRA FORMA -->
+          <span class="invalid-feedback" *ngIf=" password?.errors?.required &&  (password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password esta vacio
+          </span>
+          <span class="invalid-feedback"
+            *ngIf=" !password?.errors?.required && password?.errors?.minlength  &&(password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password tiene q tener 6 digitos por lo menos
+          </span>
+          <span class="invalid-feedback" 
+            *ngIf="  !password?.errors?.required && password?.errors?.letter  &&(password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password tiene que tener por lo menos una letra mayuscula
+          </span>
+          <span class="invalid-feedback" 
+            *ngIf=" password?.errors?.lower  &&(password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password tiene que tener por lo menos una letra minuscula
+          </span>
+          <span class="invalid-feedback" 
+            *ngIf=" password?.errors?.num  &&(password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password tiene que tener por lo menos un numero
+          </span>
+          <span class="invalid-feedback" 
+            *ngIf=" password?.errors?.simbol  &&(password?.invalid && (password?.dirty || password?.touched))">
+            *El campo password tiene que tener por lo menos un simbolo(por ejemplo: @#$%).
+          </span>
+        </div>
+        <div class="row mt-6">
+          <button type="submit" class="btn-block " (click)="onLogin()" [disabled]="loginForm.invalid">
+            Ingresar
+          </button>
+        </div>
+      </form>
+      <div >
+        <p>No tienes una cuenta?<a routerLink='../registro' style="cursor: pointer; color: blueviolet;">Registrarse</a></p>
       </div>
+  </div>
+</div>
    
 
