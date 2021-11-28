@@ -59,10 +59,10 @@ export class SlidesFormComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {
     this.formulario = this.frB.group({
-      'name': ["", [Validators.required]],
-      'order': ["",[Validators.required,this.orderPresent()]],
-      'description': ["", [Validators.required]],
-      'image': ["",[Validators.required]],
+      'name': [this.slides?.name, [Validators.required]],
+      'order': [this.slides?.order,[Validators.required,this.orderPresent()]],
+      'description': [this.slides?.description, [Validators.required]],
+      'image': [this.slides?.image,[Validators.required]],
       
     });
   }
@@ -86,20 +86,37 @@ export class SlidesFormComponent implements OnInit {
     const {name,description,image,order} = this.formulario.value;
     if (this.slides?.id != null) {
 
-      this.slideService.update(this.formulario.value, this.slides.id)
+      this.slideService.update(this.formulario.value, this.slides.id).subscribe(res => 
+        
+        this.mensajeCreado(`
+      El slide:
+      "${this.formulario.controls["name"].value}"
+      fue actualizado exitosamente!
+      `))
+
     } else if (this.slides?.id == null) {
-      this.slideService.create(this.formulario.value)
+      this.slideService.create(this.formulario.value).subscribe(res => 
+        
+        this.mensajeCreado(`
+      El slide:
+      "${this.formulario.controls["name"].value}"
+      fue creado exitosamente!
+      `))
     }
 
     
-    this.mensajeError(`
-    El slide:
-    "${this.formulario.controls["name"].value}"
-    fue creado exitosamente!
-    `);
+    
   }
 
-  mensajeError(texto: string) {
+  mensajeCreado(texto: string) {
+    Swal.fire({
+      icon: 'success',
+      title: 'Exito!',
+      text: texto,
+    });
+  }
+
+  mensajeActualizado(texto: string) {
     Swal.fire({
       icon: 'success',
       title: 'Exito!',
