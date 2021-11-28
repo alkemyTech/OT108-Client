@@ -86,6 +86,34 @@ div .botones_resultados {
   background-size: cover;
 }
 
+/*Carousel styles*/
+.carousel-control-prev-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png')!important;
+
+  
+}
+.carousel-control-next-icon{
+ background-image: url('https://apufpel.com.br/assets/img/seta_ult.png')!important;
+ 
+}
+
+.img-carrousel{
+  height: 350px;
+  width: 100%;
+}
+
+.carrousel-title{
+  color: rgb(68, 67, 67);
+}
+
+.carrousel-desc{
+ color: rgb(68, 67, 67);
+}
+/*Carousel styles*/
 
 
 
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
