@@ -4,8 +4,6 @@ import { NgModule } from "@angular/core";
 import { SlidesRoutingModule } from "./pages/slides/slides-routing.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
-import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
@@ -14,14 +12,13 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { CKEditorModule } from "ng2-ckeditor";
+import { RegisterFormModule } from "./pages/auth/register-form/register-form.module";
 
 
 @NgModule({
   declarations: [
 
     ActivityFormComponent,
-    LoginFormComponent,
-    RegisterFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
     SlidesFormComponent,
@@ -31,8 +28,6 @@ import { CKEditorModule } from "ng2-ckeditor";
   ],
   exports: [
     ActivityFormComponent,
-    LoginFormComponent,
-    RegisterFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
     SlidesFormComponent,
@@ -44,9 +39,11 @@ import { CKEditorModule } from "ng2-ckeditor";
   imports: [
     CommonModule,
     SlidesRoutingModule,
+    ReactiveFormsModule,
     AppRoutingModule, 
     RouterModule,
-    ReactiveFormsModule,
+    CKEditorModule,
+    RegisterFormModule,
     FormsModule,
     CKEditorModule
   ],
