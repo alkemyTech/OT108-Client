@@ -9,6 +9,11 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent },
+  
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent
+  },
   {
     path: "",
     redirectTo: "actividades",
