@@ -8,12 +8,16 @@
       </div>
     </div>
     <div class="row formulario">
-      <select>
-        <option id="1">administrador</option>
-        <option id="2">regular</option>
+      <select style="width: 100px; height: 40px">
+        <option id="1">Administrador</option>
+        <option id="2">Regular</option>
       </select>
-      <div class="col-md-6 mb-3">
-        <label for="name" class="form-label">Name</label>
+      <div style="margin-right: 500px" class="col-md-12 mb-3">
+        <br />
+        <br />
+        <label for="name" class="form-label"
+          >Name (cuatro caracteres minimo)</label
+        >
         <input
           minlength="4"
           type="text"
@@ -25,14 +29,14 @@
         <small
           class="invalid"
           *ngIf="
-            formulario.get('nombre')?.errors?.required &&
-            formulario.get('nombre')?.touched
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
           "
         >
           El nombre es requerido
         </small>
       </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-12 mb-3">
         <label for="apellido" class="form-label">Email</label>
         <input
           type="email"
@@ -51,32 +55,7 @@
           El email es requerido
         </small>
       </div>
-      <div class="col-md-6 mb-3">
-        <label for="apellido" class="form-label">Description</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          placeholder="Description"
-          formControlName="description"
-        />
-        <small
-          class="invalid"
-          *ngIf="
-            formulario.get('description')?.errors?.required &&
-            formulario.get('description')?.touched
-          "
-        >
-          La descripcion es requerida
-        </small>
-        <small
-          class="invalid"
-          *ngIf="formulario.get('description')?.errors?.minLength"
-        >
-          La descripcion debe tener como minimo 10 caracteres
-        </small>
-      </div>
-      <div class="col-md-6 mb-3">
+      <div class="col-md-12 mb-3">
         <label for="apellido" class="form-label">Password</label>
         <input
           type="text"
@@ -88,27 +67,34 @@
         <small
           class="invalid"
           *ngIf="
-            formulario.get('description')?.errors?.required &&
-            formulario.get('description')?.touched
+            formulario.get('password')?.errors?.required &&
+            formulario.get('password')?.touched
           "
         >
-          El password es requerid
+          El password es requerido
         </small>
       </div>
-      <div class="col-md-6 mb-5">
-        <label for="foto" class="form-label">Profile Photo</label>
+      <div class="col-md-12 mb-5">
+        <div *ngIf="edit">
+          <label>Imagen</label>
+          <br />
+          <img [src]="image" width="350px" />
+        </div>
+        <label for="image" class="form-label">{{ tituloImage }}</label>
+        <br />
         <input
-          class="form-control"
+          (change)="onChange($event)"
           type="file"
           accept="image/png,image/jpeg"
-          formControlName="foto"
+          formControlName="profile_image"
           id="foto"
         />
+        <br />
         <small
           class="invalid"
           *ngIf="
-            formulario.get('foto')?.errors?.required &&
-            formulario.get('foto')?.touched
+            formulario.get('profile_image')?.errors?.required &&
+            formulario.get('profile_image')?.touched
           "
           >La foto es requerida</small
         >
@@ -116,11 +102,7 @@
     </div>
     <div class="row mt-4">
       <div class="col-md-12 d-grid gap-2">
-        <button
-          type="submit"
-          class="btn btn-primary btn-block"
-          [disabled]="formulario.invalid"
-        >
+        <button type="submit" class="btn-block" [disabled]="formulario.invalid">
           Aceptar
         </button>
       </div>

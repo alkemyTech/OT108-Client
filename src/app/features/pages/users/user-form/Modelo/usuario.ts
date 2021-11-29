@@ -5,7 +5,7 @@ export class Usuario {
   role_id?: number;
   description?: string;
   email_verified_at?: string;
-  password: string;
+  password: any;
   remember_token?: string;
   created_at?: string;
   updated_at?: string;
@@ -14,6 +14,7 @@ export class Usuario {
   latitude?: number;
   longitude?: number;
   address?: string;
+  profile_image:string;
 
   constructor(
     name: string,
@@ -21,7 +22,7 @@ export class Usuario {
     role_id: number,
     description: string,
     email_verified_at: string,
-    password: string,
+    password: any,
     remember_token: string,
     created_at: string,
     updated_at: string,
@@ -29,7 +30,8 @@ export class Usuario {
     group_id: number,
     latitude: number,
     longitude: number,
-    address: string
+    address: string,
+    profile_image:string
   ) {
     (this.name = name), (this.email = email), (this.role_id = role_id);
     this.description = description;
@@ -43,5 +45,6 @@ export class Usuario {
     this.latitude = latitude;
     this.longitude = longitude;
     this.address = address;
+    this.profile_image = profile_image
   }
 }
