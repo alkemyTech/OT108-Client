@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
 
 const routes: Routes = [
   { 
@@ -36,6 +37,7 @@ const routes: Routes = [
     component: MembersFormComponent
   },
   
+  {path:"backoffice",component:DashboardScreenComponent}
 ];
 
 @NgModule({

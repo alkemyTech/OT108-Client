@@ -14,6 +14,8 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { CKEditorModule } from "ng2-ckeditor";
+import { DashboardScreenModule } from "./pages/dashboard-screen/dashboard-screen.module";
+
 
 
 @NgModule({
@@ -28,6 +30,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     TestimonialFormComponent,
     UserFormComponent,
     MembersFormComponent,
+
   ],
   exports: [
     ActivityFormComponent,
@@ -48,7 +51,9 @@ import { CKEditorModule } from "ng2-ckeditor";
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    DashboardScreenModule
+
   ],
 })
 export class FeaturesModule {}
