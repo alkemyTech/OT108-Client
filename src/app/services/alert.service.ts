@@ -18,8 +18,8 @@ export class AlertService {
 
   messageGood( texto:string){
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
+      icon: 'success',
+      title: 'Exelente!!',
       text:texto,
     });
   }

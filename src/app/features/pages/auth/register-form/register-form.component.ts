@@ -4,11 +4,25 @@ import { Router } from '@angular/router';
 import { Auth } from 'src/app/models/auth';
 import { AlertService } from 'src/app/services/alert.service';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { animate, state, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.scss']
+  styleUrls: ['./register-form.component.scss'],
+  animations:[
+    trigger('enterState',[
+      state('void',style({
+        transform:'translateY(-100%)',
+        opacity:0
+      })),
+      transition(':enter',[
+        animate(1000,style({
+          transform:'translateY(0)',
+          opacity:1
+        }))
+      ])
+    ])
+  ]
 })
 export class RegisterFormComponent implements OnInit {
 
@@ -95,13 +109,16 @@ export class RegisterFormComponent implements OnInit {
         this.authService.register(email,password,name)?.subscribe(user=>{
           if(user.success){
               this.alert.messageGood("se Registro perfectamente");
+              localStorage.clear();
+              localStorage.setItem('token',user.data.token);
               //this.router.navigate(['home'])
               //y se registra?
+              console.log(user.data.token);
           }else{
             this.alert.messageError("El email ya esta en la base de datos");
             this.loginForm.reset();
           }
-        });1
+        });
       }else{
         this.loginForm.get('passwordTwo')?.setErrors({repeat:true});
         this.loginForm.get('password')?.setErrors({repeat:true});

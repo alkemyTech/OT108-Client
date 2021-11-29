@@ -9,7 +9,8 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { CKEditorModule } from "ng2-ckeditor";
 import { RegisterFormModule } from "./pages/auth/register-form/register-form.module";
 
@@ -23,6 +24,7 @@ import { RegisterFormModule } from "./pages/auth/register-form/register-form.mod
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    MembersFormComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -31,7 +33,8 @@ import { RegisterFormModule } from "./pages/auth/register-form/register-form.mod
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
+    MembersFormComponent
   ],
   imports: [
     CommonModule,
@@ -40,7 +43,9 @@ import { RegisterFormModule } from "./pages/auth/register-form/register-form.mod
     AppRoutingModule, 
     RouterModule,
     CKEditorModule,
-    RegisterFormModule
+    RegisterFormModule,
+    FormsModule,
+    CKEditorModule
   ],
 })
 export class FeaturesModule {}
