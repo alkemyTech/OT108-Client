@@ -2,9 +2,13 @@ import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
+import { CKEditorModule } from "ng2-ckeditor";
+
 
 
 @NgModule({
@@ -16,7 +20,12 @@ import { ToastrModule } from 'ngx-toastr';
     CoreModule,
     FeaturesModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ReactiveFormsModule,
+    FormsModule,
+    CKEditorModule
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]
