@@ -3,6 +3,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
 
 const routes: Routes = [
   { 
@@ -18,6 +19,11 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },*/
+
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
+  },
   
 ];
 

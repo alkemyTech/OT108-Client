@@ -13,6 +13,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
+import { OrganizationFormComponent } from './pages/organization/organization-form/organization-form.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    OrganizationFormComponent,
   ],
   exports: [
     ActivityFormComponent,
