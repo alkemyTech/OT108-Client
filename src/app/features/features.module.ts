@@ -12,6 +12,8 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { CKEditorModule } from "ng2-ckeditor";
+import { DashboardScreenModule } from "./pages/dashboard-screen/dashboard-screen.module";
+
 import { RegisterFormModule } from "./pages/auth/register-form/register-form.module";
 
 
@@ -25,6 +27,7 @@ import { RegisterFormModule } from "./pages/auth/register-form/register-form.mod
     TestimonialFormComponent,
     UserFormComponent,
     MembersFormComponent,
+
   ],
   exports: [
     ActivityFormComponent,
@@ -45,7 +48,9 @@ import { RegisterFormModule } from "./pages/auth/register-form/register-form.mod
     CKEditorModule,
     RegisterFormModule,
     FormsModule,
-    CKEditorModule
+    CKEditorModule,
+    DashboardScreenModule
+
   ],
 })
 export class FeaturesModule {}
