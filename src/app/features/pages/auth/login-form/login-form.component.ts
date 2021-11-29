@@ -104,12 +104,12 @@ export class LoginFormComponent implements OnInit {
           //ir al menu de problema 
           //this.router.navigate(['/home'])
         }else{
-          this.alert.mensajeError("Error Usted no esta logeado");
+          this.alert.messageError("Error Usted no esta logeado");
           this.loginForm.reset();
         }
       })
     } catch (error) {
-      this.alert.mensajeError("Error en el logeado");
+      this.alert.messageError("Error en el logeado");
       this.loginForm.reset();
     }
   }

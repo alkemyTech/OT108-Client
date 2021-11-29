@@ -23,6 +23,14 @@ export class AuthService {
 
   }
 
-  
+  register(email:string,contraseña:string,name:string){
+    const body={
+      name:name,
+      email:email,
+      password:contraseña
+    }
+    
+    return this.http.post<any>(this.urlRegister,JSON.stringify(body),{headers:this.httpHeaders});
+  }
 
 }

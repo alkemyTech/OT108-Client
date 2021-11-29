@@ -4,6 +4,8 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
   { 
@@ -27,8 +29,17 @@ const routes: Routes = [
     path: "slides/form/:id",
     component: SlidesFormComponent
   },
-  {path:"login",component:LoginFormComponent}
+  {path:"login",component:LoginFormComponent},
+  {
+    path: "backoffice/members/edit",
+    component: MembersFormComponent
+  },
+  {
+    path: "backoffice/members/edit/:id",
+    component: MembersFormComponent
+  },
   
+  {path:'register',component:RegisterFormComponent}
 ];
 
 @NgModule({

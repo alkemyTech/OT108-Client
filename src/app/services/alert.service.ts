@@ -8,7 +8,8 @@ export class AlertService {
   constructor() { }
 
 
-  mensajeError(texto: string){
+  
+  messageError(texto: string){
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -16,7 +17,13 @@ export class AlertService {
     });
   }
 
-  mensajeBueno( texto:string){
-    
+ 
+
+  messageGood( texto:string){
+    Swal.fire({
+      icon: 'success',
+      title: 'Exelente!!',
+      text:texto,
+    });
   }
 }
