@@ -3,6 +3,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
   { 
@@ -18,6 +19,22 @@ const routes: Routes = [
     redirectTo: "actividades",
     pathMatch: "full",
   },*/
+  {
+    path: "slides/form",
+    component: SlidesFormComponent
+  },
+  {
+    path: "slides/form/:id",
+    component: SlidesFormComponent
+  },
+  {
+    path: "backoffice/members/edit",
+    component: MembersFormComponent
+  },
+  {
+    path: "backoffice/members/edit/:id",
+    component: MembersFormComponent
+  },
   
 ];
 
