@@ -11,8 +11,9 @@ import { GraciasComponent } from "./pages/Donations/gracias/gracias.component";
 
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
+import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
   {
@@ -59,6 +60,10 @@ const routes: Routes = [
   {
     path: "backoffice/members/edit/:id",
     component: MembersFormComponent,
+  },
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
   },
 
   { path: "register", component: RegisterFormComponent },
