@@ -75,7 +75,7 @@ export class OrganizationFormComponent implements OnInit {
   aceptar() {
         
       this.organizationService.update(this.formulario.value, 1).subscribe(res =>{
-        console.log("editado:", res);
+       
         this.mensajeCreado(" La organizacion fue actualizado exitosamente!")
 
       }) ;
