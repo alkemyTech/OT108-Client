@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from "ng2-ckeditor";
 
@@ -21,6 +22,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     FeaturesModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule

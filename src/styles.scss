@@ -1,7 +1,7 @@
 .container {
   max-width: 900px;
   padding: 50px;
-  background-color: #9AC9FB;
+  background-color: #b5d5f6;
   /* SHADOW */
   -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
@@ -11,9 +11,7 @@
 
 h2 {
   text-align: center;
-  color: #DB5752;
-  
-  
+  color: #db5752;
 }
 
 .invalid {
@@ -49,8 +47,8 @@ p.clasificacion input:checked ~ label {
 div button {
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #FAFA88;
-  
+  background-color: #fafa88;
+
   margin: 0.3rem 0.6rem;
   border-radius: 0.5rem;
   border: 1px solid #666;
@@ -75,14 +73,10 @@ div .botones_resultados {
   background-color: rgb(123, 29, 29);
 }
 .fondo {
- /* background: url("../../../../assets/blur-hospital.jpg") no-repeat center
+  /* background: url("../../../../assets/blur-hospital.jpg") no-repeat center
     center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
-
-
-
-
