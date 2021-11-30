@@ -13,6 +13,7 @@ import { LoginFormComponent } from "./pages/auth/login-form/login-form.component
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
+import { OrganizationDataComponent } from "./pages/organization-data/organization-data/organization-data.component";
 
 const routes: Routes = [
   {
@@ -60,7 +61,7 @@ const routes: Routes = [
     path: "backoffice/members/edit/:id",
     component: MembersFormComponent,
   },
-
+   {path: "backoffice/organization", component:OrganizationDataComponent },
   { path: "register", component: RegisterFormComponent },
   
   {path:"backoffice",component:DashboardScreenComponent},
