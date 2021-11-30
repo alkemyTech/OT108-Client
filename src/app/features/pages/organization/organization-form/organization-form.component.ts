@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { OrganizationService } from 'src/app/services/organization.service';
 import { Observable, Subscriber } from 'rxjs';
+import { Organization } from 'src/app/models/organization';
 
 @Component({
   selector: 'app-organization-form',
@@ -13,9 +14,8 @@ import { Observable, Subscriber } from 'rxjs';
 })
 export class OrganizationFormComponent implements OnInit {
   @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent
-  id!: number | null;
-  
-  organization: any;
+  id!: string | null;
+  organization!: Organization;
   logo?: string = "";
   tituloImage: string = "Profile Photo (formato .jpg o .png)";
   edit: boolean = false;
@@ -51,33 +51,36 @@ export class OrganizationFormComponent implements OnInit {
     private organizationService:OrganizationService,
     private router: Router,
     private activatedRoute: ActivatedRoute
-  ) { 
+
+  ) {
+    this.id=this.activatedRoute.snapshot.paramMap.get('id'); 
     this.formulario = this.frB.group({
-      'name': [this.organization?.name, [Validators.required]],
-      'logo': [this.organization?.logo,[Validators.required]],
-      'short_description': [this.organization?.short_description, [Validators.required]],
-      'long_description': [this.organization?.long_description,[Validators.required]],
-      'facebook_url': [this.organization?.facebook_url,[Validators.required]],
-      'linkedin_url': [this.organization?.linkedin_url,[Validators.required]],
-      'instagram_url': [this.organization?.instagram_url,[Validators.required]],
-      'twitter_url': [this.organization?.twitter_url,[Validators.required]],
+      'name': ['', [Validators.required]],
+      'logo': ['',[Validators.required]],
+      'short_description': ['', [Validators.required]],
+      'long_description': ['',[Validators.required]],
+      'facebook_url': ['',[Validators.required]],
+      'linkedin_url': ['',[Validators.required]],
+      'instagram_url': ['',[Validators.required]],
+      'twitter_url': ['',[Validators.required]],
       
     });
   }
 
   ngOnInit(): void {
-
-    
+   
     this.editar();
-
+    
   }
   aceptar() {
-       
-      this.organizationService.update(this.formulario.value, this.organization.id).subscribe(res => 
         
-        this.mensajeCreado(" La organizacion fue actualizado exitosamente!")) 
-  }
+      this.organizationService.update(this.formulario.value, 1).subscribe(res =>{
+        console.log("editado:", res);
+        this.mensajeCreado(" La organizacion fue actualizado exitosamente!")
 
+      }) ;
+           
+  }
   mensajeCreado(texto: string) {
     Swal.fire({
       icon: 'success',
@@ -85,6 +88,7 @@ export class OrganizationFormComponent implements OnInit {
       text: texto,
     });
   }
+  
 
 
   onChange($event: Event) {
@@ -127,25 +131,14 @@ export class OrganizationFormComponent implements OnInit {
 
   }
 
-  // loadOrganizational(): void {
-  //   this.edit = true;
-  //   this.tituloImage = "";
-  //   this.activatedRoute.params.subscribe( => {
-  //     let id = 1
-  //     if (id) {
-  //       this.organizationService.getOrganization(id).subscribe((organizacion) => this.organization = organizacion.data)
-  //     }
-  //   })
-  // }
   editar() {
-    if (this.id !== null) {
+    
       this.edit = true;
       this.tituloImage = "";
-      this.organizationService.getOrganization(this.id).subscribe((data) => {
+      this.organizationService.getOrganization(1).subscribe((data) => {
         console.log("editar: ", data);
         this.formulario.patchValue({
           name: data.data?.name,
-          logo: data.data?.logo,
           short_description: data.data?.short_description,
           long_description: data.data?.long_description,
           facebook_url: data.data?.facebook_url,
@@ -155,7 +148,7 @@ export class OrganizationFormComponent implements OnInit {
         });
         this.logo = data.data?.logo;
       });
-    }
+    
   }
   
 }

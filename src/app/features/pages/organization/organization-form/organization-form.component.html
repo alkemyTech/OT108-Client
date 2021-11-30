@@ -26,7 +26,7 @@
                   <br />
                 
                 <input  type="file" (change)="onChange($event)" accept="image/png,image/jpg"
-                     formControlName="organization.logo" id="logo" >
+                     formControlName="logo" id="logo" >
                 <small class="invalid"
                     *ngIf="formulario.get('logo')?.errors?.required && formulario.get('logo')?.touched ">La foto es
                     requerida</small>
@@ -94,7 +94,7 @@
 
             <div class="col-md-12 d-grid gap-2">
 
-                <button type="submit" class="btn-block" [disabled]="formulario.invalid">
+                <button type="submit" class="btn-block" >
                     Aceptar
                 </button>
             </div>
