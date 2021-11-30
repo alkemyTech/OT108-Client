@@ -5,6 +5,7 @@ import { Observable, Subscriber } from "rxjs";
 import { Categoria } from "../Modelo/categoria";
 import { CategoriaServicioService } from "../Servicio/categoriaServicio";
 import { CKEditorComponent } from "ng2-ckeditor";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-categories-form",
@@ -45,10 +46,12 @@ export class CategoriesFormComponent implements OnInit {
     if (this.id !== null) {
       this.servicio.editarCategoria(this.id, CATEGORIA).subscribe((data) => {
         console.log("editado: ", data);
+        this.mensajeCreado("Categoria editada");
       });
     } else {
       this.servicio.crearCategoria(CATEGORIA).subscribe((data) => {
         console.log("creado: ", data);
+        this.mensajeCreado("Categoria creada");
       });
     }
   }
@@ -123,5 +126,13 @@ export class CategoriesFormComponent implements OnInit {
 
     editor.config.removeButtons =
       "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
+  }
+
+  mensajeCreado(texto: string) {
+    Swal.fire({
+      icon: "success",
+      title: "Exito!",
+      text: texto,
+    });
   }
 }

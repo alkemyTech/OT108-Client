@@ -55,10 +55,12 @@ export class UserFormComponent implements OnInit {
     if (this.id !== null) {
       this.servicio.editarUsuario(this.id, USUARIO).subscribe((data) => {
         console.log("editado: ", data);
+        this.mensajeCreado("Usuario editado");
       });
     } else {
       this.servicio.creacionNuevoUsuario(USUARIO).subscribe((data) => {
         console.log("creado: ", data);
+        this.mensajeCreado("Usuario creado");
         console.log("profile: ", USUARIO.profile_image);
       });
     }
@@ -107,5 +109,13 @@ export class UserFormComponent implements OnInit {
       subscriber.next(fileReader.result);
       subscriber.complete;
     };
+  }
+
+  mensajeCreado(texto: string) {
+    Swal.fire({
+      icon: "success",
+      title: "Exito!",
+      text: texto,
+    });
   }
 }
