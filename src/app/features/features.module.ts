@@ -10,6 +10,8 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { DonacionComponent } from "./pages/Donations/donacion/donacion.component";
+import { GraciasComponent } from './pages/Donations/gracias/gracias.component';
 import { HttpClientModule } from "@angular/common/http";
 
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
@@ -23,13 +25,14 @@ import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
 
 @NgModule({
   declarations: [
-
     ActivityFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    DonacionComponent,
+    GraciasComponent ,
     MembersFormComponent,
 
   ],
@@ -43,6 +46,7 @@ import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
     RouterModule,
     MembersFormComponent
   ],
+ 
   imports: [
     CommonModule,
     SlidesRoutingModule,

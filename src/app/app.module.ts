@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from "ng2-ckeditor";
@@ -12,14 +14,14 @@ import { CKEditorModule } from "ng2-ckeditor";
 
 @NgModule({
   declarations: [
-    AppComponent,
-  
-      
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     FeaturesModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
