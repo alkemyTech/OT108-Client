@@ -3,6 +3,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
@@ -29,6 +30,7 @@ const routes: Routes = [
     path: "slides/form/:id",
     component: SlidesFormComponent
   },
+  {path:"login",component:LoginFormComponent},
   {
     path: "backoffice/members/edit",
     component: MembersFormComponent
