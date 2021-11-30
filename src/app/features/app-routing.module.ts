@@ -3,10 +3,12 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
 import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
-const routes: Routes = [
-  { 
+const routes: Routes = [{
     path: "actividades", 
     component: ActivityFormComponent },
   {
@@ -24,7 +26,25 @@ const routes: Routes = [
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
   },
+  {
+    path: "slides/form",
+    component: SlidesFormComponent
+  },
+  {
+    path: "slides/form/:id",
+    component: SlidesFormComponent
+  },
+  {
+    path: "backoffice/members/edit",
+    component: MembersFormComponent
+  },
+  {
+    path: "backoffice/members/edit/:id",
+    component: MembersFormComponent
+  },
   
+  {path:"backoffice",component:DashboardScreenComponent},
+  {path:'register',component:RegisterFormComponent}
 ];
 
 @NgModule({
