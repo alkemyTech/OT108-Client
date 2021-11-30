@@ -9,10 +9,18 @@
             <div class="col-md-12 mb-3">
                 <label for="name" class="form-label">Nombre</label>
                 <input type="text" class="form-control forms-color" id="name" placeholder="Ingrese nombre" minlength="4"
-                     formControlName="name">
+                     formControlName="name"[ngClass]="{'is-invalid':( name?.invalid && name?.touched) , 'is-valid':name?.valid}" >
                 <small class="invalid"
                     *ngIf="activityForm.get('name')?.errors?.required && activityForm.get('name')?.touched">
-                    El nombre es requerido
+                    *El nombre es requerido
+                </small>
+                <small class="invalid"
+                *ngIf=" !activityForm.get('name')?.errors?.space &&  activityForm.get('name')?.errors?.pattern && activityForm.get('name')?.touched">
+                *El nombre no es valido
+            </small>
+                <small class="invalid"
+                    *ngIf="activityForm.get('name')?.errors?.space && activityForm.get('name')?.touched">
+                    *El nombre no tiene que contener espacios
                 </small>
             </div>
 
@@ -53,9 +61,10 @@
 
             <div class="col-md-12 d-grid gap-2">
 
-                <button type="submit" class="btn-block btn btn-primary" [disabled]="activityForm.invalid">
+                <button  type="submit" class="btn-block btn btn-primary" [disabled]="activityForm.invalid">
                     Aceptar
                 </button>
+               
             </div>
 
 

@@ -8,6 +8,7 @@ import { Activity } from '../models/activities';
 })
 export class ActivityService {
   private url:string = "http://ongapi.alkemy.org/api/activities";
+ 
   private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
 
   constructor(private http:HttpClient ) { }
@@ -20,13 +21,13 @@ export class ActivityService {
   }
 
   editActivity(id: string, activity:Activity): Observable<any> {
-    return this.http.put(this.url+"/"+id, JSON.stringify(activity), {
+    return this.http.put(this.url+'/'+id, JSON.stringify(activity), {
       headers: this.httpHeaders,
     });
   }
 
   getActivity(id:number){
-    return this.http.get(this.url+id);
+    return this.http.get(this.url+'/'+id);
   }
 
 }

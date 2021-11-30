@@ -22,7 +22,8 @@ export class ActivityFormComponent implements OnInit {
     private frB:FormBuilder,
     private serchId:ActivatedRoute,
     private router :Router,
-    private ActivityService:ActivityService
+    private ActivityService:ActivityService,
+    
     
   ) {
     this.id=this.serchId.snapshot.paramMap.get("id");
@@ -54,21 +55,21 @@ export class ActivityFormComponent implements OnInit {
 
 
   createAndEdit(){
-   if(this.id && !this.editImage){
-      this.activityForm.patchValue({
-        image:this.images
-      })
-    }
+   
    const {name,image,description}=this.activityForm.value;
+   
    const activity:Activity={name,image,description}
+    console.log(activity)
     if(this.id){
-      
+     
       this.ActivityService.editActivity(this.id,activity).subscribe(act=>{
         if(act.success){
           console.log(act);
         }else{
+          console.log("error");
           //mostrar error de edicion
         }
+        console.log(act);
       })
 
     }else{
@@ -95,12 +96,14 @@ export class ActivityFormComponent implements OnInit {
         if(act.success){
           this.activityForm.patchValue({
             name:act.data.name,
-            description:act.data.description
+            description:act.data.description,
           })
-          this.images=act.data.image;
+          this.images=act.data.image
         }else{
           //si no tenes el access paso algo raro y se trajo los datos no es un id bueno
         }
+      },error=>{
+        
       })
     }
   }
@@ -108,11 +111,8 @@ export class ActivityFormComponent implements OnInit {
   onChange($event: Event) {
 
     let files = ($event.target as HTMLInputElement).files?.item(0);
-    if(this.id){
-      this.editImage=true
-    }
     if (files !=null) {
-      
+      this.editImage=true;
       this.converToBase64(files);
     }
   }
@@ -123,7 +123,6 @@ export class ActivityFormComponent implements OnInit {
     });
     
     observable.subscribe((d) => {
-      console.log(d)
       this.activityForm.patchValue({
          image: d 
         });
