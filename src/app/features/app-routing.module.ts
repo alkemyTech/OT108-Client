@@ -10,7 +10,7 @@ import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-scr
 
 const routes: Routes = [
   { 
-    path: "actividades", 
+    path: "actividades/", 
     component: ActivityFormComponent },
   
   {

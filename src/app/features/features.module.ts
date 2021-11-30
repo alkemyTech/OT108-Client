@@ -3,11 +3,8 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { SlidesRoutingModule } from "./pages/slides/slides-routing.module";
 import { AppRoutingModule } from "./app-routing.module";
-<<<<<<< HEAD
-=======
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 
->>>>>>> main
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
