@@ -21,6 +21,7 @@ import { DashboardScreenModule } from "./pages/dashboard-screen/dashboard-screen
 
 import { RegisterFormModule } from "./pages/auth/register-form/register-form.module";
 import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
+import { CardComponent } from './pages/card/card.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
     DonacionComponent,
     GraciasComponent ,
     MembersFormComponent,
+    CardComponent,
 
   ],
   exports: [
