@@ -25,6 +25,9 @@ import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
 import { CardComponent } from './pages/card/card.component';
 
 
+import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
+
+
 @NgModule({
   declarations: [
     ActivityFormComponent,
@@ -37,7 +40,7 @@ import { CardComponent } from './pages/card/card.component';
     GraciasComponent ,
     MembersFormComponent,
     CardComponent,
-
+    OrganizationDataComponent,
     OrganizationFormComponent
   ],
   exports: [
