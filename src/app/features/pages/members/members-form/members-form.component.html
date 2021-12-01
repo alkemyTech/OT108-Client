@@ -18,6 +18,7 @@
             <div class="col-md-12 mb-5">
 
               <label for="image" class="form-label"  >Imagen</label><br>
+               <img [src]="image" width="350px" />
               <input  type="file"   (change)="onChange($event)" accept="image/png,image/jpg"
               formControlName="image" id="image">
               
@@ -61,7 +62,7 @@
 
             <div class="col-md-12 d-grid gap-2">
 
-                    <button  type="submit" class="btn-block" [disabled]="formulario.invalid">
+                    <button  type="submit" class="btn-block btn" [disabled]="formulario.invalid">
                 
                     Aceptar
                 </button>

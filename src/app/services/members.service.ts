@@ -1,28 +1,26 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Members } from 'src/app/models/members'; 
+import { PrivateApiServiceService } from './private-api-service.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class MembersService {
-  private url:string = "http://ongapi.alkemy.org/api/members";
+  
+  constructor(
+    private https: PrivateApiServiceService
+    ) { }
 
-  private httpHeaders = new HttpHeaders({'Content-Type':'application/json'})
-
-  constructor(private http: HttpClient) { }
-
-  create(members:Members): Observable<Members>{
-    return this.http.post<Members>(this.url,members,{headers:this.httpHeaders})
+  create(members:Members){
+    return this.https.post("members",members);
   }
-  editarMembers(members:Members,id:number): Observable<Members>{
-    return this.http.put<Members>(this.url+"/"+id,members,{headers:this.httpHeaders})
+  editarMembers(members:Members,id:string){
+    return this.https.put("members",members,id)
   }
 
 
-  getMember(id:number):Observable<Members>{
-    return this.http.get<Members>(this.url+"/"+id)
+  getMember(id:string){
+    return this.https.get("members",id);
   }
 }
