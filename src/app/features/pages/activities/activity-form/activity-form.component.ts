@@ -95,10 +95,9 @@ export class ActivityFormComponent implements OnInit {
   editActivity() {
     if (this.id) {
       this.edit = true;
-      let ids: number = parseInt(this.id);
       this.imagetitle = "Quiere cambiar de imagen?";
       this.titleForm = "EDITAR ACTIVIDAD";
-      this.ActivityService.getActivity(ids).subscribe(
+      this.ActivityService.getActivity(this.id).subscribe(
         (act: any) => {
           if (act.success) {
             this.activityForm.patchValue({

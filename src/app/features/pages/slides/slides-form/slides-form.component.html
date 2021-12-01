@@ -20,11 +20,11 @@
             <div class="col-md-12 mb-3">
 
                 <label for="order" class="form-label">Order</label>
-                <input type="text" class="form-control forms-color" [(ngModel)]="slides!.order" id="order" placeholder="Orden" 
+                <input type="number" class="form-control forms-color" [(ngModel)]="slides!.order" id="order" placeholder="Orden" 
                     formControlName="order">
                 <small class="invalid"
                     *ngIf="formulario.get('order')?.errors?.required && formulario.get('order')?.touched ">
-                    La orden es requerida
+                    La orden es requerida y debe ser numerica
                 </small>
                 <small class="invalid"
                 *ngIf="formulario?.get('order')?.hasError('orderTaken')">
@@ -36,7 +36,9 @@
 
             <div class="col-md-6 mb-5">
                 <label for="foto" class="form-label">Image</label><br>
-                
+                <img [src]="image" width="350px" />
+                <label for="imagen" class="form-label">{{ slides!.image }}</label
+                    ><br />
                 <input  type="file" (change)="onChange($event)" accept="image/png,image/jpg"
                      formControlName="slides.image" id="foto" [(ngModel)]="slides!.image">
                 <small class="invalid"

@@ -82,6 +82,50 @@ div .botones_resultados {
   -o-background-size: cover;
   background-size: cover;
 }
+
+/*Carousel styles*/
+.carousel-control-prev-icon{
+  background-image: url('https://apufpel.com.br/assets/img/seta_prim.png')!important;
+
+  
+}
+.carousel-control-next-icon{
+ background-image: url('https://apufpel.com.br/assets/img/seta_ult.png')!important;
+ 
+}
+
+.img-carrousel{
+  height: 350px;
+  width: 100%;
+
+}
+
+.carrousel-title{
+  color: white;
+  opacity: 0.85;
+}
+
+.carrousel-desc{
+ color: white;
+ background-color: rgb(82, 80, 80);
+ opacity: 0.85;
+ display: table;
+ margin: 0px auto 0px auto;
+ 
+}
+
+h3 span { 
+  background-color: rgb(82, 80, 80); 
+  
+}
+/*Carousel styles*/
+
+
+
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
 .card{
   background-color: #b5d5f6;
   /* SHADOW */
@@ -90,3 +134,4 @@ div .botones_resultados {
   box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   border-radius: 5%;
 }
+
