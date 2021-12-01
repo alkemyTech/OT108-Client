@@ -17,11 +17,12 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { CKEditorModule } from "ng2-ckeditor";
+import { OrganizationFormComponent } from './pages/organization/organization-form/organization-form.component';
 import { DashboardScreenModule } from "./pages/dashboard-screen/dashboard-screen.module";
 
 import { RegisterFormModule } from "./pages/auth/register-form/register-form.module";
 import { LoginFormModule } from "./pages/auth/login-form/login-form.module";
-import { OrganizationDataComponent } from './pages/organization-data/organization-data/organization-data.component';
+import { OrganizationDataComponent } from './pages/organization/organization-data/organization-data.component';
 
 
 @NgModule({
@@ -37,9 +38,9 @@ import { OrganizationDataComponent } from './pages/organization-data/organizatio
     MembersFormComponent,
     OrganizationDataComponent,
 
+    OrganizationFormComponent
   ],
   exports: [
-    ActivityFormComponent,
     CategoriesFormComponent,
     NewsFormComponent,
     SlidesFormComponent,

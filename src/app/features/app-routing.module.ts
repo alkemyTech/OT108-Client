@@ -11,9 +11,10 @@ import { GraciasComponent } from "./pages/Donations/gracias/gracias.component";
 
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
-import { OrganizationDataComponent } from "./pages/organization-data/organization-data/organization-data.component";
+import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
+import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
   {
@@ -47,11 +48,7 @@ const routes: Routes = [
     path: "slides/form/:id",
     component: SlidesFormComponent,
   },
-  {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
-  },
+  
   {path:"login",component:LoginFormComponent},
   {
     path: "backoffice/members/edit",
@@ -62,6 +59,11 @@ const routes: Routes = [
     component: MembersFormComponent,
   },
    {path: "backoffice/organization", component:OrganizationDataComponent },
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
+  },
+
   { path: "register", component: RegisterFormComponent },
   
   {path:"backoffice",component:DashboardScreenComponent},
