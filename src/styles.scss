@@ -82,3 +82,11 @@ div .botones_resultados {
   -o-background-size: cover;
   background-size: cover;
 }
+.card{
+  background-color: #b5d5f6;
+  /* SHADOW */
+  -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
+}
