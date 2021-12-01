@@ -1,7 +1,8 @@
 .container {
+  margin-top: 2px;
   max-width: 900px;
   padding: 50px;
-  background-color: #b5d5f6;
+  background-color: #c3ddf3;
   /* SHADOW */
   -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
@@ -10,6 +11,7 @@
 }
 
 h2 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
   text-align: center;
   color: #db5752;
 }
@@ -41,7 +43,7 @@ p.clasificacion label {
 p.clasificacion label:hover,
 p.clasificacion label:hover ~ label,
 p.clasificacion input:checked ~ label {
-  color: rgb(16, 53, 219);
+  color: rgb(119, 135, 207);
 }
 
 div button {
@@ -79,4 +81,12 @@ div .botones_resultados {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+.card{
+  background-color: #b5d5f6;
+  /* SHADOW */
+  -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
 }

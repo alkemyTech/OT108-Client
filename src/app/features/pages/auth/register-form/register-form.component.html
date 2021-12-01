@@ -1,95 +1,218 @@
-<div class="col-md-6 mx-auto mt-5" style="max-width: 500px;" >
-    <div   class="container mt-5" @enterState >
-        <form [formGroup]="loginForm"    novalidate>
-          <div class="row">
-              <div class="col-md-12 mb-5 ">
-                <h2><b>REGISTRO</b></h2>
-              </div>
-          </div>
-          <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="name"  class="form-control" placeholder="Ingrese Nombre" 
-            formControlName="name" [ngClass]="{'is-invalid':( name?.invalid && name?.touched) , 'is-valid':name?.valid}">
-            <span span class="invalid-feedback" *ngIf="name?.errors?.required && name?.touched">
-              *El campo nombre esta vacio.
-            </span>
-            <span span class="invalid-feedback" *ngIf="name?.errors?.required && name?.touched">
-              *El campo nombre no puede contener espacios.
-            </span>
-
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Ingrese correo electronico" 
-              formControlName="email" [ngClass]="{'is-invalid':( email?.invalid && email?.touched) , 'is-valid':email?.valid}">
-            <span span class="invalid-feedback" *ngIf="email?.errors?.required && (password?.invalid && (password?.dirty || password?.touched)) ">
-              *El campo email esta vacio.
-            </span>
-            <span  span class="invalid-feedback"  *ngIf="!email?.errors?.required && (email?.dirty || email?.touched) " >
-              *El  campo nombre no es valido.
-            </span>
-            <span span class="invalid-feedback" *ngIf="  email?.errors?.space && (password?.invalid && (password?.dirty || password?.touched)) ">
-              *El campo nombre no puede contener espacios.
-            </span>
-          </div>
-          <div class="form-group" >
-            <label for="Password" >Contraseña</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese contraseña"  
-              formControlName="password"  
-              [ngClass]="{'is-invalid':( password?.invalid && password?.touched) , 'is-valid':password?.valid}" required autofocus>
-  
-                    <!-- TANTOS SPAN ESTAN MAL PERO NO PUEDO HACERLO DE OTRA FORMA -->
-            <span class="invalid-feedback" *ngIf=" password?.errors?.required &&  (password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password esta vacio
-            </span>
-            <span class="invalid-feedback"
-              *ngIf=" !password?.errors?.required && password?.errors?.minlength  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password tiene q tener 6 digitos por lo menos
-            </span>
-            <span class="invalid-feedback" 
-              *ngIf="  !password?.errors?.required && password?.errors?.letter  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password tiene que tener por lo menos una letra mayuscula
-            </span>
-            <span class="invalid-feedback" 
-              *ngIf=" password?.errors?.lower  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password tiene que tener por lo menos una letra minuscula
-            </span>
-            <span class="invalid-feedback" 
-              *ngIf=" password?.errors?.num  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password tiene que tener por lo menos un numero
-            </span>
-            <span class="invalid-feedback" 
-              *ngIf=" password?.errors?.simbol  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *El campo password tiene que tener por lo menos un simbolo(por ejemplo: @#$%).
-            </span>
-            <span class="invalid-feedback" 
-              *ngIf=" password?.errors?.repeat  &&(password?.invalid && (password?.dirty || password?.touched))">
-              *No son la misma  contraseña.
-            </span>
-          </div>
-          <div class="form-group" >
-            <label for="Password" > Repetir Contraseña</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Ingrese contraseña"  
-            formControlName="passwordTwo"  
-            [ngClass]="{'is-invalid':( passwordTwo?.invalid && passwordTwo?.touched) , 'is-valid':passwordTwo?.valid}" required autofocus>
-            <span class="invalid-feedback" 
-              *ngIf=" passwordTwo?.errors?.repeat  &&(passwordTwo?.invalid && (passwordTwo?.dirty || passwordTwo?.touched))">
-              *No son la misma  contraseña.
-            </span>
-            <span class="invalid-feedback" *ngIf=" passwordTwo?.errors?.required &&  (passwordTwo?.invalid && (passwordTwo?.dirty || passwordTwo?.touched))">
-              *El campo esta vacio
-            </span>
-          </div>
-
-          <div class="row mt-6">
-            <button type="submit" class="btn-block " (click)="onLogin()" [disabled]="loginForm.invalid">
-              Ingresar
-            </button>
-          </div>
-        </form>
-        <div >
-          <p>Ya tienes una cuenta?<a routerLink='../registro' style="cursor: pointer; color: blueviolet;">Login</a></p>
+<div class="col-md-6 mx-auto mt-5" style="max-width: 500px">
+  <div class="container mt-5" @enterState>
+    <form [formGroup]="loginForm" novalidate>
+      <div class="row">
+        <div class="col-md-12 mb-5">
+          <h2><b>REGISTRO</b></h2>
         </div>
+      </div>
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input
+          type="name"
+          class="form-control"
+          placeholder="Ingrese Nombre"
+          formControlName="name"
+          [ngClass]="{
+            'is-invalid': name?.invalid && name?.touched,
+            'is-valid': name?.valid
+          }"
+        />
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="name?.errors?.required && name?.touched"
+        >
+          *El campo nombre esta vacio.
+        </span>
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="name?.errors?.required && name?.touched"
+        >
+          *El campo nombre no puede contener espacios.
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="Ingrese correo electronico"
+          formControlName="email"
+          [ngClass]="{
+            'is-invalid': email?.invalid && email?.touched,
+            'is-valid': email?.valid
+          }"
+        />
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="
+            email?.errors?.required &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo email esta vacio.
+        </span>
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="!email?.errors?.required && (email?.dirty || email?.touched)"
+        >
+          *El campo nombre no es valido.
+        </span>
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="
+            email?.errors?.space &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo nombre no puede contener espacios.
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="Password">Contraseña</label>
+        <input
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Ingrese contraseña"
+          formControlName="password"
+          [ngClass]="{
+            'is-invalid': password?.invalid && password?.touched,
+            'is-valid': password?.valid
+          }"
+          required
+          autofocus
+        />
+
+        <!-- TANTOS SPAN ESTAN MAL PERO NO PUEDO HACERLO DE OTRA FORMA -->
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            password?.errors?.required &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password esta vacio
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            !password?.errors?.required &&
+            password?.errors?.minlength &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password tiene q tener 6 digitos por lo menos
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            !password?.errors?.required &&
+            password?.errors?.letter &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password tiene que tener por lo menos una letra mayuscula
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            password?.errors?.lower &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password tiene que tener por lo menos una letra minuscula
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            password?.errors?.num &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password tiene que tener por lo menos un numero
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            password?.errors?.simbol &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *El campo password tiene que tener por lo menos un simbolo(por
+          ejemplo: @#$%).
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            password?.errors?.repeat &&
+            password?.invalid && (password?.dirty || password?.touched)
+          "
+        >
+          *No son la misma contraseña.
+        </span>
+      </div>
+      <div class="form-group">
+        <label for="Password"> Repetir Contraseña</label>
+        <input
+          type="password"
+          id="inputPassword"
+          class="form-control"
+          placeholder="Ingrese contraseña"
+          formControlName="passwordTwo"
+          [ngClass]="{
+            'is-invalid': passwordTwo?.invalid && passwordTwo?.touched,
+            'is-valid': passwordTwo?.valid
+          }"
+          required
+          autofocus
+        />
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            passwordTwo?.errors?.repeat &&
+            passwordTwo?.invalid && (passwordTwo?.dirty || passwordTwo?.touched)
+          "
+        >
+          *No son la misma contraseña.
+        </span>
+        <span
+          class="invalid-feedback"
+          *ngIf="
+            passwordTwo?.errors?.required &&
+            passwordTwo?.invalid && (passwordTwo?.dirty || passwordTwo?.touched)
+          "
+        >
+          *El campo esta vacio
+        </span>
+      </div>
+
+      <div class="row mt-6">
+        <button
+          type="submit"
+          class="btn-block"
+          (click)="onLogin()"
+          [disabled]="loginForm.invalid"
+        >
+          Ingresar
+        </button>
+      </div>
+    </form>
+    <div>
+      <p>
+        Ya tienes una cuenta?<a
+          routerLink="../registro"
+          style="cursor: pointer; color: blueviolet"
+          >Login</a
+        >
+      </p>
     </div>
   </div>
+</div>
