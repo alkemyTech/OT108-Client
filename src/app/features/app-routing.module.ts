@@ -20,13 +20,18 @@ import { MembersFormComponent } from "./pages/members/members-form/members-form.
 
 const routes: Routes = [
   {
-    path: "actividades",
-    component: ActivityFormComponent,
-  },
-  {
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
+  },
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
+  },
+
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent,
   },
 
   { path: "users", component: UserFormComponent },
@@ -52,8 +57,7 @@ const routes: Routes = [
     path: "slides/form/:id",
     component: SlidesFormComponent,
   },
-  
-  {path:"login",component:LoginFormComponent},
+  { path: "login", component: LoginFormComponent },
   {
     path: "backoffice/members/edit",
     component: MembersFormComponent,
@@ -69,9 +73,9 @@ const routes: Routes = [
   },
 
   { path: "register", component: RegisterFormComponent },
-  
-  {path:"backoffice",component:DashboardScreenComponent},
-  {path:'register',component:RegisterFormComponent}
+
+  { path: "backoffice", component: DashboardScreenComponent },
+  { path: "register", component: RegisterFormComponent },
 ];
 
 @NgModule({
