@@ -1,33 +1,24 @@
-import { HttpClient ,HttpHeaders} from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from "@angular/core";
 
 import { Observable } from "rxjs";
-import { Activity } from '../models/activities';
+import { Activity } from "../models/activities";
+import { PrivateApiServiceService } from "./private-api-service.service";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ActivityService {
-  private url:string = "http://ongapi.alkemy.org/api/activities";
- 
-  private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
+  constructor(private https: PrivateApiServiceService) {}
 
-  constructor(private http:HttpClient ) { }
-
-  creationActivity(activity:Activity): Observable<any> {
-  
-    return this.http.post(this.url ,JSON.stringify(activity), {
-      headers: this.httpHeaders,
-    });
+  creationActivity(activity: Activity): Observable<any> {
+    return this.https.post("activities", activity);
   }
 
-  editActivity(id: string, activity:Activity): Observable<any> {
-    return this.http.put(this.url+'/'+id, JSON.stringify(activity), {
-      headers: this.httpHeaders,
-    });
+  editActivity(id: string, activity: Activity): Observable<any> {
+    return this.https.put("activities", activity, id);
   }
 
-  getActivity(id:number){
-    return this.http.get(this.url+'/'+id);
+  getActivity(id: string) {
+    return this.https.get("activities", id);
   }
-
 }
