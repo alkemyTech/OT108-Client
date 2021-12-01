@@ -1,10 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
-/* alguno q otra clase capaz q esta de mas :fijarse  */
-
 .container {
+  margin-top: 2px;
   max-width: 900px;
   padding: 50px;
-  background-color: #9AC9FB;
+  background-color: #c3ddf3;
   /* SHADOW */
   -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
@@ -13,10 +11,9 @@
 }
 
 h2 {
+  font-family: Geneva, Arial, Helvetica, sans-serif;
   text-align: center;
-  color: #DB5752;
-  
-  
+  color: #db5752;
 }
 
 .invalid {
@@ -46,14 +43,14 @@ p.clasificacion label {
 p.clasificacion label:hover,
 p.clasificacion label:hover ~ label,
 p.clasificacion input:checked ~ label {
-  color: rgb(16, 53, 219);
+  color: rgb(119, 135, 207);
 }
 
 div button {
   font-size: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #FAFA88;
-  
+  background-color: #fafa88;
+
   margin: 0.3rem 0.6rem;
   border-radius: 0.5rem;
   border: 1px solid #666;
@@ -78,7 +75,7 @@ div .botones_resultados {
   background-color: rgb(123, 29, 29);
 }
 .fondo {
- /* background: url("../../../../assets/blur-hospital.jpg") no-repeat center
+  /* background: url("../../../../assets/blur-hospital.jpg") no-repeat center
     center fixed;*/
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -129,3 +126,12 @@ h3 span {
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+.card{
+  background-color: #b5d5f6;
+  /* SHADOW */
+  -webkit-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  box-shadow: 2px 2px 32px -6px rgba(0, 0, 0, 0.6);
+  border-radius: 5%;
+}
+
