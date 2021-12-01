@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Observable, Subscriber } from "rxjs";
-import { Modelo } from "./Modelo/modelo";
+import { Modelo } from "./Modelo/modelo"
 import { NewsService } from "./news.service";
 import { CKEditorComponent } from "ng2-ckeditor";
 import Swal from "sweetalert2";
@@ -43,7 +43,7 @@ export class NewsFormComponent implements OnInit {
   }
   creacionYEdicionDeNovedad() {
     let categoriaCorrecta = false;
-    const NOVEDAD: Modelo = {
+    const NOVEDAD: Modelo  = {
       name: this.formulario.get("name")?.value,
       content: this.formulario.get("content")?.value,
       category_id: this.formulario.get("category_id")?.value,
