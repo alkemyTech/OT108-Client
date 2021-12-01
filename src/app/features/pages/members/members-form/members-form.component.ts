@@ -18,6 +18,8 @@ export class MembersFormComponent implements OnInit {
    
  @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent;
  titulo: string = "AGREGAR MIEMBROS";
+  id: string | null;
+  image: string = "";
 
  ngAfterViewChecked() {
    let editor = this.ckEditor.instance;
@@ -53,6 +55,7 @@ export class MembersFormComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
     ) {
+      this.id = this.activatedRoute.snapshot.paramMap.get("id");
     const reg = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';//para las url
     this.formulario = this.frB.group( {
       'name': ['', [Validators.required, Validators.minLength(4)]],
@@ -71,7 +74,7 @@ export class MembersFormComponent implements OnInit {
   aceptar(){   
 
     if (this.members?.id != null) {
-       this.membersService.editarMembers(this.formulario.value, this.members.id).subscribe(res =>
+       this.membersService.editarMembers(this.formulario.value, this.members.id.toString()).subscribe(res =>
         this.mensajeCreado('Los Datos fueron actualizados exitosamente!'))
  
     } else if (this.members?.id == null) {
@@ -134,13 +137,23 @@ export class MembersFormComponent implements OnInit {
 
 
 loadMember(): void {
-  this.activatedRoute.params.subscribe(params => {
-    let id = params['id']
-    if (id) {
+ 
+    if(this.id){
       this.titulo="EDITAR MIEMBROS";
-      this.membersService.getMember(id).subscribe((members) => this.members = members.data)
-    }
-  })
+      this.membersService.getMember(this.id).subscribe((members:any) => {
+      this.formulario.patchValue({
+        name: members.data.name,
+       
+       
+       
+        description: members.data.description,
+        facebookUrl: members.data.facebookUrl,
+        linkedinUrl: members.data.linkedinUrl       
+      });
+      this.image= members.data.image;
+    });
+  
+   }
 }
 
 
