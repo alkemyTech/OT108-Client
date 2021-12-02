@@ -1,39 +1,32 @@
-import { Injectable } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Slides } from '../models/slides'
-import { Observable  } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-import { AbstractControl } from '@angular/forms';
+import { Injectable } from "@angular/core";
+import { Slides } from "../models/slides";
+import { Observable } from "rxjs";
+import { PrivateApiServiceService } from "./private-api-service.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class SlideService {
 
-  slidesArr?:Slides[]
 
-  private urlEndPoint:string = "http://ongapi.alkemy.org/api/slides";
 
-  private httpHeaders = new HttpHeaders({'Content-Type':'application/json'})
+  constructor(
+    private service: PrivateApiServiceService
+  ) {}
 
-  constructor(private http: HttpClient) { }
-
-  create(slides:Slides): Observable<Slides>{
-    return this.http.post<Slides>(this.urlEndPoint,slides,{headers:this.httpHeaders})
+  create(slides: Slides): Observable<Slides> {
+    return this.service.post("slides", slides);
   }
 
-  update(slides:Slides,id:number): Observable<Slides>{
-    return this.http.put<Slides>(`${this.urlEndPoint}/${id}`,slides,{headers:this.httpHeaders})
+  update(slides: Slides, id: number): Observable<Slides> {
+    return this.service.put("slides", slides, id.toString());
   }
 
-  getAllSlides():Observable<any>{
-    return this.http.get<any>(this.urlEndPoint,{headers:this.httpHeaders})
+  getAllSlides(): Observable<any> {
+    return this.service.get("slides");
   }
 
-  getSlide(id:any):Observable<any>{
-    return this.http.get<any>(`${this.urlEndPoint}/${id}`)
+  getSlide(id: any): Observable<any> {
+    return this.service.get("slides", id);
   }
-
-
-  
 }

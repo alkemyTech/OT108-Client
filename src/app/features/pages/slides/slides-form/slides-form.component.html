@@ -1,80 +1,123 @@
 <div class="container mt-5">
-    <form [formGroup]="formulario" (ngSubmit)="aceptar()">
-        <div class="row">
-            <div class="col-md-12 mb-5 ">
-                <h2><b>SLIDES</b></h2>
-            </div>
-        </div>
-        <div class="column formulario">
-            <div class="col-md-12 mb-3">
-                <label for="name" class="form-label">Name (minimo 4 caracteres)</label>
-                <input type="text" class="form-control forms-color" id="name" [(ngModel)]="slides!.name"placeholder="Ingrese nombre" minlength="4"
-                     formControlName="name">
-                <small class="invalid"
-                    *ngIf="formulario.get('name')?.errors?.required && formulario.get('name')?.touched">
-                    El nombre es requerido
-                </small>
-            </div>
+  <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2><b>SLIDES</b></h2>
+      </div>
+    </div>
+    <div class="column formulario">
+      <div class="col-md-12 mb-3">
+        <label for="name" class="form-label">Name (minimo 4 caracteres)</label>
+        <input
+          type="text"
+          class="form-control forms-color"
+          id="name"
+          [(ngModel)]="slides!.name"
+          placeholder="Ingrese nombre"
+          minlength="4"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
+          "
+        >
+          El nombre es requerido
+        </small>
+      </div>
 
+      <div class="col-md-12 mb-3">
+        <label for="order" class="form-label">Order</label>
+        <input
+          type="number"
+          class="form-control forms-color"
+          [(ngModel)]="slides!.order"
+          id="order"
+          placeholder="Orden"
+          formControlName="order"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('order')?.errors?.required &&
+            formulario.get('order')?.touched
+          "
+        >
+          La orden es requerida y debe ser numerica
+        </small>
+        <small
+          class="invalid"
+          *ngIf="formulario?.get('order')?.hasError('orderTaken')"
+        >
+          La orden ya existe
+        </small>
+      </div>
 
-            <div class="col-md-12 mb-3">
+      <div class="col-md-6 mb-5">
+        <label for="foto" class="form-label">Image</label><br />
+        <img [src]="image" width="350px" />
+        <label for="imagen" class="form-label">{{ slides!.image }}</label
+        ><br />
+        <input
+          type="file"
+          (change)="onChange($event)"
+          accept="image/png,image/jpg"
+          formControlName="slides.image"
+          id="foto"
+          [(ngModel)]="slides!.image"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('image')?.errors?.required &&
+            formulario.get('image')?.touched
+          "
+          >La foto es requerida</small
+        >
+      </div>
 
-                <label for="order" class="form-label">Order</label>
-                <input type="number" class="form-control forms-color" [(ngModel)]="slides!.order" id="order" placeholder="Orden" 
-                    formControlName="order">
-                <small class="invalid"
-                    *ngIf="formulario.get('order')?.errors?.required && formulario.get('order')?.touched ">
-                    La orden es requerida y debe ser numerica
-                </small>
-                <small class="invalid"
-                *ngIf="formulario?.get('order')?.hasError('orderTaken')">
-                    La orden ya existe
-                </small>
-            </div>
+      <div class="col-md-12 mb-3">
+        <label for="description" class="form-label"
+          >Description
+          <ckeditor
+            name="desc"
+            type="text-area"
+            rows="3"
+            id="description"
+            [(ngModel)]="slides!.description"
+            class="forms-color"
+            placeholder="Ingrese descripcion"
+            formControlName="description"
+          >
+          </ckeditor>
+        </label>
+      </div>
+      <small
+        class="invalid"
+        *ngIf="
+          formulario.get('description')?.errors?.required &&
+          formulario.get('description')?.touched
+        "
+        >La descripcion es requerida</small
+      >
+    </div>
 
-
-
-            <div class="col-md-6 mb-5">
-                <label for="foto" class="form-label">Image</label><br>
-                <img [src]="image" width="350px" />
-                <label for="imagen" class="form-label">{{ slides!.image }}</label
-                    ><br />
-                <input  type="file" (change)="onChange($event)" accept="image/png,image/jpg"
-                     formControlName="slides.image" id="foto" [(ngModel)]="slides!.image">
-                <small class="invalid"
-                    *ngIf="formulario.get('image')?.errors?.required && formulario.get('image')?.touched ">La foto es
-                    requerida</small>
-
-            </div>
-
-            <div class="col-md-12 mb-3">
-                <label for="description" class="form-label">Description
-                    <ckeditor name="desc" type="text-area"  rows="3" id="description" [(ngModel)]="slides!.description"
-                      class="forms-color"  placeholder="Ingrese descripcion"  formControlName="description">
-                    </ckeditor>
-                </label>
-            </div>
-            <small class="invalid"
-                    *ngIf="formulario.get('description')?.errors?.required && formulario.get('description')?.touched ">La descripcion es
-                    requerida</small>
-
-        </div>
-
-        <div class="row mt-4">
-
-
-            <div class="col-md-12 d-grid gap-2">
-
-                <button type="submit" class="btn-block" [disabled]="formulario.invalid">
-                    Aceptar
-                </button>
-            </div>
-
-
-
-
-        </div>
-    </form>
-
-
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          type="submit"
+          [ngClass]="{
+            'btn-primary': formulario.valid,
+            'btn-outline-primary': formulario.invalid
+          }"
+          class="btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
