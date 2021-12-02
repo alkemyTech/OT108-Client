@@ -9,22 +9,45 @@ import { CategoriesFormComponent } from "./pages/categories/categories-form/cate
 import { DonacionComponent } from "./pages/Donations/donacion/donacion.component";
 import { GraciasComponent } from "./pages/Donations/gracias/gracias.component";
 
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+import { DashboardScreenComponent } from "./pages/dashboard-screen/dashboard-screen.component";
+
+import { CardComponent } from "./pages/card/card.component";
+import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
+import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
-  { 
-    path: "actividades", 
-    component: ActivityFormComponent },
   {
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
   },
+  {
+    path: "actividades",
+    component: ActivityFormComponent,
+  },
 
-  {path:"users", component:UserFormComponent},
-  {path:"users/:id", component:UserFormComponent},
-  
-  {path:"news", component: NewsFormComponent},
-  {path:"news/:id", component: NewsFormComponent},
+  {
+    path: "actividades/:id",
+    component: ActivityFormComponent,
+  },
+
+  { path: "users", component: UserFormComponent },
+  { path: "users/:id", component: UserFormComponent },
+
+  { path: "news", component: NewsFormComponent },
+  { path: "news/:id", component: NewsFormComponent },
+
+  { path: "categories", component: CategoriesFormComponent },
+  { path: "categories/:id", component: CategoriesFormComponent },
+
+  { path: "donar", component: DonacionComponent },
+
+  { path: "gracias", component: GraciasComponent },
+
+  { path: "card", component: CardComponent },
 
   {path:"categories", component: CategoriesFormComponent },
   {path:"categories/:id", component: CategoriesFormComponent},
@@ -35,17 +58,31 @@ const routes: Routes = [
 
   {
     path: "slides/form",
-    component: SlidesFormComponent
+    component: SlidesFormComponent,
   },
   {
     path: "slides/form/:id",
-    component: SlidesFormComponent
+    component: SlidesFormComponent,
+  },
+  { path: "login", component: LoginFormComponent },
+  {
+    path: "backoffice/members/edit",
+    component: MembersFormComponent,
   },
   {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
-  }
+    path: "backoffice/members/edit/:id",
+    component: MembersFormComponent,
+  },
+   {path: "backoffice/organization", component:OrganizationDataComponent },
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
+  },
+
+  { path: "register", component: RegisterFormComponent },
+
+  { path: "backoffice", component: DashboardScreenComponent },
+  { path: "register", component: RegisterFormComponent },
 ];
 
 @NgModule({

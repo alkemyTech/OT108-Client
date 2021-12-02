@@ -30,25 +30,10 @@
           El titulo es requerido
         </small>
       </div>
-      <div class="col-md-12 mb-3">
-        <label for="categoria" class="form-label">Categoria</label>
-        <input
-          type="text"
-          class="form-control"
-          id="categoria"
-          placeholder="Categoria"
-          formControlName="category_id"
-        />
-        <small
-          class="invalid"
-          *ngIf="
-            formulario.get('category_id')?.errors?.required &&
-            formulario.get('category_id')?.touched
-          "
-        >
-          La categoria es requerida
-        </small>
-      </div>
+      <p style="margin-left: 15px">Categoria</p>
+      <select size="3" class="col-md-12 mb-3" style="margin-left: 10px">
+        <option *ngFor="let id of categoria">{{ id.id }}</option>
+      </select>
       <div class="col-md-6 mb-5">
         <div *ngIf="edit">
           <label>Imagen</label>
@@ -99,9 +84,16 @@
 
     <div class="row mt-4">
       <div class="col-md-12 d-grid gap-2">
-        <button type="submit" class="btn-block" [disabled]="formulario.invalid">
-          Aceptar
+        <button
+          *ngIf="formulario.invalid"
+          style="background-color: red"
+          type="submit"
+          class="btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Completar campos
         </button>
+        <button class="btn-block" *ngIf="formulario.valid">Aceptar</button>
       </div>
     </div>
   </form>

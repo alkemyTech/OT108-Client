@@ -3,9 +3,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Observable, Subscriber } from "rxjs";
-import { Modelo } from "./Modelo/modelo";
+import { Modelo } from "./Modelo/modelo"
 import { NewsService } from "./news.service";
 import { CKEditorComponent } from "ng2-ckeditor";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-news-form",
@@ -30,7 +31,6 @@ export class NewsFormComponent implements OnInit {
     this.formulario = this.frB.group({
       name: ["", [Validators.required]],
       content: ["", [Validators.required]],
-      category_id: ["", [Validators.required]],
       image: ["", Validators.required],
     });
 
@@ -43,7 +43,7 @@ export class NewsFormComponent implements OnInit {
   }
   creacionYEdicionDeNovedad() {
     let categoriaCorrecta = false;
-    const NOVEDAD: Modelo = {
+    const NOVEDAD: Modelo  = {
       name: this.formulario.get("name")?.value,
       content: this.formulario.get("content")?.value,
       category_id: this.formulario.get("category_id")?.value,
@@ -53,22 +53,13 @@ export class NewsFormComponent implements OnInit {
     if (this.id !== null) {
       this.servicio.editarNovedad(this.id, NOVEDAD).subscribe((data) => {
         console.log("editado: ", data);
+        this.mensajeCreado("Novedad editada");
       });
     } else {
-      for (let i = 0; i < this.categoria.data.length; i++) {
-        if (this.categoria.data[i].id == NOVEDAD.category_id) {
-          categoriaCorrecta = true;
-          this.servicio.creacionNovedad(NOVEDAD).subscribe((data) => {
-            console.log("creado: ", data);
-          });
-        }
-      }
-      if (!categoriaCorrecta) {
-        this.toastr.error(
-          "Ingresa una categoria valida",
-          "Categoria inexistente"
-        );
-      }
+      this.servicio.creacionNovedad(NOVEDAD).subscribe((data) => {
+        console.log("creado: ", data);
+        this.mensajeCreado("Novedad creada");
+      });
     }
   }
 
@@ -89,9 +80,9 @@ export class NewsFormComponent implements OnInit {
   }
 
   obtenerCategorias() {
-    this.servicio.obtenerCategorias().subscribe((data) => {
-      this.categoria = data;
-      console.log(data);
+    this.servicio.obtenerCategorias().subscribe((data: any) => {
+      this.categoria = data.data;
+      console.log("categorias: ", this.categoria);
     });
   }
 
@@ -149,4 +140,14 @@ export class NewsFormComponent implements OnInit {
     editor.config.removeButtons =
       "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
   }
+
+  mensajeCreado(texto: string) {
+    Swal.fire({
+      icon: "success",
+      title: "Exito!",
+      text: texto,
+    });
+  }
+
+
 }

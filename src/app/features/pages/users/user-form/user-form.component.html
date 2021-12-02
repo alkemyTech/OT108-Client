@@ -8,13 +8,11 @@
       </div>
     </div>
     <div class="row formulario">
-      <select style="width: 100px; height: 40px">
+      <select class="col-md-12 mb-3" style="height: 35px; margin-left: 10px">
         <option id="1">Administrador</option>
         <option id="2">Regular</option>
       </select>
       <div style="margin-right: 500px" class="col-md-12 mb-3">
-        <br />
-        <br />
         <label for="name" class="form-label"
           >Name (cuatro caracteres minimo)</label
         >
@@ -102,9 +100,16 @@
     </div>
     <div class="row mt-4">
       <div class="col-md-12 d-grid gap-2">
-        <button type="submit" class="btn-block" [disabled]="formulario.invalid">
-          Aceptar
+        <button
+          *ngIf="formulario.invalid"
+          style="background-color: red"
+          type="submit"
+          class="btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Completar campos
         </button>
+        <button class="btn-block" *ngIf="formulario.valid">Aceptar</button>
       </div>
     </div>
   </form>
