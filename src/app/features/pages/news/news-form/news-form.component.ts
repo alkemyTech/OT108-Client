@@ -148,4 +148,6 @@ export class NewsFormComponent implements OnInit {
       text: texto,
     });
   }
+
+
 }

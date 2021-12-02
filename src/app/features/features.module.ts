@@ -65,5 +65,6 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
     CKEditorModule,
     DashboardScreenModule,
   ],
+
 })
 export class FeaturesModule {}

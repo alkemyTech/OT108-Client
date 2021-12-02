@@ -49,6 +49,13 @@ const routes: Routes = [
 
   { path: "card", component: CardComponent },
 
+  {path:"categories", component: CategoriesFormComponent },
+  {path:"categories/:id", component: CategoriesFormComponent},
+
+  {path:"donar", component: DonacionComponent},
+
+  {path:"gracias", component: GraciasComponent},
+
   {
     path: "slides/form",
     component: SlidesFormComponent,
