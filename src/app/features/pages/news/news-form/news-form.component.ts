@@ -1,9 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ActivatedRoute } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { Observable, Subscriber } from "rxjs";
 import { Modelo } from "./Modelo/modelo";
 import { NewsService } from "./news.service";
+import { CKEditorComponent } from "ng2-ckeditor";
 
 @Component({
   selector: "app-news-form",
@@ -15,6 +17,9 @@ export class NewsFormComponent implements OnInit {
   id: string | null;
   titulo: string = "AGREGAR NOVEDAD";
   categoria: any;
+  image: string = "";
+  tituloImage: string = "Imagen";
+  edit: boolean = false;
 
   constructor(
     private frB: FormBuilder,
@@ -69,14 +74,16 @@ export class NewsFormComponent implements OnInit {
 
   editar() {
     if (this.id !== null) {
+      this.edit = true;
       this.titulo = "EDITAR NOVEDAD";
+      this.tituloImage = "";
       this.servicio.obtenerNovedad(this.id).subscribe((data) => {
         this.formulario.patchValue({
           name: data.data.name,
           content: data.data.content,
           category_id: data.data.category_id,
-          image: data.data.image,
         });
+        this.image = data.data.image;
       });
     }
   }
@@ -86,5 +93,60 @@ export class NewsFormComponent implements OnInit {
       this.categoria = data;
       console.log(data);
     });
+  }
+
+  onChange($event: Event) {
+    let files = ($event.target as HTMLInputElement).files?.item(0);
+
+    if (files != null) {
+      this.converToBase64(files);
+    }
+  }
+
+  converToBase64(file: File) {
+    let observable = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+
+    observable.subscribe((d) => {
+      this.formulario.patchValue({ image: d });
+    });
+  }
+  readFile(file: File, subscriber: Subscriber<any>) {
+    let fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      subscriber.next(fileReader.result);
+      subscriber.complete;
+    };
+  }
+  @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent;
+
+  ngAfterViewChecked() {
+    let editor = this.ckEditor.instance;
+
+    editor.config.toolbarGroups = [
+      { name: "document", groups: ["mode", "document", "doctools"] },
+      { name: "clipboard", groups: ["clipboard", "undo"] },
+      { name: "editing", groups: ["find", "selection", "spellchecker"] },
+      { name: "forms" },
+      "/",
+      { name: "basicstyles", groups: ["basicstyles", "cleanup"] },
+      {
+        name: "paragraph",
+        groups: ["list", "indent", "blocks", "align", "bidi"],
+      },
+      { name: "links" },
+      { name: "insert" },
+      "/",
+      { name: "styles" },
+      { name: "colors" },
+      { name: "tools" },
+      { name: "others" },
+      { name: "about" },
+    ];
+
+    editor.config.removeButtons =
+      "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
   }
 }

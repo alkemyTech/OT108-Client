@@ -5,6 +5,10 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
+import { DonacionComponent } from "./pages/Donations/donacion/donacion.component";
+import { GraciasComponent } from "./pages/Donations/gracias/gracias.component";
+
 
 const routes: Routes = [
   { 
@@ -21,6 +25,13 @@ const routes: Routes = [
   
   {path:"news", component: NewsFormComponent},
   {path:"news/:id", component: NewsFormComponent},
+
+  {path:"categories", component: CategoriesFormComponent },
+  {path:"categories/:id", component: CategoriesFormComponent},
+
+  {path:"donar", component: DonacionComponent},
+
+  {path:"gracias", component: GraciasComponent},
 
   {
     path: "slides/form",
