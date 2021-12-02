@@ -23,7 +23,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     BrowserModule,
     CoreModule,
     FeaturesModule,
-    NgbModule
+    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
