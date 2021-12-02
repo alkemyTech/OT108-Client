@@ -1,0 +1,24 @@
+<div id="link">
+  <button class="btn btn-success" [routerLink]="['/backoffice/users/create']">
+    Agregar nuevo usuario
+  </button>
+</div>
+
+<div *ngFor="let usuario of users" class="card contenedor">
+  <div *ngIf="usuario.profile_image != null">
+    <img class="card-img-top" [src]="usuario.profile_image" />
+  </div>
+  <div *ngIf="usuario.profile_image === null">
+    <img
+      id="imagenNull"
+      class="card-img-top"
+      src="../../../../assets/images/imagenull.png"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><span>Nombre:</span>{{ usuario.name }}</h5>
+    <h5 class="card-text"><span>Email:</span>{{ usuario.email }}</h5>
+    <i class="far fa-edit text-primary"></i>
+    <i class="fas fa-trash-alt text-danger"></i>
+  </div>
+</div>
