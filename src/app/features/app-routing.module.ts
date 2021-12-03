@@ -17,6 +17,7 @@ import { CardComponent } from "./pages/card/card.component";
 import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
 import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { BackofficeUsersComponent } from "./pages/users/user-form/backoffice/backoffice-users/backoffice-users.component";
 
 const routes: Routes = [
   {
@@ -55,6 +56,9 @@ const routes: Routes = [
   {path:"donar", component: DonacionComponent},
 
   {path:"gracias", component: GraciasComponent},
+
+  {path:"backoffice/users", component: BackofficeUsersComponent},
+  {path:"backoffice/users/create", component: UserFormComponent},
 
   {
     path: "slides/form",
