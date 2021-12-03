@@ -19,6 +19,7 @@ import { OrganizationFormComponent } from "./pages/organization/organization-for
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { BackofficeUsersComponent } from "./pages/users/user-form/backoffice/backoffice-users/backoffice-users.component";
 import { BackofficeActivitiesComponent } from "./pages/activities/backoffice/backoffice-activities/backoffice-activities.component";
+import { BackofficeSlidesComponent } from "./pages/slides/backoffice/backoffice-slides/backoffice-slides.component";
 
 const routes: Routes = [
   {
@@ -63,6 +64,9 @@ const routes: Routes = [
 
   {path:"backoffice/activities", component: BackofficeActivitiesComponent},
   {path:"backoffice/activities/create", component: ActivityFormComponent},
+
+  {path:"backoffice/slides", component: BackofficeSlidesComponent},
+  {path:"backoffice/slides/create", component: SlidesFormComponent},
 
   {
     path: "slides/form",
