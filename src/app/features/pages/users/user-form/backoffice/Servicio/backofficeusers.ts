@@ -1,25 +1,19 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { PrivateApiServiceService } from "src/app/services/private-api-service.service";
 
 @Injectable({
   providedIn: "root",
 })
 export class BackofficeusersService {
-  private Url: string = "http://ongapi.alkemy.org";
-  private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
-
-  constructor(private http: HttpClient) {}
+  constructor(private https: PrivateApiServiceService) {}
 
   obtenerUsuario(id: string): Observable<any> {
-    return this.http.get(this.Url + "/api/users/" + id, {
-      headers: this.httpHeaders,
-    });
+    return this.https.get("users/" + id);
   }
 
   obtenerUsuarios(): Observable<any> {
-    return this.http.get(this.Url + "/api/users", {
-      headers: this.httpHeaders,
-    });
+    return this.https.get("users");
   }
 }
