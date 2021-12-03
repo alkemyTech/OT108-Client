@@ -1,38 +1,27 @@
-import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { PrivateApiServiceService } from "src/app/services/private-api-service.service";
 import { Modelo } from "./Modelo/modelo";
-
 
 @Injectable({
   providedIn: "root",
 })
 export class NewsService {
-  url = "http://ongapi.alkemy.org";
-  private httpHeaders = new HttpHeaders({ "Content-Type": "application/json" });
+  constructor(private https: PrivateApiServiceService) {}
 
-  constructor(private http: HttpClient) {}
-
-
-  creacionNovedad(novedad:Modelo): Observable<any> {
-    return this.http.post(this.url + "/api/" + "news", novedad, {
-      headers: this.httpHeaders,
-    });
+  creacionNovedad(novedad: Modelo): Observable<any> {
+    return this.https.post("news", novedad);
   }
 
   editarNovedad(id: string, novedad: Modelo): Observable<any> {
-    return this.http.put(this.url + "/api/" + "news/" + id, novedad, {
-      headers: this.httpHeaders,
-    });
+    return this.https.put("news/" + id, novedad);
   }
 
   obtenerNovedad(id: string): Observable<any> {
-    return this.http.get(this.url + "/api/news/" + id);
+    return this.https.get("news" + id);
   }
 
-  obtenerCategorias(){
-    return this.http.get(this.url + "/api/categories");
+  obtenerCategorias() {
+    return this.https.get("categories");
   }
-
-
 }
