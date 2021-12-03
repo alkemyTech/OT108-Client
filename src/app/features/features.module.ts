@@ -26,6 +26,7 @@ import { CardComponent } from './pages/card/card.component';
 
 
 import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
+import { ContactoFormComponent } from './pages/contacto/contacto-form/contacto-form.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
     MembersFormComponent,
     CardComponent,
     OrganizationDataComponent,
-    OrganizationFormComponent
+    OrganizationFormComponent,
+    ContactoFormComponent
   ],
   exports: [
     CategoriesFormComponent,
