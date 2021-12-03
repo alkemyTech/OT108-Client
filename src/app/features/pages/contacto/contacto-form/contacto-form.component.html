@@ -32,9 +32,33 @@
             <div class="col-md-12 mb-5">
 
                 <label for="phone" class="form-label">Telefono</label>
-                <input type="text" class="form-control" id="phone" placeholder="Ingrese el numero de telefono" formControlName="phone">
-                <small class="invalid" *ngIf="formulario.get('phone')?.errors?.required && formulario.get('phone')?.touched ">El telefono es requerida</small> 
-            
+                <input type="text" class="form-control" id="phone" placeholder="Ingrese el numero de telefono" 
+                formControlName="phone"  [ngClass]="{'is-invalid': phone?.invalid && phone?.touched, 'is-valid': phone?.valid  }" required autofocus>
+                <small class="invalid-feedback" *ngIf="formulario.get('phone')?.errors?.required && formulario.get('phone')?.touched ">El telefono es requerida</small> 
+                <span
+                span
+                class="invalid-feedback"
+                *ngIf="
+                  !phone?.errors?.required && 
+                   !phone?.errors?.minLength &&
+                  !phone?.errors?.invalid &&
+                  (phone?.dirty || phone?.touched)
+                "
+              >
+                *El telefono es minimo 8 caracteres.
+              </span>
+              <span
+              span
+              class="invalid-feedback"
+              *ngIf="
+              
+                !phone?.errors?.required && 
+                !phone?.errors?.invalid &&
+                (phone?.dirty || phone?.touched)
+              "
+            >
+              *Digite solo numero.
+            </span>
             </div>
             <div class="col-md-12 mb-5">
 

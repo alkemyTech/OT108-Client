@@ -12,7 +12,8 @@ import Swal from 'sweetalert2';
 export class ContactoFormComponent implements OnInit {
   private emailPattern: any =
   /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  // private formulario!: FormGroup;
+  // Validar que solo acepte numeros;
+  private numPattern = /[0-9\+\-\ ]/;
   constructor(
     private frB: FormBuilder,
     private contactService: ContactService
@@ -35,7 +36,7 @@ export class ContactoFormComponent implements OnInit {
   formulario=this.frB.group({
     name:["",[Validators.required]],
     email: ["", [Validators.required, Validators.pattern(this.emailPattern)]],
-    phone:["",[Validators.required]],
+    phone:["",[Validators.required, Validators.minLength(8), Validators.pattern(this.numPattern)]],
     message:["",[Validators.required]]
   })
   ngOnInit(): void {
