@@ -27,6 +27,7 @@ import { CardComponent } from './pages/card/card.component';
 
 import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
 import { BackofficeUsersComponent } from './pages/users/user-form/backoffice/backoffice-users/backoffice-users.component';
+import { BackofficeActivitiesComponent } from './pages/activities/backoffice/backoffice-activities/backoffice-activities.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { BackofficeUsersComponent } from './pages/users/user-form/backoffice/bac
     CardComponent,
     OrganizationDataComponent,
     OrganizationFormComponent,
-    BackofficeUsersComponent
+    BackofficeUsersComponent,
+    BackofficeActivitiesComponent
   ],
   exports: [
     CategoriesFormComponent,

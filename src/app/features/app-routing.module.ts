@@ -18,6 +18,7 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
 import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { BackofficeUsersComponent } from "./pages/users/user-form/backoffice/backoffice-users/backoffice-users.component";
+import { BackofficeActivitiesComponent } from "./pages/activities/backoffice/backoffice-activities/backoffice-activities.component";
 
 const routes: Routes = [
   {
@@ -59,6 +60,9 @@ const routes: Routes = [
 
   {path:"backoffice/users", component: BackofficeUsersComponent},
   {path:"backoffice/users/create", component: UserFormComponent},
+
+  {path:"backoffice/activities", component: BackofficeActivitiesComponent},
+  {path:"backoffice/activities/create", component: ActivityFormComponent},
 
   {
     path: "slides/form",

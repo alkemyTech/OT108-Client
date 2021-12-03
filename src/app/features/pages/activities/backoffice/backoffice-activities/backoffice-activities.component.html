@@ -1,0 +1,27 @@
+<div id="link">
+  <button
+    class="btn btn-success"
+    [routerLink]="['create']"
+  >
+    Agregar nueva actividad
+  </button>
+</div>
+
+<div *ngFor="let actividad of actividades" class="card contenedor">
+  <div *ngIf="actividad.image != null">
+    <img class="card-img-top" [src]="actividad.image" />
+  </div>
+  <div *ngIf="actividad.image === null">
+    <img
+      id="imagenNull"
+      class="card-img-top"
+      src="../../../../assets/images/imagenull.png"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><span>Nombre:</span>{{ actividad.name }}</h5>
+    <h5 class="card-text"><span>Creacion:</span>{{ actividad.created_at }}</h5>
+    <i class="far fa-edit text-primary"></i>
+    <i class="fas fa-trash-alt text-danger"></i>
+  </div>
+</div>
