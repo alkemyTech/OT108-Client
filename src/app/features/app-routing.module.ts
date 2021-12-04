@@ -20,20 +20,21 @@ import { MembersFormComponent } from "./pages/members/members-form/members-form.
 import { BackofficeUsersComponent } from "./pages/users/user-form/backoffice/backoffice-users/backoffice-users.component";
 import { BackofficeActivitiesComponent } from "./pages/activities/backoffice/backoffice-activities/backoffice-activities.component";
 import { BackofficeSlidesComponent } from "./pages/slides/backoffice/backoffice-slides/backoffice-slides.component";
+import { ActividadesDetalleComponent } from "./views/activities/detail/actividades-detalle/actividades-detalle.component";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "actividades",
+    redirectTo: "activities",
     pathMatch: "full",
   },
   {
-    path: "actividades",
+    path: "activities",
     component: ActivityFormComponent,
   },
 
   {
-    path: "actividades/:id",
+    path: "activities/:id",
     component: ActivityFormComponent,
   },
 
@@ -59,6 +60,8 @@ const routes: Routes = [
 
   {path:"gracias", component: GraciasComponent},
 
+  {path:"actividades/:id", component: ActividadesDetalleComponent},
+
   {path:"backoffice/users", component: BackofficeUsersComponent},
   {path:"backoffice/users/create", component: UserFormComponent},
 
@@ -67,6 +70,7 @@ const routes: Routes = [
 
   {path:"backoffice/slides", component: BackofficeSlidesComponent},
   {path:"backoffice/slides/create", component: SlidesFormComponent},
+
 
   {
     path: "slides/form",

@@ -29,6 +29,7 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
 import { BackofficeUsersComponent } from './pages/users/user-form/backoffice/backoffice-users/backoffice-users.component';
 import { BackofficeActivitiesComponent } from './pages/activities/backoffice/backoffice-activities/backoffice-activities.component';
 import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-slides/backoffice-slides.component';
+import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-
     OrganizationFormComponent,
     BackofficeUsersComponent,
     BackofficeActivitiesComponent,
-    BackofficeSlidesComponent
+    BackofficeSlidesComponent,
+    ActividadesDetalleComponent
   ],
   exports: [
     CategoriesFormComponent,
