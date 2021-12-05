@@ -18,6 +18,8 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
+import { LoaderspinnerComponent } from './loaderspinner/loaderspinner/loaderspinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { ActividadesDetalleComponent } from './views/activities/detail/actividad
     UsersComponent,
     UsersListComponent,
     ActividadesDetalleComponent,
+    LoaderspinnerComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule,     MatProgressSpinnerModule],
 })
 export class PagesModule {}
