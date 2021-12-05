@@ -1,0 +1,117 @@
+<div class="container mt-5">
+  <form [formGroup]="formulario" (ngSubmit)="aceptar()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2>
+          <b>{{ title }}</b>
+        </h2>
+      </div>
+    </div>
+    <div class="row formulario">
+      <div class="col-md-12 mb-5">
+        <label for="name" class="form-label">Nombre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="Ingrese nombre"
+          [(ngModel)]="members!.name"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
+          "
+        >
+          El nombre es requerido
+        </small>
+      </div>
+
+      <div class="col-md-12 mb-5">
+        <label for="image" class="form-label">Imagen</label><br />
+        <img [src]="image" width="350px" />
+        <input
+          type="file"
+          (change)="onChange($event)"
+          accept="image/png,image/jpg"
+          formControlName="image"
+          id="image"
+        />
+
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('image')?.errors?.required &&
+            formulario.get('image')?.touched
+          "
+          >La Imagen es requerida</small
+        >
+      </div>
+
+      <div class="col-md-12 mb-5" id="divfacebook">
+        <label for="facebook" class="form-label">Facebook</label>
+        <input
+          type="text"
+          class="form-control"
+          id="facebookUrl"
+          placeholder="Ingrese el facebook"
+          formControlName="facebookUrl"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('facebookUrl')?.errors?.required &&
+            formulario.get('facebookUrl')?.touched
+          "
+          >La ruta es requerida</small
+        >
+      </div>
+
+      <div class="col-md-12 mb-5" id="divlinked">
+        <label for="linkedinUrl" class="form-label">Linkedin</label>
+        <input
+          type="text"
+          class="form-control"
+          id="linkedinUrl"
+          placeholder="Ingrese el linkedin"
+          formControlName="linkedinUrl"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('linkedinUrl')?.errors?.required &&
+            formulario.get('linkedinUrl')?.touched
+          "
+          >La ruta es requerida</small
+        >
+      </div>
+
+      <div class="col-md-12 mb-5">
+        <label for="description" class="form-label">Descripccion</label>
+        <ckeditor
+          name="description"
+          type="text-area"
+          rows="3"
+          id="description"
+          placeholder="Ingrese descripcion"
+          formControlName="description"
+        >
+        </ckeditor>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          type="submit"
+          class="btn-block btn"
+          [disabled]="formulario.invalid"
+        >
+          Aceptar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

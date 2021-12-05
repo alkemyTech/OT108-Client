@@ -1,0 +1,16 @@
+<div *ngFor="let item of listView" class="card contenedor">
+  <div *ngIf="item.image != null">
+    <img id="imagenes" class="card-img-top" [src]="item.image" />
+  </div>
+  <div *ngIf="item.image === null">
+    <img
+      id="imagenNull"
+      class="card-img-top"
+      src="../../../../assets/images/imagenull.png"
+    />
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ item.name }}</h5>
+    <p class="card-text">{{ item.content }}</p>
+  </div>
+</div>

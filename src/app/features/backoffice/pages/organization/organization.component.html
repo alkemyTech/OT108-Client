@@ -1,0 +1,13 @@
+<div class="card" style="width: 18rem">
+  <img class="card-img-top" [src]="logo" alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">{{ name }}</h5>
+    <p class="card-text">{{ short_description }}</p>
+    <button
+      [routerLink]="['/backoffice', 'organization', 'edit']"
+      class="btn-block"
+    >
+      Ver mas
+    </button>
+  </div>
+</div>
