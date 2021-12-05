@@ -10,7 +10,7 @@ import { BackofficeRoutingModule } from "./backoffice-routing.module";
     CommonModule,
     PagesModule,
     ComponentsModule,
-    BackofficeRoutingModule,
+    BackofficeRoutingModule
   ],
 })
 export class BackofficeModule {}
