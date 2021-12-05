@@ -15,7 +15,7 @@ export class SlideService {
   create(slides: Slides): Observable<Slides> {
     return this.http.post("slides", slides);
   }
-  getAllSlides() {
+  getAllSlides(): Observable<any> {
     return this.http.get("slides");
   }
 
