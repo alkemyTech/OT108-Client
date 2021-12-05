@@ -30,6 +30,9 @@ import { ContactoFormComponent } from './pages/contacto/contacto-form/contacto-f
 import { BackofficeUsersComponent } from './pages/users/user-form/backoffice/backoffice-users/backoffice-users.component';
 import { BackofficeActivitiesComponent } from './pages/activities/backoffice/backoffice-activities/backoffice-activities.component';
 import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-slides/backoffice-slides.component';
+import { LoaderspinnerComponent } from './pages/loaderspinner/loaderspinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+
 
 
 @NgModule({
@@ -48,7 +51,8 @@ import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-
     ContactoFormComponent,
     BackofficeUsersComponent,
     BackofficeActivitiesComponent,
-    BackofficeSlidesComponent
+    BackofficeSlidesComponent,
+    LoaderspinnerComponent
   ],
   exports: [
     CategoriesFormComponent,
@@ -56,8 +60,7 @@ import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
-    MembersFormComponent,
+    RouterModule
   ],
 
   imports: [
@@ -72,6 +75,7 @@ import { BackofficeSlidesComponent } from './pages/slides/backoffice/backoffice-
     ActivitiesModule,
     CKEditorModule,
     DashboardScreenModule,
+    MatProgressSpinnerModule
   ],
 
 })

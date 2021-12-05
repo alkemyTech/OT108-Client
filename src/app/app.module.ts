@@ -13,6 +13,8 @@ import { FormsModule } from '@angular/forms';
 import { CKEditorModule } from "ng2-ckeditor";
 
 
+
+
 @NgModule({
   declarations: [
 
@@ -30,6 +32,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

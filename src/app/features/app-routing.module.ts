@@ -21,6 +21,7 @@ import { ContactoFormComponent } from "./pages/contacto/contacto-form/contacto-f
 import { BackofficeUsersComponent } from "./pages/users/user-form/backoffice/backoffice-users/backoffice-users.component";
 import { BackofficeActivitiesComponent } from "./pages/activities/backoffice/backoffice-activities/backoffice-activities.component";
 import { BackofficeSlidesComponent } from "./pages/slides/backoffice/backoffice-slides/backoffice-slides.component";
+import { LoaderspinnerComponent } from "./pages/loaderspinner/loaderspinner.component";
 
 const routes: Routes = [
   {
@@ -96,6 +97,8 @@ const routes: Routes = [
 
   { path: "backoffice", component: DashboardScreenComponent },
   { path: "register", component: RegisterFormComponent },
+
+  { path: "spinner", component: LoaderspinnerComponent },
 ];
 
 @NgModule({
