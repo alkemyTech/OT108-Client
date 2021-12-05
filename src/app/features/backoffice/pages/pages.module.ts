@@ -19,7 +19,7 @@ import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
 
-@NgModule({
+@NgModule({ 
   declarations: [
     ActivitiesComponent,
     ActivityFormComponent,
