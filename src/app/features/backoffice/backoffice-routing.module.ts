@@ -13,6 +13,7 @@ import { SlideComponent } from "./pages/slide/slide.component";
 import { SlidesComponent } from "./pages/slides/slides.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UsersComponent } from "./pages/users/users.component";
+import { ActividadesDetalleComponent } from "./pages/views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
 
 const router: Routes = [
   {
@@ -90,6 +91,10 @@ const router: Routes = [
       {
         path: "user/edit/:id",
         component: UsersComponent,
+      },
+      {
+        path: "actividades/:id",
+        component: ActividadesDetalleComponent ,
       },
     ],
   },

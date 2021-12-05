@@ -17,6 +17,7 @@ import { UsersListComponent } from "./users-list/users-list.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
+import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RouterModule } from "@angular/router";
     TestimonialsComponent,
     UsersComponent,
     UsersListComponent,
+    ActividadesDetalleComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule],
 })
