@@ -26,6 +26,9 @@ import { CardComponent } from './pages/card/card.component';
 
 
 import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
+import { HomeComponent } from './pages/home/home.component';
+import { SlidesComponent } from "../components/slides/slides.component";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
     MembersFormComponent,
     CardComponent,
     OrganizationDataComponent,
-    OrganizationFormComponent
+    OrganizationFormComponent,
+    HomeComponent,
+    SlidesComponent
   ],
   exports: [
     CategoriesFormComponent,
@@ -50,6 +55,7 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
     UserFormComponent,
     RouterModule,
     MembersFormComponent,
+    SlidesComponent
   ],
 
   imports: [
@@ -64,6 +70,7 @@ import { OrganizationDataComponent } from "./pages/organization/organization-dat
     ActivitiesModule,
     CKEditorModule,
     DashboardScreenModule,
+    NgbModule,
   ],
 })
 export class FeaturesModule {}

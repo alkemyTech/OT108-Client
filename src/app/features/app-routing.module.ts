@@ -17,12 +17,17 @@ import { CardComponent } from "./pages/card/card.component";
 import { OrganizationDataComponent } from "./pages/organization/organization-data/organization-data.component";
 import { OrganizationFormComponent } from "./pages/organization/organization-form/organization-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { HomeComponent } from "./pages/home/home.component";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "actividades",
+    redirectTo: "home",
     pathMatch: "full",
+  },
+  {
+    path: "home",
+    component: HomeComponent,
   },
   {
     path: "actividades",

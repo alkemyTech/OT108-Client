@@ -16,14 +16,13 @@ import { CKEditorModule } from "ng2-ckeditor";
 @NgModule({
   declarations: [
 
-    AppComponent,
-    SlidesComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
     CoreModule,
     FeaturesModule,
-    NgbModule
+    NgbModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HttpClientModule,
