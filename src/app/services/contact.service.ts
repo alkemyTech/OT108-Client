@@ -1,18 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Contact } from '../models/conctact';
-import { PrivateApiServiceService } from './private-api-service.service';
+import { Injectable } from "@angular/core";
+import { Contact } from "../models/conctact";
+import { PublicApiService } from "./public-api.service";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class ContactService {
+  constructor(private http: PublicApiService) {}
 
-  constructor(private http:PrivateApiServiceService) { }
-
-  creationContact(contacts:Contact){
-    return this.http.post("contacts",contacts);
+  creationContact(contacts: Contact) {
+    return this.http.post("contacts", contacts);
   }
 }
-
-
-
