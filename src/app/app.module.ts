@@ -11,9 +11,11 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
 
 @NgModule({
-  declarations: [AppComponent, SlidesComponent],
+  declarations: [AppComponent, SlidesComponent, DialogComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -25,8 +27,10 @@ import { CKEditorModule } from "ng2-ckeditor";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[DialogComponent]
 })
 export class AppModule {}
