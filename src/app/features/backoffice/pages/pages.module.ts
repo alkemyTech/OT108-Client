@@ -20,6 +20,9 @@ import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
 import { LoaderspinnerComponent } from './loaderspinner/loaderspinner/loaderspinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
+
 
 @NgModule({ 
   declarations: [
@@ -39,7 +42,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     UsersListComponent,
     ActividadesDetalleComponent,
     LoaderspinnerComponent,
+    SetupProgressComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule,     MatProgressSpinnerModule],
+  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule, MatProgressSpinnerModule, MatProgressBarModule], 
 })
 export class PagesModule {}

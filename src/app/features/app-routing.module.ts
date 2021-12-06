@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: "public",
     loadChildren: () =>
-      import("../features/public/public.module").then((m) => m.PublicModule),
+      import("./public.module").then((m) => m.PublicModule),
   },
 ];
 
