@@ -4,8 +4,8 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
-import { BackofficeModule } from "./backoffice/backoffice.module";
 import { PublicModule } from "./public/public.module";
+import { BackofficeModule } from "./backoffice/backoffice.module";
 
 
 @NgModule({
