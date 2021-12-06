@@ -96,6 +96,7 @@ const router: Routes = [
         path: "actividades/:id",
         component: ActividadesDetalleComponent ,
       },
+      
     ],
   },
 ];

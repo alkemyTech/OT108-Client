@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SlideService } from '../../../services/slide.service'
+import { SlideService } from 'src/app/features/backoffice/services/slide.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { SlideService } from '../../../services/slide.service'
 })
 export class HomeComponent implements OnInit {
 
-  welcomeText:string = `<H1>TEXTO DE BIENVENIDA ONG</H1>`
+  welcomeText:string = `<H1>SOMOS MAS ONG</H1>`
   itemList:any 
 
   constructor(
