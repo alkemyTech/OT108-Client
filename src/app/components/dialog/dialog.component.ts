@@ -12,7 +12,7 @@ export class DialogComponent implements OnInit {
   constructor(public dialogRef:MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA) public message:String
     ) { }
-
+    
   ngOnInit(): void {
   }
 

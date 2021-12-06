@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
-
+import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 @NgModule({
   declarations: [
     ActivitiesComponent,
@@ -36,6 +36,7 @@ import { ActividadesDetalleComponent } from './views/activities/detail/actividad
     UsersComponent,
     UsersListComponent,
     ActividadesDetalleComponent,
+    ContactoFormComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule],
 })

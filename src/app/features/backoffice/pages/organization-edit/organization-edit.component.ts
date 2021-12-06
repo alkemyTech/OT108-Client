@@ -84,11 +84,9 @@ export class OrganizationEditComponent implements OnInit {
     this.organizationService
       .update(this.formulario.value, 1)
       .subscribe((res) => {
-        // this.dialogService.openConfirmDialog();
-        this.dialogService.openErrorDialog();
-        // this.alert.messageGood(
-        //   " La organizacion fue actualizado exitosamente!"
-        // );
+        //aqui llamamos el servicio de dialogo q me muestra e mensaje de guardado con exito
+        this.dialogService.openConfirmDialog();
+       
       });
   }
 

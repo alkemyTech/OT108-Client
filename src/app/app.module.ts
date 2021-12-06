@@ -13,7 +13,7 @@ import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from "@angular/material/dialog";
-
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [AppComponent, SlidesComponent, DialogComponent],
   imports: [
@@ -28,6 +28,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     FormsModule,
     CKEditorModule,
     MatDialogModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

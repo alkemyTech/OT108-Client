@@ -11,8 +11,8 @@ export class DialogService {
   constructor(private dialog:MatDialog) { }
   openConfirmDialog(){
     this.dialog.open(DialogComponent,{
-      width: '400px',
-      data: 'Guardado con exitos',
+      width: '250px',
+       data: 'Guardado con exitos',
       panelClass: 'content-container',
       disableClose:true
     });
