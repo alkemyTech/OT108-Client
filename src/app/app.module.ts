@@ -10,9 +10,12 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
-
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import {MatIconModule} from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 @NgModule({
-  declarations: [AppComponent, SlidesComponent],
+  declarations: [AppComponent, SlidesComponent, DialogComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -23,8 +26,13 @@ import { CKEditorModule } from "ng2-ckeditor";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
+    MatDialogModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
+  entryComponents:[DialogComponent]
 })
 export class AppModule {}

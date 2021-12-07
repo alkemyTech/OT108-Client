@@ -22,6 +22,7 @@ import { LoaderspinnerComponent } from './loaderspinner/loaderspinner/loaderspin
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
+import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 
 
 @NgModule({ 
@@ -43,6 +44,7 @@ import { SetupProgressComponent } from './setup-progress/setup-progress/setup-pr
     ActividadesDetalleComponent,
     LoaderspinnerComponent,
     SetupProgressComponent,
+    ContactoFormComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule, MatProgressSpinnerModule, MatProgressBarModule], 
 })
