@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { AlertService } from "src/app/services/alert.service";
+import { retry } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -9,6 +10,20 @@ export class PrivateApiService {
   private url: string = "http://ongapi.alkemy.org/api";
 
   constructor(private http: HttpClient, private alert: AlertService) {}
+
+  patch(rutter: string, body: object, id?: string, auth?: boolean) {
+    const httpHeaders = this.headers(auth);
+    const urls = this.router(rutter, id);
+    return this.http.patch(urls, JSON.stringify(body), {
+      headers: httpHeaders,
+    });
+  }
+
+  delate(rutter: string, id: string) {
+    const httpHeaders = this.headers(false);
+    const urls = this.router(rutter, id);
+    return this.http.delete(urls, { headers: httpHeaders });
+  }
 
   get(rutter: string, id?: string) {
     const urls = this.router(rutter, id);

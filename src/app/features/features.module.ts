@@ -5,7 +5,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { BackofficeModule } from "./backoffice/backoffice.module";
-import { PublicModule } from "./public/public.module";
+import { PublicModule } from "./public.module";
+
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { PublicModule } from "./public/public.module";
     CKEditorModule,
     BackofficeModule,
     PublicModule,
+
   ],
 })
 export class FeaturesModule {}

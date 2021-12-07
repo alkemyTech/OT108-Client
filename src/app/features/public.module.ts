@@ -1,8 +1,8 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { PagesModule } from "./pages/pages.module";
-import { ComponentsModule } from "./components/components.module";
-import { PublicRoutingModule } from "./public-routing.module";
+import { PagesModule } from "./public/pages/pages.module";
+import { ComponentsModule } from "./public/components/components.module";
+import { PublicRoutingModule } from "./public/public-routing.module";
 
 @NgModule({
   declarations: [],
