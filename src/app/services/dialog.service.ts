@@ -21,7 +21,7 @@ export class DialogService {
   openErrorDialog(){
     this.dialog.open(DialogComponent,{
       width: '400px',
-      data: 'Error al guardar los datos',
+      data: 'Error Intente de nuevo',
       panelClass: 'content-container',
       disableClose:true
     });
