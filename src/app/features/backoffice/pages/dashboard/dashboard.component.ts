@@ -6,6 +6,7 @@ import {
   animate,
   state,
 } from "@angular/animations";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
@@ -38,25 +39,29 @@ import {
   ],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
   go(route: string) {
     switch (route) {
       case "members":
+        this.router.navigate(["memer"]);
         break;
       case "user":
         break;
       case "slides":
+        this.router.navigate(["backoffice/slides"]);
         break;
       case "community":
         break;
       case "testimony":
         break;
       case "categories":
+        this.router.navigate(["backoffice/categories-list"]);
         break;
       case "activities":
+        this.router.navigate(["backoffice/activities-list"]);
         break;
       case "novelties":
         break;
