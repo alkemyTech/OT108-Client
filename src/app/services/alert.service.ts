@@ -17,7 +17,7 @@ export class AlertService {
   messageGood(texto: string) {
     Swal.fire({
       icon: "success",
-      title: "Exelente!!",
+      title: "Excelente!!",
       text: texto,
     });
   }
