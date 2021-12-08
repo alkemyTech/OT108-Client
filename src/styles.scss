@@ -151,3 +151,7 @@ h3 span {
   font-size: 35px;
   color: #36A0FF;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

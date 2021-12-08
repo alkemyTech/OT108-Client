@@ -13,6 +13,7 @@ import { Observable, Subscriber } from "rxjs";
 import { Organization } from "src/app/models/organization";
 import { OrganizationService } from "../../services/organization.service";
 import { AlertService } from "src/app/services/alert.service";
+import { DialogService } from "src/app/services/dialog.service";
 @Component({
   selector: "app-organization-edit",
   templateUrl: "./organization-edit.component.html",
@@ -60,7 +61,8 @@ export class OrganizationEditComponent implements OnInit {
     private organizationService: OrganizationService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private alert: AlertService
+    private alert: AlertService,
+    private dialogService:DialogService
   ) {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.formulario = this.frB.group({
@@ -82,9 +84,9 @@ export class OrganizationEditComponent implements OnInit {
     this.organizationService
       .update(this.formulario.value, 1)
       .subscribe((res) => {
-        this.alert.messageGood(
-          " La organizacion fue actualizado exitosamente!"
-        );
+        //aqui llamamos el servicio de dialogo q me muestra e mensaje de guardado con exito
+        this.dialogService.openConfirmDialog();
+       
       });
   }
 
