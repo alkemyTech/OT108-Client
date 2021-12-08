@@ -11,6 +11,7 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
 @NgModule({
   declarations: [AppComponent, SlidesComponent],
@@ -25,6 +26,7 @@ import { CKEditorModule } from "ng2-ckeditor";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
+    NgxSkeletonLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

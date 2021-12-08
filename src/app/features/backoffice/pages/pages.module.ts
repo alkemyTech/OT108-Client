@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,6 @@ import { ActividadesDetalleComponent } from './views/activities/detail/actividad
     UsersListComponent,
     ActividadesDetalleComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule,NgxSkeletonLoaderModule],
 })
 export class PagesModule {}

@@ -12,6 +12,8 @@ export class UsersListComponent implements OnInit {
   name: any;
   email: string = "";
   imagenNull: boolean = false;
+  loader:boolean =  true;
+  totalCount =5;
 
   constructor(
     private service: UsersService,
@@ -19,7 +21,10 @@ export class UsersListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUser();
+    setTimeout(() => {
+      this.getUser();
+    }, 5000);
+    
   }
 
   getUser() {
