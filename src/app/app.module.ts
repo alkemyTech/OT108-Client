@@ -4,7 +4,6 @@ import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
-import { SlidesComponent } from "./components/slides/slides.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
@@ -16,7 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogErrorComponent } from './components/dialog-error/dialog-error.component'; 
 @NgModule({
-  declarations: [AppComponent, SlidesComponent, DialogComponent, DialogErrorComponent],
+  declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
     BrowserModule,
     CoreModule,
