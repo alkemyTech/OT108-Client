@@ -19,7 +19,7 @@ export class PrivateApiService {
     });
   }
 
-  delate(rutter: string, id: string) {
+  delete(rutter: string, id: string) {
     const httpHeaders = this.headers(false);
     const urls = this.router(rutter, id);
     return this.http.delete(urls, { headers: httpHeaders });
