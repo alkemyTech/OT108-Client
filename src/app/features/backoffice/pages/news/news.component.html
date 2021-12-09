@@ -1,0 +1,100 @@
+<div class="container mt-5">
+  <form [formGroup]="formulario" (ngSubmit)="createAndEditNews()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2>
+          <b>{{ title }}</b>
+        </h2>
+      </div>
+    </div>
+    <div class="column formulario">
+      <div class="col-md-12 mb-3">
+        <label for="titulo" class="form-label"
+          >Titulo (cuatro caracteres minimo)</label
+        >
+        <input
+          minlength="4"
+          type="text"
+          class="form-control"
+          id="titulo"
+          placeholder="Titulo"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
+          "
+        >
+          El titulo es requerido
+        </small>
+      </div>
+      <p style="margin-left: 15px">Categoria</p>
+      <select size="3" class="col-md-12 mb-3" style="margin-left: 10px">
+        <option *ngFor="let id of categoria">{{ id.id }}</option>
+      </select>
+      <div class="col-md-6 mb-5">
+        <div *ngIf="edit">
+          <label>Imagen</label>
+          <br />
+          <img [src]="image" width="350px" />
+        </div>
+        <label for="imagen" class="form-label">{{ titleImage }}</label
+        ><br />
+        <input
+          (change)="onChange($event)"
+          type="file"
+          accept="image/png,image/jpeg"
+          formControlName="image"
+          id="imagen"
+        />
+
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('image')?.errors?.required &&
+            formulario.get('image')?.touched
+          "
+          >La imagen es requerida</small
+        >
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="contenido" class="form-label"
+          >Contenido
+          <ckeditor
+            type="text-area"
+            id="contenido"
+            placeholder="Contenido"
+            formControlName="content"
+          >
+          </ckeditor>
+        </label>
+      </div>
+      <small
+        class="invalid"
+        *ngIf="
+          formulario.get('content')?.errors?.required &&
+          formulario.get('content')?.touched
+        "
+      >
+        El contenido es requerido
+      </small>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          *ngIf="formulario.invalid"
+          style="background-color: red"
+          type="submit"
+          class="btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Completar campos
+        </button>
+        <button class="btn-block" *ngIf="formulario.valid">Aceptar</button>
+      </div>
+    </div>
+  </form>
+</div>

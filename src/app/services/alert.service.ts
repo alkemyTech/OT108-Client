@@ -1,29 +1,24 @@
-import { Injectable } from '@angular/core';
-import Swal from 'sweetalert2'
+import { Injectable } from "@angular/core";
+import Swal from "sweetalert2";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AlertService {
+  constructor() {}
 
-  constructor() { }
-
-
-  
-  messageError(texto: string){
+  messageError(texto: string) {
     Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text:texto,
+      icon: "error",
+      title: "Oops...",
+      text: texto,
     });
   }
 
- 
-
-  messageGood( texto:string){
+  messageGood(texto: string) {
     Swal.fire({
-      icon: 'success',
-      title: 'Exelente!!',
-      text:texto,
+      icon: "success",
+      title: "Excelente!!",
+      text: texto,
     });
   }
 }

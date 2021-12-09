@@ -1,0 +1,116 @@
+<div class="container mt-5">
+  <form [formGroup]="formulario" (ngSubmit)="creacionYEdicionUsuario()">
+    <div class="row">
+      <div class="col-md-12 mb-5">
+        <h2>
+          <b>{{ title }}</b>
+        </h2>
+      </div>
+    </div>
+    <div class="row formulario">
+      <select class="col-md-12 mb-3" style="height: 35px; margin-left: 10px">
+        <option id="1">Administrador</option>
+        <option id="2">Regular</option>
+      </select>
+      <div style="margin-right: 500px" class="col-md-12 mb-3">
+        <label for="name" class="form-label"
+          >Name (cuatro caracteres minimo)</label
+        >
+        <input
+          minlength="4"
+          type="text"
+          class="form-control"
+          id="nombre"
+          placeholder="Name"
+          formControlName="name"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('name')?.errors?.required &&
+            formulario.get('name')?.touched
+          "
+        >
+          El nombre es requerido
+        </small>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="apellido" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('email')?.errors?.required &&
+            formulario.get('email')?.touched
+          "
+        >
+          El email es requerido
+        </small>
+      </div>
+      <div class="col-md-12 mb-3">
+        <label for="apellido" class="form-label">Password</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder="password"
+          formControlName="password"
+        />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('password')?.errors?.required &&
+            formulario.get('password')?.touched
+          "
+        >
+          El password es requerido
+        </small>
+      </div>
+      <div class="col-md-12 mb-5">
+        <div *ngIf="edit">
+          <label>Imagen</label>
+          <br />
+          <img [src]="image" width="350px" />
+        </div>
+        <label for="image" class="form-label">{{ titleImage }}</label>
+        <br />
+        <input
+          (change)="onChange($event)"
+          type="file"
+          accept="image/png,image/jpeg"
+          formControlName="profile_image"
+          id="foto"
+        />
+        <br />
+        <small
+          class="invalid"
+          *ngIf="
+            formulario.get('profile_image')?.errors?.required &&
+            formulario.get('profile_image')?.touched
+          "
+          >La foto es requerida</small
+        >
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12 d-grid gap-2">
+        <button
+          *ngIf="formulario.invalid"
+          style="background-color: red"
+          type="submit"
+          class="btn-block"
+          [disabled]="formulario.invalid"
+        >
+          Completar campos
+        </button>
+        <button class="btn-block" *ngIf="formulario.valid">Aceptar</button>
+      </div>
+    </div>
+  </form>
+</div>
