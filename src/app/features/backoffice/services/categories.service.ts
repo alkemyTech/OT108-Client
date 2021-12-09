@@ -4,28 +4,27 @@ import { Categories } from "src/app/models/categories";
 import { PrivateApiService } from "./private-api.service";
 import { environment } from "src/app/features/backoffice/pages/categories/environment";
 
-
 @Injectable({
   providedIn: "root",
 })
 export class CategoriesService {
-  constructor(private http: PrivateApiService) {
-    console.log("log: ",environment)
-  }
+  environment = environment.categories;
+
+  constructor(private http: PrivateApiService) {}
 
   createCategory(categoria: Categories): Observable<any> {
-    return this.http.post(environment.categories, categoria);
+    return this.http.post(this.environment, categoria);
   }
 
   editCategory(id: string, category: Categories): Observable<any> {
-    return this.http.put(environment.categories, category, id);
+    return this.http.put(this.environment, category, id);
   }
 
   getCategory(id: string): Observable<any> {
-    return this.http.get(environment.categories, id);
+    return this.http.get(this.environment, id);
   }
 
   deleteCategory(id: string): Observable<any> {
-    return this.http.delete(environment.categories, id);
+    return this.http.delete(this.environment, id);
   }
 }
