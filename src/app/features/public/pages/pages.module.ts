@@ -8,6 +8,7 @@ import { DonationsComponent } from './donations/donations.component';
 import { GiveTheTranksComponent } from './give-the-tranks/give-the-tranks.component';
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
+import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,6 @@ import { ComponentsModule } from "../components/components.module";
     DonationsComponent, 
     GiveTheTranksComponent,
     HomeComponent],
-  imports: [CommonModule, ReactiveFormsModule,ComponentsModule],
+  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule],
 })
 export class PagesModule {}

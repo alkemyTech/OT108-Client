@@ -14,7 +14,6 @@ import { SlidesComponent } from "./pages/slides/slides.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UsersComponent } from "./pages/users/users.component";
 import { ActividadesDetalleComponent } from "./pages/views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
-import { LoaderspinnerComponent } from "./pages/loaderspinner/loaderspinner/loaderspinner.component";
 import { SetupProgressComponent } from "./pages/setup-progress/setup-progress/setup-progress.component";
 
 const router: Routes = [
@@ -97,11 +96,6 @@ const router: Routes = [
       {
         path: "actividades/:id",
         component: ActividadesDetalleComponent ,
-      },
-
-      {
-        path: "spinner",
-        component: LoaderspinnerComponent ,
       },
 
       {

@@ -14,6 +14,9 @@ import { MatDialogModule } from "@angular/material/dialog";
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogErrorComponent } from './components/dialog-error/dialog-error.component'; 
+import { LoaderspinnerModule } from "./components/loaderspinner/loaderspinner.module";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -29,7 +32,8 @@ import { DialogErrorComponent } from './components/dialog-error/dialog-error.com
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
-    
+    LoaderspinnerModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent],
