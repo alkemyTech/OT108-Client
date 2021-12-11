@@ -1,8 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Categories } from "src/app/models/categories";
+import { environment } from "src/environments/environment";
 import { PrivateApiService } from "./private-api.service";
-import { environment } from "src/app/features/backoffice/pages/categories/environment";
 
 @Injectable({
   providedIn: "root",
