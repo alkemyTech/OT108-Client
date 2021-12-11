@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Contact } from "src/app/models/conctact";
-import { AlertService } from "src/app/services/alert.service";
 import { ContactService } from "src/app/services/contact.service";
+import { DialogService } from "src/app/services/dialog.service";
 
 @Component({
   selector: "app-contacto-form",
@@ -18,8 +18,8 @@ export class ContactoFormComponent implements OnInit {
   constructor(
     private frB: FormBuilder,
     private contactService: ContactService,
-    private alert: AlertService
-  ) {
+    private dialogService: DialogService
+    ) {
     this.formulario = this.frB.group({
       name: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.pattern(this.emailPattern)]],
@@ -57,9 +57,16 @@ export class ContactoFormComponent implements OnInit {
       phone: this.formulario.get("phone")?.value,
       message: this.formulario.get("message")?.value,
     };
-    this.contactService.creationContact(contact).subscribe((data) => {
-      console.log("creado: ", data);
-      this.alert.messageGood("Mensaje enviado");
-    });
+    this.contactService.creationContact(contact).subscribe((data:any) => {
+      if (data.success) {
+        this.dialogService.openConfirmDialog();
+      } else {
+        this.dialogService.openErrorDialog();
+      }
+    },
+    (error) => {
+      this.dialogService.openErrorDialog();
+    }
+  );
   }
 }

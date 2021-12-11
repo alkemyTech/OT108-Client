@@ -1,0 +1,35 @@
+/*Home styles*/
+.home-container {
+  text-align: center;
+  align-items: center;
+  background-color: #ebeff1;
+}
+.home-bienvenida {
+  color: black;
+  background-color: rgb(231, 220, 220);
+  opacity: 0.85;
+  display: table;
+  margin: 40px auto 40px auto;
+}
+
+.titulo-header {
+  color: black;
+  opacity: 0.85;
+  text-align: center;
+  margin: 50px auto 50px auto;
+}
+.body-home {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  align-items: center;
+  background-color: #ebeff1;
+  justify-content: center;
+}
+
+.card-img-top {
+  height: 286px;
+  width: 286px;
+}
+
+/*Home styles*/

@@ -38,6 +38,15 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace":"src/environments/environment.prod.ts" ,
+                  "with": "src/environments/environment.ts"
+                }
+              ]
+
+            },
             "production": {
               "budgets": [
                 {
@@ -68,7 +77,7 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "local"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -78,9 +87,12 @@
             },
             "development": {
               "browserTarget": "base-ong-angular-client:build:development"
+            },
+            "local": {
+              "browserTarget": "base-ong-angular-client:build:local"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
