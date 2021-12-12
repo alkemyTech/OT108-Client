@@ -1,11 +1,9 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
-import { User } from "src/app/models/user";
-import { retrievedUsersList } from "src/app/state/actions/users.actions";
+import { loadUsersList } from "src/app/state/actions/users.actions";
 import { selectUsers } from "src/app/state/selectors/users.selector";
-import { UsersService } from "../../services/users.service";
+
 @Component({
   selector: "app-users-list",
   templateUrl: "./users-list.component.html",
@@ -17,21 +15,11 @@ export class UsersListComponent implements OnInit {
   email: string = "";
   imagenNull: boolean = false;
 
-  constructor(
-    private service: UsersService,
-    private actividadRouter: ActivatedRoute,
-    private store: Store
-  ) {
+  constructor(private store: Store<{ retrievedUsersList: any }>) {
     this.users$ = this.store.select(selectUsers);
   }
 
   ngOnInit(): void {
-    this.getUsers();
-  }
-
-  getUsers() {
-    this.service.getUser().subscribe((res) => {
-      this.store.dispatch(retrievedUsersList({ users: res.data }));
-    });
+    this.store.dispatch(loadUsersList());
   }
 }
