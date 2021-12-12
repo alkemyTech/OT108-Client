@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { Organization } from "src/app/models/organization";
 import { environment } from "src/environments/environment";
 import { PrivateApiService } from "./private-api.service";
@@ -11,13 +10,13 @@ export class OrganizationService {
   Url = environment.organization;
   constructor(private http: PrivateApiService) {}
 
-  update(organization: Organization, id: number): Observable<any> {
+  update(organization: Organization, id: number){
     return this.http.put(this.Url, organization, id.toString());
   }
-  getOrganization(id: number): Observable<any> {
+  getOrganization(id: number){
     return this.http.get(this.Url, id.toString());
   }
-  deleteOrganization(id: number): Observable<any>{
+  deleteOrganization(id: number){
     return this.http.delete(this.Url, id.toString());
   }
 }
