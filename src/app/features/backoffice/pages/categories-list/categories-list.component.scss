@@ -1,0 +1,15 @@
+.cont {
+  margin-top: 2px;
+  max-width: 900px;
+  padding: 50px;
+}
+
+.sober {
+  transition: 0.3s;
+  cursor: pointer;
+  align-items: center;
+}
+.sober:hover {
+  z-index: 999;
+  transform: scale(1.1);
+}

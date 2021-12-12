@@ -19,9 +19,7 @@ export class ActivitiesComponent implements OnInit {
 
   getActivitys() {
     this.service.getActivity().subscribe((data: any) => {
-      data.forEach((element: any) => {
-        this.activities.push(element.data);
-      });
+      this.activities = data.data;
     });
   }
 }

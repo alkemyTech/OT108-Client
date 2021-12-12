@@ -14,7 +14,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     CommonModule,
     PagesModule,
     ComponentsModule,
-    BackofficeRoutingModule
+    BackofficeRoutingModule,
   ],
 })
 export class BackofficeModule {}

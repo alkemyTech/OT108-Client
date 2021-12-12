@@ -20,9 +20,10 @@ export class OrganizationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getOrganization();
+   // this.getOrganization();
     console.log(this.Organization);
   }
+  /*
   getOrganization() {
     return this.organizationService.getOrganization(1).subscribe((res) => {
       this.name = res.data?.name;
@@ -30,4 +31,5 @@ export class OrganizationComponent implements OnInit {
       this.short_description = res.data?.short_description;
     });
   }
+  */
 }

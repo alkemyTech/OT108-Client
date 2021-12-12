@@ -11,14 +11,12 @@ const routes: Routes = [
   {
     path: "backoffice",
     loadChildren: () =>
-      import("../features/backoffice/backoffice.module").then(
-        (m) => m.BackofficeModule
-      ),
+      import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
   },
   {
     path: "public",
     loadChildren: () =>
-      import("./public.module").then((m) => m.PublicModule),
+      import("./public/public.module").then((m) => m.PublicModule),
   },
 ];
 

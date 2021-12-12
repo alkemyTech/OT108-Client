@@ -5,13 +5,9 @@
     <app-slides></app-slides>
   </div>
 
-  <div
-    class="home-bienvenida"
-    style="background-color: rgb(231, 220, 220)"
-    [innerHTML]="welcomeText"
-  ></div>
+  <div class="home-bienvenida" [innerHTML]="welcomeText"></div>
   <div class="titulo-header">
-    <span><H1>Titulo de Seccion</H1></span>
+    <app-titles></app-titles>
   </div>
   <div class="body-home">
     <div class="item-list" *ngFor="let item of itemList">

@@ -1,0 +1,36 @@
+<div class="card mt-2 mb-2" style="width: 18rem">
+  <div>
+    <div>
+      <div class="card-body">
+        <!-- Role -->
+        <span class="badge w-100 mb-2 bg-info">{{ id }}</span>
+        <div *ngIf="!image">
+          <img
+            id="imagenNull"
+            class="card-img-top"
+            src="../../../../../assets/images/imagenull.png"
+            height="212px"
+            width="212px"
+          />
+        </div>
+        <!-- Photo 1 -->
+        <div *ngIf="image">
+          <img
+            class="card-img-top"
+            [src]="image"
+            height="212px"
+            width="212px"
+          />
+        </div>
+        <div class="card-title text-center">
+          <label class="form-label">Nombre</label>
+          <input
+            class="form-control text-center"
+            [placeholder]="name"
+            readonly
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
