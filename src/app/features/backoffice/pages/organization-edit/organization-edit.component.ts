@@ -128,7 +128,7 @@ export class OrganizationEditComponent implements OnInit {
     this.edit = true;
     this.tituloImage = "";
     this.organizationService.getOrganization(1).subscribe((data) => {
-      console.log("editar: ", data);
+     if(data.success){
       this.formulario.patchValue({
         name: data.data?.name,
         short_description: data.data?.short_description,
@@ -139,6 +139,15 @@ export class OrganizationEditComponent implements OnInit {
         twitter_url: data.data?.twitter_url,
       });
       this.logo = data.data?.logo;
-    });
+
+     }else{
+       this.dialogService.openErrorDialog();
+     }
+    },
+    (error)=>{
+      this.dialogService.openErrorDialog();
+    }
+      
+    );
   }
 }
