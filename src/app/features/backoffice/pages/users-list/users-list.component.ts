@@ -12,7 +12,7 @@ import { UsersService } from "../../services/users.service";
   styleUrls: ["./users-list.component.scss"],
 })
 export class UsersListComponent implements OnInit {
-  users$: Observable<any> = new Observable()
+  users$: Observable<any> = new Observable();
   name: any;
   email: string = "";
   imagenNull: boolean = false;
@@ -22,17 +22,16 @@ export class UsersListComponent implements OnInit {
     private actividadRouter: ActivatedRoute,
     private store: Store
   ) {
-    this.users$ = this.store.select(selectUsers)
+    this.users$ = this.store.select(selectUsers);
   }
 
   ngOnInit(): void {
-    this.getUser();
+    this.getUsers();
   }
 
-  getUser() {
+  getUsers() {
     this.service.getUser().subscribe((res) => {
-      this.store.dispatch(retrievedUsersList({users:res.data}));
-
+      this.store.dispatch(retrievedUsersList({ users: res.data }));
     });
   }
 }
