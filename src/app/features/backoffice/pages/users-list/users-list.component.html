@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div *ngFor="let usuario of users" class="card contenedor">
+<div *ngFor="let usuario of users$ | async" class="card contenedor">
   <div *ngIf="usuario.profile_image != null">
     <img class="card-img-top" [src]="usuario.profile_image" />
   </div>
