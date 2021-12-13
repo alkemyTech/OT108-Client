@@ -72,7 +72,7 @@ export class SlidesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.slideService.getAllSlides().subscribe((slide) => {
+    this.slideService.getAllSlides().subscribe((slide:any) => {
       if (slide.success) {
         this.slidesArray = slide.data;
         this.checkOrder();
@@ -142,7 +142,7 @@ export class SlidesComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       let id = params["id"];
       if (id) {
-        this.slideService.getSlide(id).subscribe((slide) => {
+        this.slideService.getSlide(id).subscribe((slide:any) => {
           (this.slides = slide.data),
             (this.image = slide.data.image),
             this.formulario.patchValue({ image: this.image });
