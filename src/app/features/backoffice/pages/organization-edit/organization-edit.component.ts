@@ -125,29 +125,29 @@ export class OrganizationEditComponent implements OnInit {
   }
 
   editar() {
-    this.edit = true;
-    this.tituloImage = "";
-    this.organizationService.getOrganization(1).subscribe((data) => {
-     if(data.success){
-      this.formulario.patchValue({
-        name: data.data?.name,
-        short_description: data.data?.short_description,
-        long_description: data.data?.long_description,
-        facebook_url: data.data?.facebook_url,
-        linkedin_url: data.data?.linkedin_url,
-        instagram_url: data.data?.instagram_url,
-        twitter_url: data.data?.twitter_url,
-      });
-      this.logo = data.data?.logo;
+    // this.edit = true;
+    // this.tituloImage = "";
+    // this.organizationService.getOrganization(1).subscribe((data) => {
+    //  if(data.success){
+    //   this.formulario.patchValue({
+    //     name: data.data?.name,
+    //     short_description: data.data?.short_description,
+    //     long_description: data.data?.long_description,
+    //     facebook_url: data.data?.facebook_url,
+    //     linkedin_url: data.data?.linkedin_url,
+    //     instagram_url: data.data?.instagram_url,
+    //     twitter_url: data.data?.twitter_url,
+    //   });
+    //   this.logo = data.data?.logo;
 
-     }else{
-       this.dialogService.openErrorDialog();
-     }
-    },
-    (error)=>{
-      this.dialogService.openErrorDialog();
-    }
+    //  }else{
+    //    this.dialogService.openErrorDialog();
+    //  }
+    // },
+    // (error)=>{
+    //   this.dialogService.openErrorDialog();
+    // }
       
-    );
+    // );
   }
 }

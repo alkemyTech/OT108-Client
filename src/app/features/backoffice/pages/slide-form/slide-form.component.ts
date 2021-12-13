@@ -15,10 +15,10 @@ import { AlertService } from "src/app/services/alert.service";
 import { Slides } from "src/app/models/slides";
 @Component({
   selector: "app-slides",
-  templateUrl: "./slides.component.html",
-  styleUrls: ["./slides.component.scss"],
+  templateUrl: "./slide-form.component.html",
+  styleUrls: ["./slide-form.component.scss"],
 })
-export class SlidesComponent implements OnInit {
+export class SlideFormComponent implements OnInit {
   @ViewChild(CKEditorComponent) ckEditor!: CKEditorComponent;
 
   ngAfterViewChecked() {

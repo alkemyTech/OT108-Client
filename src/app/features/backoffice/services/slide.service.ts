@@ -9,11 +9,11 @@ import { PrivateApiService } from "./private-api.service";
 export class SlideService {
   constructor(private http: PrivateApiService) {}
 
-  create(slides: Slides): Observable<Slides> {
+  create(slides: Slides): Observable<any> {
     return this.http.post("slides", slides);
   }
 
-  update(slides: Slides, id: number): Observable<Slides> {
+  update(slides: Slides, id: number): Observable<any> {
     return this.http.put("slides", slides, id.toString());
   }
 

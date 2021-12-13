@@ -14,6 +14,9 @@ import { MatDialogModule } from "@angular/material/dialog";
 import {MatIconModule} from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogErrorComponent } from './components/dialog-error/dialog-error.component'; 
+import { EffectsModule } from "@ngrx/effects";
+import { StoreModule } from "@ngrx/store";
+
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -29,6 +32,8 @@ import { DialogErrorComponent } from './components/dialog-error/dialog-error.com
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
+    EffectsModule.forRoot([]),
+    StoreModule.forRoot({})
     
   ],
   providers: [],

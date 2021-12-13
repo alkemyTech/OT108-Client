@@ -24,10 +24,10 @@ export class OrganizationComponent implements OnInit {
     console.log(this.Organization);
   }
   getOrganization() {
-    return this.organizationService.getOrganization(1).subscribe((res) => {
-      this.name = res.data?.name;
-      this.logo = res.data?.logo;
-      this.short_description = res.data?.short_description;
-    });
+    // return this.organizationService.getOrganization(1).subscribe((res) => {
+    //   this.name = res.data?.name;
+    //   this.logo = res.data?.logo;
+    //   this.short_description = res.data?.short_description;
+    // });
   }
 }
