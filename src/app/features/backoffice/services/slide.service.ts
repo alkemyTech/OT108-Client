@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Observable, timer } from "rxjs";
 import { Slides } from "src/app/models/slides";
 import { environment } from "src/environments/environment";
 import { PrivateApiService } from "./private-api.service";
@@ -10,19 +11,19 @@ export class SlideService {
  url= environment.slides
   constructor(private http: PrivateApiService) {}
 
-  create(slides: Slides) {
+  create(slides: Slides): Observable<Slides> {
     return this.http.post(this.url, slides);
   }
 
-  update(slides: Slides, id: number){
+  update(slides: Slides, id: number): Observable<Slides> {
     return this.http.put(this.url, slides, id.toString());
   }
 
-  getAllSlides(){
+  getAllSlides(): Observable<any> {
     return this.http.get(this.url);
   }
 
-  getSlide(id: any) {
+  getSlide(id: any): Observable<any> {
     return this.http.get(this.url, id);
   }
 }
