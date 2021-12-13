@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getAllSlides().subscribe(res =>{
+    this.service.getAllSlides().subscribe((res:any) =>{
 this.itemList = res.data
 
   this.load=false 
