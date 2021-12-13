@@ -20,4 +20,7 @@ export class ActivityService {
   getActivity(id?: string) {
     return this.https.get("activities", id);
   }
+  delateActivity(id: string) {
+    return this.https.delete("activities", id);
+  }
 }
