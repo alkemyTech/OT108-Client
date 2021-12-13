@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAllSlides().subscribe(res =>{
 this.itemList = res.data
-timer(500).subscribe(()=>{
+
   this.load=false 
 
-})
+
     })
   }
 

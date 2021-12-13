@@ -22,9 +22,13 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
 import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
+import { CategoriesListComponent } from "./categories-list/categories-list.component";
+import { MemberListComponent } from "./member-list/member-list.component";
+import { NewsListComponent } from "./news-list/news-list.component";
+import { ComponentsModule } from "../components/components.module";
+import { CategoriesDetailsComponent } from './categories-details/categories-details.component';
 
-
-@NgModule({ 
+@NgModule({
   declarations: [
     ActivitiesComponent,
     ActivityFormComponent,
@@ -43,7 +47,19 @@ import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
     ActividadesDetalleComponent,
     SetupProgressComponent,
     ContactoFormComponent,
+    CategoriesListComponent,
+    MemberListComponent,
+    NewsListComponent,
+    CategoriesDetailsComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule, CKEditorModule, RouterModule, MatProgressSpinnerModule, MatProgressBarModule], 
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    CKEditorModule,
+    RouterModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    ComponentsModule,
+  ],
 })
 export class PagesModule {}
