@@ -20,16 +20,16 @@ export class OrganizationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-   // this.getOrganization();
+   this.getOrganization();
     console.log(this.Organization);
   }
-  /*
+
   getOrganization() {
-    return this.organizationService.getOrganization(1).subscribe((res) => {
+    return this.organizationService.getOrganization(1).subscribe((res:any) => {
       this.name = res.data?.name;
       this.logo = res.data?.logo;
       this.short_description = res.data?.short_description;
     });
   }
-  */
+ 
 }

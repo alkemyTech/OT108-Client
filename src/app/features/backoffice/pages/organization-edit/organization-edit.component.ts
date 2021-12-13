@@ -123,11 +123,11 @@ export class OrganizationEditComponent implements OnInit {
       subscriber.complete;
     };
   }
-/*
+
   editar() {
     this.edit = true;
     this.tituloImage = "";
-    this.organizationService.getOrganization(1).subscribe((data) => {
+    this.organizationService.getOrganization(1).subscribe((data:any) => {
      if(data.success){
       this.formulario.patchValue({
         name: data.data?.name,
@@ -150,5 +150,5 @@ export class OrganizationEditComponent implements OnInit {
       
     );
   }
-*/ 
+
 }
