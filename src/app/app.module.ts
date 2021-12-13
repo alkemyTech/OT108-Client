@@ -9,11 +9,16 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
-import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogComponent } from "./components/dialog/dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
-import {MatIconModule} from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogErrorComponent } from './components/dialog-error/dialog-error.component'; 
+import { MatIconModule } from "@angular/material/icon";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
+import { StoreModule } from "@ngrx/store";
+import { ROOT_REDUCERS } from "src/app/state/app.state";
+import { EffectsModule } from "@ngrx/effects";
+import { Usersffects } from "./state/effects/users.effects";
+
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -29,10 +34,11 @@ import { DialogErrorComponent } from './components/dialog-error/dialog-error.com
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
-    
+    StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([Usersffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents:[DialogComponent,DialogErrorComponent]
+  entryComponents: [DialogComponent, DialogErrorComponent],
 })
 export class AppModule {}

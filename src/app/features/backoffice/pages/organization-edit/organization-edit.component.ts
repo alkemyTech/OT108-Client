@@ -78,7 +78,7 @@ export class OrganizationEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editar();
+   // this.editar();
   }
   accept() {
     this.organizationService
@@ -127,7 +127,7 @@ export class OrganizationEditComponent implements OnInit {
   editar() {
     this.edit = true;
     this.tituloImage = "";
-    this.organizationService.getOrganization(1).subscribe((data) => {
+    this.organizationService.getOrganization(1).subscribe((data:any) => {
      if(data.success){
       this.formulario.patchValue({
         name: data.data?.name,
@@ -150,4 +150,5 @@ export class OrganizationEditComponent implements OnInit {
       
     );
   }
+
 }
