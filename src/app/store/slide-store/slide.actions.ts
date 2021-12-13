@@ -9,4 +9,4 @@ export enum type {
 
 export const getAllSlides = createAction(type.GET_ALL_SLIDES);
 export const getAllSlidesFail    = createAction(type.GET_ALL_SLIDES_FAIL, props<{ error: any }>());
-export const getAllSlidesSuccess = createAction(type.GET_ALL_SLIDES_SUCCESS, props<{ slide: Slides }>());
+export const getAllSlidesSuccess = createAction('[Slides] Get All Success', props<{ slide: ReadonlyArray<Slides> }>());

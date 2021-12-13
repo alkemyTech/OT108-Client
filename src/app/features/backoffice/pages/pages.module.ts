@@ -28,7 +28,7 @@ import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentsModule } from "../components/components.module";
 import { CategoriesDetailsComponent } from './categories-details/categories-details.component';
-import { SlideStoreModule } from "src/app/store/slide-store/slide.store.module";
+
 
 @NgModule({
   declarations: [
@@ -62,8 +62,7 @@ import { SlideStoreModule } from "src/app/store/slide-store/slide.store.module";
     RouterModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    ComponentsModule,
-    SlideStoreModule
+    ComponentsModule
   ],
 })
 export class PagesModule {}

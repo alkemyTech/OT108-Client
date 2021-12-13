@@ -10,10 +10,12 @@ import * as slideActions from './slide.actions';
 export class SlideEffects{
     getAllSlides$ = createEffect(() => 
     this.actions$.pipe(
-      ofType(slideActions.getAllSlides),
+      ofType("[Slides] Get All"),
       switchMap(() =>
         this.slideService.getAllSlides().pipe(
-          map((slide) => slideActions.getAllSlidesSuccess({ slide })),
+          map((slide) => ({
+            type: "[Slides] Get All Success",
+          slide: slide.data})),
           catchError((error) => of(slideActions.getAllSlidesFail({ error })))
         )
     )
