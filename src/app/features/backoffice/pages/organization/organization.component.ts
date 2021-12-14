@@ -23,6 +23,7 @@ export class OrganizationComponent implements OnInit {
     this.getOrganization();
     console.log(this.Organization);
   }
+
   getOrganization() {
     return this.organizationService.getOrganization(1).subscribe((res: any) => {
       this.name = res.data?.name;

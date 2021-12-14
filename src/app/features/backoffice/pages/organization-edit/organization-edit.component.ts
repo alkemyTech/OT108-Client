@@ -78,7 +78,7 @@ export class OrganizationEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.editar();
+    // this.editar();
   }
   accept() {
     this.organizationService

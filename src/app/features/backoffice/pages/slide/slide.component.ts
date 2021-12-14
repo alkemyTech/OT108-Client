@@ -16,7 +16,7 @@ export class SlideComponent implements OnInit {
     this.obtenerSlides();
   }
   obtenerSlides() {
-    this.service.getAllSlides().subscribe((data) => {
+    this.service.getAllSlides().subscribe((data:any) => {
       for (let i = 0; i < data.data.length; i++) {
         this.slides.push(data.data[i]);
       }
