@@ -12,9 +12,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
+import { SkeletonComponent } from './components/skeleton/skeleton.component';
 
 @NgModule({
-  declarations: [AppComponent, SlidesComponent],
+  declarations: [AppComponent, SlidesComponent, SkeletonComponent],
   imports: [
     BrowserModule,
     CoreModule,
