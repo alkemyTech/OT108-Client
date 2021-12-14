@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
@@ -14,6 +14,9 @@ import { SlidesComponent } from "./pages/slides/slides.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UsersComponent } from "./pages/users/users.component";
 import { ActividadesDetalleComponent } from "./pages/views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
+import { SetupProgressComponent } from "./pages/setup-progress/setup-progress/setup-progress.component";
+import { CategoriesListComponent } from "./pages/categories-list/categories-list.component";
+import { CategoriesDetailsComponent } from "./pages/categories-details/categories-details.component";
 
 const router: Routes = [
   {
@@ -37,8 +40,16 @@ const router: Routes = [
         component: ActivityFormComponent,
       },
       {
+        path: "categories-list",
+        component: CategoriesListComponent,
+      },
+      {
         path: "categories/create",
         component: CategoriesComponent,
+      },
+      {
+        path: "categories/:id",
+        component: CategoriesDetailsComponent,
       },
       {
         path: "categories/edit/:id",
@@ -94,7 +105,12 @@ const router: Routes = [
       },
       {
         path: "actividades/:id",
-        component: ActividadesDetalleComponent ,
+        component: ActividadesDetalleComponent,
+      },
+
+      {
+        path: "progress",
+        component: SetupProgressComponent,
       },
     ],
   },

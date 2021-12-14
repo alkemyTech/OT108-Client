@@ -7,6 +7,7 @@ import { Observable, Subscriber } from "rxjs";
 import { News } from "src/app/models/news";
 import { AlertService } from "src/app/services/alert.service";
 import { NewsService } from "../../services/news.service";
+import { DialogService } from "src/app/services/dialog.service";
 
 @Component({
   selector: "app-news",
@@ -27,7 +28,8 @@ export class NewsComponent implements OnInit {
     private router: ActivatedRoute,
     private service: NewsService,
     private toastr: ToastrService,
-    private alert: AlertService
+    private alert: AlertService,
+    private serviceDialog: DialogService
   ) {
     this.formulario = this.frB.group({
       name: ["", [Validators.required]],
@@ -52,13 +54,23 @@ export class NewsComponent implements OnInit {
     };
 
     if (this.id) {
-      this.service.editNews(this.id, NOVEDAD).subscribe((data) => {
-        this.alert.messageGood("Novedad editada");
-      });
+      this.service.editNews(this.id, NOVEDAD).subscribe(
+        (data) => {
+          this.alert.messageGood("Novedad editada");
+        },
+        (error) => {
+          this.serviceDialog.openErrorDialog();
+        }
+      );
     } else {
-      this.service.createNews(NOVEDAD).subscribe((data) => {
-        this.alert.messageGood("Novedad creada");
-      });
+      this.service.createNews(NOVEDAD).subscribe(
+        (data) => {
+          this.alert.messageGood("Novedad creada");
+        },
+        (error) => {
+          this.serviceDialog.openErrorDialog();
+        }
+      );
     }
   }
 

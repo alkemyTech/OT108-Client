@@ -1,12 +1,12 @@
 <div *ngFor="let item of listView" class="card contenedor">
-  <div *ngIf="item.image != null">
+  <div *ngIf="item.image">
     <img id="imagenes" class="card-img-top" [src]="item.image" />
   </div>
-  <div *ngIf="item.image === null">
+  <div *ngIf="!item.image">
     <img
       id="imagenNull"
       class="card-img-top"
-      src="../../../../assets/images/imagenull.png"
+      src="../../../../../assets/images/imagenull.png"
     />
   </div>
   <div class="card-body">

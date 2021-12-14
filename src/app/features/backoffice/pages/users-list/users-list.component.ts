@@ -1,37 +1,27 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { User } from "src/app/models/user";
-import { UsersService } from "../../services/users.service";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
+import { loadUsersList } from "src/app/state/actions/users.actions";
+import { selectUsers } from "src/app/state/selectors/users.selector";
+
 @Component({
   selector: "app-users-list",
   templateUrl: "./users-list.component.html",
   styleUrls: ["./users-list.component.scss"],
 })
 export class UsersListComponent implements OnInit {
-  users: User[] = [];
+  users$: Observable<any> = new Observable();
   name: any;
   email: string = "";
   imagenNull: boolean = false;
   loader:boolean =  true;
   totalCount =5;
 
-  constructor(
-    private service: UsersService,
-    private actividadRouter: ActivatedRoute
-  ) {}
-
-  ngOnInit(): void {
-    setTimeout(() => {
-      this.getUser();
-    }, 5000);
-    
+  constructor(private store: Store<{ retrievedUsersList: any }>) {
+    this.users$ = this.store.select(selectUsers);
   }
 
-  getUser() {
-    this.service.getUser().subscribe((data) => {
-      for (let i = 0; i < data.data.length; i++) {
-        this.users.push(data.data[i]);
-      }
-    });
+  ngOnInit(): void {
+    this.store.dispatch(loadUsersList());
   }
 }

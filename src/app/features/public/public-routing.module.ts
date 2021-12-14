@@ -5,6 +5,7 @@ import { LoginFormComponent } from "./pages/auth/login-form/login-form.component
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { DonationsComponent } from "./pages/donations/donations.component";
 import { GiveTheTranksComponent } from "./pages/give-the-tranks/give-the-tranks.component";
+import { HomeComponent } from "./pages/home/home.component";
 
 const router: Routes = [
   {
@@ -22,6 +23,10 @@ const router: Routes = [
       {
         path: "tranks",
         component: GiveTheTranksComponent,
+      },
+      {
+        path: "home",
+        component: HomeComponent,
       },
     ],
   },
