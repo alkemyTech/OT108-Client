@@ -8,6 +8,7 @@ export const environment = {
   members: "http://ongapi.alkemy.org/api/members",
   categories: "http://ongapi.alkemy.org/api/categories",
   organization: "http://ongapi.alkemy.org/api/organization",
+  activities: "http://ongapi.alkemy.org/api/activities",
 };
 
 /*

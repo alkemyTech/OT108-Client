@@ -14,6 +14,10 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from "@ngrx/effects";
+import { ROOT_REDUCER } from "./state/app.state";
+import { ActivitiesEffects } from "./state/effects/activites.effects";
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -29,6 +33,8 @@ import { DialogErrorComponent } from "./components/dialog-error/dialog-error.com
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot(ROOT_REDUCER),
+    EffectsModule.forRoot([ActivitiesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
