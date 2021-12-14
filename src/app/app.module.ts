@@ -10,7 +10,6 @@ import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-import { SkeletonComponent } from './components/skeleton/skeleton.component';
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import {MatIconModule} from '@angular/material/icon';
@@ -25,7 +24,7 @@ import { Usersffects } from "./state/effects/users.effects";
 
 
 @NgModule({
-  declarations: [AppComponent, DialogComponent, DialogErrorComponent, SkeletonComponent],
+  declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -36,7 +35,7 @@ import { Usersffects } from "./state/effects/users.effects";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
-    //NgxSkeletonLoaderModule.forRoot(),
+    NgxSkeletonLoaderModule.forRoot(),
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -47,6 +46,6 @@ import { Usersffects } from "./state/effects/users.effects";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent, DialogErrorComponent,SkeletonComponent],
+  entryComponents: [DialogComponent, DialogErrorComponent,],
 })
 export class AppModule {}
