@@ -4,7 +4,6 @@ import { ActivitiesComponent } from "./activities/activities.component";
 import { ActivityFormComponent } from "./activity-form/activity-form.component";
 import { CategoriesComponent } from "./categories/categories.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
-import { FooterComponent } from "./footer/footer.component";
 import { MemberFormComponent } from "./member-form/member-form.component";
 import { NewsComponent } from "./news/news.component";
 import { OrganizationComponent } from "./organization/organization.component";
@@ -34,7 +33,6 @@ import { CategoriesDetailsComponent } from './categories-details/categories-deta
     ActivityFormComponent,
     CategoriesComponent,
     DashboardComponent,
-    FooterComponent,
     MemberFormComponent,
     NewsComponent,
     OrganizationComponent,

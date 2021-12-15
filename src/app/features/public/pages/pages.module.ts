@@ -10,6 +10,7 @@ import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 
+
 @NgModule({
   declarations: [
     LoginFormComponent, 
