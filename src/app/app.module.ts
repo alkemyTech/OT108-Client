@@ -20,6 +20,7 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
+import { CategoriesEffects } from "./state/effects/categories.effects";
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -39,7 +40,7 @@ import { Usersffects } from "./state/effects/users.effects";
     LoaderspinnerModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([Usersffects]),
+    EffectsModule.forRoot([Usersffects,CategoriesEffects,]),
   ],
   providers: [],
   bootstrap: [AppComponent],
