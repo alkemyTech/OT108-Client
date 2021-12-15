@@ -1,17 +1,13 @@
-<form [formGroup]="formulario" (ngSubmit)="donate()">
+<form action="https://mpago.la/2byRszD">
   <div class="donate">
     <h1>{{ text }}</h1>
     <br />
     <input type="number" formControlName="donation" />
     <br />
     <br />
-    <input
-      type="image"
-      src="../../../../../assets/images/mercadoPago.png"
-      name="submit"
-      width="100"
-      height="48"
-      alt="submit"
-    />
+    <input class="btn-primary" type="submit" value="Enviar" />
+    <br>
+    <br>
+    <img src="/../../../../assets/images/mercadoPago.png">
   </div>
 </form>

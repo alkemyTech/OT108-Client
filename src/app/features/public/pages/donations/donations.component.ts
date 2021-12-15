@@ -19,7 +19,7 @@ export class DonationsComponent implements OnInit {
 
   donate() {
     const donation = {
-      donation: "$" + this.formulario.get("donacion")?.value,
+      donation: "$" + this.formulario.get("donation")?.value,
     };
     console.log(donation);
   }
