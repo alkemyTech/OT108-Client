@@ -14,12 +14,15 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
+import { LoaderspinnerModule } from "./components/loaderspinner/loaderspinner.module";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
-import { ROOT_REDUCERS_SLIDES } from "./store/slide-store/slide.state";
+import { ROOT_REDUCERS_SLIDES } from "./state/models/slide.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
-import { SlideEffects } from "./store/slide-store/slide.effects";
+import { SlideEffects } from "./state/effects/slide.effects";
+import { ActivitiesEffects } from "./state/effects/activites.effects";
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -36,9 +39,10 @@ import { SlideEffects } from "./store/slide-store/slide.effects";
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
+    LoaderspinnerModule,
+    MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    StoreModule.forRoot(ROOT_REDUCERS_SLIDES),
-    EffectsModule.forRoot([Usersffects,SlideEffects]),
+    EffectsModule.forRoot([Usersffects,SlideEffects, ActivitiesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

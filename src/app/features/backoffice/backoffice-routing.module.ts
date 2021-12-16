@@ -14,7 +14,6 @@ import { SlideFormComponent } from "./pages/slide-form/slide-form.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UsersComponent } from "./pages/users/users.component";
 import { ActividadesDetalleComponent } from "./pages/views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
-import { LoaderspinnerComponent } from "./pages/loaderspinner/loaderspinner/loaderspinner.component";
 import { SetupProgressComponent } from "./pages/setup-progress/setup-progress/setup-progress.component";
 import { CategoriesListComponent } from "./pages/categories-list/categories-list.component";
 import { CategoriesDetailsComponent } from "./pages/categories-details/categories-details.component";
@@ -107,11 +106,6 @@ const router: Routes = [
       {
         path: "actividades/:id",
         component: ActividadesDetalleComponent,
-      },
-
-      {
-        path: "spinner",
-        component: LoaderspinnerComponent,
       },
 
       {

@@ -4,10 +4,11 @@ import { SlidesComponent } from "./slides/slides.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NavbarComponent } from './navbar/navbar.component';
 import { TitlesComponent } from "./titles/titles.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [SlidesComponent, NavbarComponent,TitlesComponent],
-  imports: [CommonModule, NgbModule],
+  imports: [CommonModule, NgbModule,RouterModule,],
   exports: [
     SlidesComponent,
     NavbarComponent,

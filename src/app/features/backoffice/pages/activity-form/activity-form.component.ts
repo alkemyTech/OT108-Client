@@ -59,7 +59,12 @@ export class ActivityFormComponent implements OnInit {
 
   createAndEdit() {
     const { name, image, description } = this.activityForm.value;
-    const activity: Activity = { name, image, description };
+    const activity: Activity = {
+      id: Number(this.id),
+      name,
+      image,
+      description,
+    };
     if (this.id) {
       this.ActivityService.editActivity(this.id, activity).subscribe(
         (act) => {

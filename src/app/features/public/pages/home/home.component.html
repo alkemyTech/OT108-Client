@@ -1,4 +1,9 @@
-<div class="container home-container">
+<div *ngIf="load">
+  <app-loaderspinner></app-loaderspinner>
+
+</div>
+<div *ngIf="!load" class="container home-container">
+
   <app-navbar></app-navbar>
 
   <div class="slides-home">

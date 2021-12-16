@@ -4,7 +4,7 @@ import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
 import { SlideService } from 'src/app/services/slide.service';
-import * as slideActions from './slide.actions';
+import * as slideActions from '../actions/slide.actions';
 
 @Injectable()
 export class SlideEffects{

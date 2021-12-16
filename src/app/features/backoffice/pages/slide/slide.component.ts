@@ -4,8 +4,8 @@ import { SlideService } from "../../services/slide.service";
 
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import * as slideActions from '../../../../store/slide-store/slide.actions';
-import * as slideSelector from '../../../../store/slide-store/slide.selector';
+import * as slideActions from '../../../../state/actions/slide.actions';
+import * as slideSelector from '../../../../state/selectors/slide.selector';
 import { Observable } from "rxjs";
 
 
@@ -30,8 +30,14 @@ export class SlideComponent implements OnInit {
     this.store.dispatch(slideActions.getAllSlides())
  
   }
-
-  
+  obtenerSlides() {
+    this.service.getAllSlides().subscribe((data:any) => {
+      for (let i = 0; i < data.data.length; i++) {
+        this.slides.push(data.data[i]);
+      }
+    });
   }
+
+}
  
 
