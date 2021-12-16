@@ -26,7 +26,7 @@ import { CategoriesListComponent } from "./categories-list/categories-list.compo
 import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentsModule } from "../components/components.module";
-import { CategoriesDetailsComponent } from './categories-details/categories-details.component';
+import { CategoriesDetailsComponent } from "./categories-details/categories-details.component";
 
 @NgModule({
   declarations: [

@@ -11,15 +11,16 @@ import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
-import {MatIconModule} from '@angular/material/icon';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DialogErrorComponent } from './components/dialog-error/dialog-error.component'; 
+import { MatIconModule } from "@angular/material/icon";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { DialogErrorComponent } from "./components/dialog-error/dialog-error.component";
 import { LoaderspinnerModule } from "./components/loaderspinner/loaderspinner.module";
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
+import { ActivitiesEffects } from "./state/effects/activites.effects";
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -39,7 +40,7 @@ import { Usersffects } from "./state/effects/users.effects";
     LoaderspinnerModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([Usersffects]),
+    EffectsModule.forRoot([Usersffects, ActivitiesEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],
