@@ -18,7 +18,6 @@ import { LoaderspinnerModule } from "./components/loaderspinner/loaderspinner.mo
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
-import { ROOT_REDUCERS_SLIDES } from "./state/models/slide.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
 import { SlideEffects } from "./state/effects/slide.effects";
