@@ -18,6 +18,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
@@ -60,6 +61,8 @@ import { CategoriesDetailsComponent } from "./categories-details/categories-deta
     MatProgressSpinnerModule,
     MatProgressBarModule,
     ComponentsModule,
+    NgxSkeletonLoaderModule
   ],
+
 })
 export class PagesModule {}

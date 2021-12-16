@@ -9,6 +9,7 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
@@ -22,6 +23,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
 
+
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -34,6 +36,7 @@ import { ActivitiesEffects } from "./state/effects/activites.effects";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
+    NgxSkeletonLoaderModule.forRoot(),
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
@@ -44,6 +47,6 @@ import { ActivitiesEffects } from "./state/effects/activites.effects";
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogComponent, DialogErrorComponent],
+  entryComponents: [DialogComponent, DialogErrorComponent,],
 })
 export class AppModule {}
