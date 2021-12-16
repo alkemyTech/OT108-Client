@@ -27,6 +27,8 @@ import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentsModule } from "../components/components.module";
 import { CategoriesDetailsComponent } from './categories-details/categories-details.component';
+import { HomeFormComponent } from './home-form/home-form.component';
+import { SlideSearchComponent } from './home-form/slide-search/slide-search.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { CategoriesDetailsComponent } from './categories-details/categories-deta
     MemberListComponent,
     NewsListComponent,
     CategoriesDetailsComponent,
+    HomeFormComponent,
+    SlideSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -61,5 +65,6 @@ import { CategoriesDetailsComponent } from './categories-details/categories-deta
     MatProgressBarModule,
     ComponentsModule,
   ],
+  exports:[HomeFormComponent]
 })
 export class PagesModule {}

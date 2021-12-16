@@ -1,5 +1,5 @@
-<ngb-carousel class="carrousel" [interval]="5000" *ngIf="images">
-  <ng-template ngbSlide *ngFor="let image of images">
+<ngb-carousel class="carrousel" [interval]="5000" *ngIf="slideList">
+  <ng-template ngbSlide *ngFor="let image of slideList">
     <div class="carousel-img">
       <img
         class="img-carrousel"

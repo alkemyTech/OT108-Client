@@ -9,6 +9,8 @@ import { GiveTheTranksComponent } from './give-the-tranks/give-the-tranks.compon
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
+import { PagesModule } from "../../backoffice/pages/pages.module";
+
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspin
     RegisterFormComponent, 
     DonationsComponent, 
     GiveTheTranksComponent,
-    HomeComponent],
-  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule],
+    HomeComponent,
+  ],
+  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule,PagesModule],
 })
-export class PagesModule {}
+export class PublicPagesModule {}
