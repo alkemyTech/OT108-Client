@@ -16,3 +16,28 @@ footer {
   margin-top: 3%;
   margin-bottom: 2%;
 }
+
+.nombres {
+  display: none;
+}
+
+@media screen and (min-width: 300px) {
+  .welcome {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .welcome {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .nombres {
+    display: inline;
+  }
+  .welcome {
+    display: block;
+  }
+}
