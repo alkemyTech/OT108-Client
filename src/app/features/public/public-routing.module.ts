@@ -22,7 +22,7 @@ const router: Routes = [
         component: DonationsComponent,
       },
       {
-        path: "tranks",
+        path: "thanks",
         component: GiveTheTranksComponent,
       },
       {

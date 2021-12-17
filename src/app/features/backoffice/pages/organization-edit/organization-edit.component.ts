@@ -62,7 +62,7 @@ export class OrganizationEditComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private alert: AlertService,
-    private dialogService:DialogService
+    private dialogService: DialogService
   ) {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.formulario = this.frB.group({
@@ -78,7 +78,7 @@ export class OrganizationEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   // this.editar();
+    // this.editar();
   }
   accept() {
     this.organizationService
@@ -86,7 +86,6 @@ export class OrganizationEditComponent implements OnInit {
       .subscribe((res) => {
         //aqui llamamos el servicio de dialogo q me muestra e mensaje de guardado con exito
         this.dialogService.openConfirmDialog();
-       
       });
   }
 
@@ -127,28 +126,26 @@ export class OrganizationEditComponent implements OnInit {
   editar() {
     this.edit = true;
     this.tituloImage = "";
-    this.organizationService.getOrganization(1).subscribe((data:any) => {
-     if(data.success){
-      this.formulario.patchValue({
-        name: data.data?.name,
-        short_description: data.data?.short_description,
-        long_description: data.data?.long_description,
-        facebook_url: data.data?.facebook_url,
-        linkedin_url: data.data?.linkedin_url,
-        instagram_url: data.data?.instagram_url,
-        twitter_url: data.data?.twitter_url,
-      });
-      this.logo = data.data?.logo;
-
-     }else{
-       this.dialogService.openErrorDialog();
-     }
-    },
-    (error)=>{
-      this.dialogService.openErrorDialog();
-    }
-      
+    this.organizationService.getOrganization(1).subscribe(
+      (data: any) => {
+        if (data.success) {
+          this.formulario.patchValue({
+            name: data.data?.name,
+            short_description: data.data?.short_description,
+            long_description: data.data?.long_description,
+            facebook_url: data.data?.facebook_url,
+            linkedin_url: data.data?.linkedin_url,
+            instagram_url: data.data?.instagram_url,
+            twitter_url: data.data?.twitter_url,
+          });
+          this.logo = data.data?.logo;
+        } else {
+          this.dialogService.openErrorDialog();
+        }
+      },
+      (error) => {
+        this.dialogService.openErrorDialog();
+      }
     );
   }
-
 }

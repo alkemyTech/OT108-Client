@@ -11,6 +11,9 @@ import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/leafletmaps.module";
+import { RouterModule } from "@angular/router";
+
+
 @NgModule({
   declarations: [
     LoginFormComponent, 
@@ -19,6 +22,6 @@ import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/l
     GiveTheTranksComponent,
     ContactoFormComponent,
     HomeComponent],
-  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule,LeafletmapsModule],
+   imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule, RouterModule,LeafletmapsModule,],
 })
 export class PagesModule {}
