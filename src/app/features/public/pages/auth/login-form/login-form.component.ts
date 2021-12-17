@@ -11,6 +11,11 @@ import {
 } from "@angular/animations";
 import { Auth } from "src/app/models/auth";
 import { AuthService } from "src/app/services/auth.service";
+import { AppState } from "src/app/state/app.state";
+import { Store } from "@ngrx/store";
+import { loginStart } from "src/app/state/actions/auth.actions";
+import { Observable } from "rxjs";
+import { selectAuth, selectUser } from "src/app/state/selectors/auth.selector";
 @Component({
   selector: "app-login-form",
   templateUrl: "./login-form.component.html",
@@ -39,7 +44,8 @@ import { AuthService } from "src/app/services/auth.service";
 export class LoginFormComponent implements OnInit {
   private emailPattern: any =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
+  auth$: Observable<any> = new Observable();
+  user$: Observable<any> = new Observable();
   public user: Auth;
   public imagenPerfil: string = "";
 
@@ -47,8 +53,12 @@ export class LoginFormComponent implements OnInit {
     private router: Router,
     private formB: FormBuilder,
     private authService: AuthService,
-    private alert: AlertService
+    private alert: AlertService,
+    private store: Store<AppState>
   ) {
+    console.log(this.auth$);
+    this.auth$ = this.store.select(selectAuth);
+    this.user$ = this.store.select(selectUser);
     this.user = new Auth();
   }
 
@@ -98,22 +108,8 @@ export class LoginFormComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-    try {
-      this.authService.login(email, password)?.subscribe((user) => {
-        if (user?.success) {
-          localStorage.clear();
-          localStorage.setItem("token", user.data.token);
-          //ir al menu de problema
-          //this.router.navigate(['/home'])
-        } else {
-          this.alert.messageError("Error Usted no esta logeado");
-          this.loginForm.reset();
-        }
-      });
-    } catch (error) {
-      this.alert.messageError("Error en el logeado");
-      this.loginForm.reset();
-    }
+
+    this.store.dispatch(loginStart({ email: email, password: password }));
   }
 
   ngOnInit(): void {}

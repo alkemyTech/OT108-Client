@@ -11,6 +11,11 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+import { State, Store } from "@ngrx/store";
+import { AppState } from "src/app/state/app.state";
+import { registerStart } from "src/app/state/actions/auth.actions";
+import { Observable, timer } from "rxjs";
+import { selectAuth } from "src/app/state/selectors/auth.selector";
 @Component({
   selector: "app-register-form",
   templateUrl: "./register-form.component.html",
@@ -41,13 +46,15 @@ export class RegisterFormComponent implements OnInit {
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   public user: Auth;
   public imagenPerfil: string = "";
-
+  auth$: Observable<any> = new Observable();
   constructor(
     private router: Router,
     private formB: FormBuilder,
     private authService: AuthService,
-    private alert: AlertService
+    private alert: AlertService,
+    private store: Store<AppState>
   ) {
+    this.auth$ = this.store.select(selectAuth);
     this.user = new Auth();
   }
 
@@ -125,26 +132,16 @@ export class RegisterFormComponent implements OnInit {
     this.user.pass = password;
     try {
       if (password === passwordTwo) {
-        this.authService.register(email, password, name)?.subscribe((user) => {
-          if (user.success) {
-            this.alert.messageGood("se Registro perfectamente");
-            localStorage.clear();
-            localStorage.setItem("token", user.data.token);
-            //this.router.navigate(['home'])
-            //y se registra?
-            console.log(user.data.token);
-          } else {
-            this.alert.messageError("El email ya esta en la base de datos");
-            this.loginForm.reset();
-          }
-        });
+        this.store.dispatch(
+          registerStart({ email: email, password: password, name: name })
+        );
       } else {
         this.loginForm.get("passwordTwo")?.setErrors({ repeat: true });
         this.loginForm.get("password")?.setErrors({ repeat: true });
         this.alert.messageError("Las contraseñas no coinciden");
       }
     } catch (error) {
-      this.alert.messageError("Error en el logeado");
+      this.alert.messageError("Error en el registro");
       this.loginForm.reset();
     }
   }

@@ -10,6 +10,10 @@ import { HomeComponent } from "./pages/home/home.component";
 const router: Routes = [
   {
     path: "",
+    component: HomeComponent,
+  },
+  {
+    path: "public",
     children: [
       { path: "login", component: LoginFormComponent },
       {
@@ -23,10 +27,6 @@ const router: Routes = [
       {
         path: "tranks",
         component: GiveTheTranksComponent,
-      },
-      {
-        path: "home",
-        component: HomeComponent,
       },
     ],
   },
