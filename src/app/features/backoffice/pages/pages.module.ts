@@ -10,7 +10,7 @@ import { NewsComponent } from "./news/news.component";
 import { OrganizationComponent } from "./organization/organization.component";
 import { OrganizationEditComponent } from "./organization-edit/organization-edit.component";
 import { SlideComponent } from "./slide/slide.component";
-import { SlidesComponent } from "./slides/slides.component";
+import { SlideFormComponent } from "./slide-form/slide-form.component";
 import { TestimonialsComponent } from "./testimonials/testimonials.component";
 import { UsersComponent } from "./users/users.component";
 import { UsersListComponent } from "./users-list/users-list.component";
@@ -29,6 +29,7 @@ import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentsModule } from "../components/components.module";
 import { CategoriesDetailsComponent } from "./categories-details/categories-details.component";
 
+
 @NgModule({
   declarations: [
     ActivitiesComponent,
@@ -40,8 +41,8 @@ import { CategoriesDetailsComponent } from "./categories-details/categories-deta
     NewsComponent,
     OrganizationComponent,
     OrganizationEditComponent,
+    SlideFormComponent,
     SlideComponent,
-    SlidesComponent,
     TestimonialsComponent,
     UsersComponent,
     UsersListComponent,
