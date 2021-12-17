@@ -5,14 +5,16 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { NavbarComponent } from './navbar/navbar.component';
 import { TitlesComponent } from "./titles/titles.component";
 import { RouterModule } from "@angular/router";
+import { FooterComponent } from "src/app/components/footer/footer.component";
 
 @NgModule({
-  declarations: [SlidesComponent, NavbarComponent,TitlesComponent],
+  declarations: [SlidesComponent, NavbarComponent,TitlesComponent, FooterComponent],
   imports: [CommonModule, NgbModule,RouterModule,],
   exports: [
     SlidesComponent,
     NavbarComponent,
-    TitlesComponent
+    TitlesComponent,
+    FooterComponent
   ],
 })
 export class ComponentsModule {}

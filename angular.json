@@ -77,7 +77,7 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "local"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -92,7 +92,7 @@
               "browserTarget": "base-ong-angular-client:build:local"
             }
           },
-          "defaultConfiguration": "local"
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
