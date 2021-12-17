@@ -9,6 +9,7 @@ import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
+import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { DialogComponent } from "./components/dialog/dialog.component";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatIconModule } from "@angular/material/icon";
@@ -23,6 +24,9 @@ import { Usersffects } from "./state/effects/users.effects";
 import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { AuthEffects } from "./state/effects/auth.effects";
+import { SlideEffects } from "./state/effects/slide.effects";
+import { ActivitiesEffects } from "./state/effects/activites.effects";
+
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -35,17 +39,23 @@ import { AuthEffects } from "./state/effects/auth.effects";
     ReactiveFormsModule,
     FormsModule,
     CKEditorModule,
+    NgxSkeletonLoaderModule.forRoot(),
     MatDialogModule,
     MatIconModule,
     BrowserAnimationsModule,
     LoaderspinnerModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([Usersffects, AuthEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
+    EffectsModule.forRoot([
+      Usersffects,
+      SlideEffects,
+      ActivitiesEffects,
+      AuthEffects,
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent],

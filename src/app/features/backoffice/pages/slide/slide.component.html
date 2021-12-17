@@ -4,7 +4,7 @@
   </button>
 </div>
 
-<div *ngFor="let slide of slides" class="card contenedor">
+<div *ngFor="let slide of slide$ | async " class="card contenedor">
   <div *ngIf="slide.image != null">
     <img class="card-img-top" [src]="slide.image" />
   </div>

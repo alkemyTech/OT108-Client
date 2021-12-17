@@ -12,7 +12,7 @@ import { PublicApiService } from "./public-api.service";
 export class SlideService {
   constructor(private http: PublicApiService) {}
 
-  create(slides: Slides): Observable<Slides> {
+  create(slides: Slides): Observable<any> {
     return this.http.post("slides", slides);
   }
   getAllSlides(): Observable<any> {
