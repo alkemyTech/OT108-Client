@@ -9,14 +9,16 @@ import { GiveTheTranksComponent } from './give-the-tranks/give-the-tranks.compon
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
-
+import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
+import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/leafletmaps.module";
 @NgModule({
   declarations: [
     LoginFormComponent, 
     RegisterFormComponent, 
     DonationsComponent, 
     GiveTheTranksComponent,
+    ContactoFormComponent,
     HomeComponent],
-  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule],
+  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule,LeafletmapsModule],
 })
 export class PagesModule {}

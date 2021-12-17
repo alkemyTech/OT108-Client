@@ -9,6 +9,7 @@ export const environment = {
   categories: "http://ongapi.alkemy.org/api/categories",
   organization: "http://ongapi.alkemy.org/api/organization",
   slides: "http://ongapi.alkemy.org/api/slides",
+  contacts: "http://ongapi.alkemy.org/api/contacts",
 };
 
 /*

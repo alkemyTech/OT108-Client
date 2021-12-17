@@ -20,7 +20,7 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
-
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -40,6 +40,7 @@ import { Usersffects } from "./state/effects/users.effects";
     MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([Usersffects]),
+    LeafletModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
