@@ -11,6 +11,7 @@ import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 import { PagesModule } from "../../backoffice/pages/pages.module";
 
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,6 @@ import { PagesModule } from "../../backoffice/pages/pages.module";
     GiveTheTranksComponent,
     HomeComponent,
   ],
-  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule,PagesModule],
+  imports: [CommonModule, ReactiveFormsModule,ComponentsModule,LoaderspinnerModule,PagesModule, RouterModule],
 })
 export class PublicPagesModule {}

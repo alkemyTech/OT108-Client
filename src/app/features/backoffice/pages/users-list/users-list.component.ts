@@ -14,6 +14,8 @@ export class UsersListComponent implements OnInit {
   name: any;
   email: string = "";
   imagenNull: boolean = false;
+  loader:boolean =  true;
+  totalCount =5;
 
   constructor(private store: Store<{ retrievedUsersList: any }>) {
     this.users$ = this.store.select(selectUsers);

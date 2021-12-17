@@ -10,6 +10,7 @@ import { SlideService } from '../../services/slide.service'
 export class SlidesComponent implements OnInit {
 
   images?:Slides[]
+  loader = true
   
   constructor(
     private slideService:SlideService
@@ -19,6 +20,7 @@ export class SlidesComponent implements OnInit {
     this.slideService.getAllSlides().subscribe((slide) => {
       if(slide.success){
      this.images = slide.data,console.log(this.images )
+     this.loader=false
      
      }}
      )
