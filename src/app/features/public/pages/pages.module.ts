@@ -11,6 +11,7 @@ import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     ReactiveFormsModule,
     ComponentsModule,
     LoaderspinnerModule,
+    RouterModule,
   ],
 })
 export class PagesModule {}

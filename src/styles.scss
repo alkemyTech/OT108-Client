@@ -120,6 +120,19 @@ h3 span {
 }
 /*Carousel styles*/
 
+/*Skeleton */
+.skeleton-loader{
+  text-align: center;
+  width: auto;
+  height: auto;
+  margin: 10px auto;
+  border: 1px solid #eaeaea;
+  padding: 10px;
+}
+
+
+
+
 /* Importing Bootstrap SCSS file. */
 //@import '~bootstrap/scss/bootstrap';
 .card {

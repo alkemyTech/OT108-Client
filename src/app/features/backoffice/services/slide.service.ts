@@ -11,11 +11,11 @@ export class SlideService {
  url= environment.slides
   constructor(private http: PrivateApiService) {}
 
-  create(slides: Slides): Observable<Slides> {
+  create(slides: Slides): Observable<any> {
     return this.http.post(this.url, slides);
   }
 
-  update(slides: Slides, id: number): Observable<Slides> {
+  update(slides: Slides, id: number): Observable<any> {
     return this.http.put(this.url, slides, id.toString());
   }
 

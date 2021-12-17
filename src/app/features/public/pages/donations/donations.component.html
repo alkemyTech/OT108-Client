@@ -1,17 +1,40 @@
-<form [formGroup]="formulario" (ngSubmit)="donate()">
-  <div class="donate">
-    <h1>{{ text }}</h1>
-    <br />
-    <input type="number" formControlName="donation" />
-    <br />
-    <br />
-    <input
-      type="image"
-      src="../../../../../assets/images/mercadoPago.png"
-      name="submit"
-      width="100"
-      height="48"
-      alt="submit"
-    />
+<div class="donate">
+  <h1>Donación a realizar</h1>
+  <img id="logo" src="../../../../../assets/images/logo.png" />
+  <img id="mp" src="/../../../../assets/images/mercadoPago.png" />
+  <div class="links">
+    <h2>Donar $100</h2>
+    <a href="https://mpago.la/2byRszD" target="_blank">
+      <input type="submit" />
+    </a> 
   </div>
-</form>
+  <div class="links">
+    <h2>Donar $200</h2>
+    <a href="https://mpago.la/1Z9uYc7" target="_blank">
+      <input type="submit" />
+    </a>
+  </div>
+
+  <div class="links">
+    <h2>Donar $300</h2>
+    <a href="https://mpago.la/2u1vm78" target="_blank">
+      <input type="submit" />
+    </a>
+  </div>
+
+  <div class="links">
+    <h2>Donar $400</h2>
+    <a href="https://mpago.la/2bNzft6" target="_blank">
+      <input type="submit" />
+    </a>
+  </div>
+  <div class="links">
+    <h2>Donar $500</h2>
+    <a href="https://mpago.la/2BtHXdh" target="_blank">
+      <input type="submit" />
+    </a>
+  </div>
+  <div id="heart">
+    <img id="corazon" src="../../../../../assets/images/corazon.jpg" />
+  </div>
+</div>
