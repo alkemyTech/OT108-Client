@@ -1,36 +1,41 @@
-import { Injectable } from '@angular/core';
-import { HttpClient ,HttpHeaders } from '@angular/common/http';
-import { observable, Observable } from 'rxjs';
-import { AlertService } from './alert.service';
+import { Injectable } from "@angular/core";
+import { PrivateApiService } from "../features/backoffice/services/private-api.service";
+import { environment } from "src/environments/environment";
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import * as firebase from "firebase/compat/app";
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
+  private urlLogin: string = environment.Login;
+  private urlRegister: string = environment.Register;
+  constructor(private http: PrivateApiService, public auth: AngularFireAuth) {}
 
-  private urlLogin:string = "http://ongapi.alkemy.org/api/login";
-  private urlRegister:string="http://ongapi.alkemy.org/api/register"
-  private httpHeaders = new HttpHeaders({'Content-Type':'application/json'})
-  constructor(private http: HttpClient ,
-     private alert: AlertService) { }
+  login(email: string, contraseña: string) {
+    const body = {
+      email: email,
+      password: contraseña,
+    };
 
-  login(email:string,contraseña:string){
-    const body={
-      email:email,
-      password:contraseña
+    return this.http.post(this.urlLogin, body);
+  }
+  async loginGoogle() {
+    try {
+      let provider = new firebase.default.auth.GoogleAuthProvider();
+      const result = await this.auth.signInWithPopup(provider);
+      return result;
+    } catch (error) {
+      return null;
     }
-    
-    return this.http.post<any>(this.urlLogin,JSON.stringify(body),{headers:this.httpHeaders});
-
   }
 
-  register(email:string,contraseña:string,name:string){
-    const body={
-      name:name,
-      email:email,
-      password:contraseña
-    }
-    
-    return this.http.post<any>(this.urlRegister,JSON.stringify(body),{headers:this.httpHeaders});
-  }
+  register(email: string, contraseña: string, name: string) {
+    const body = {
+      name: name,
+      email: email,
+      password: contraseña,
+    };
 
+    return this.http.post(this.urlRegister, body);
+  }
 }

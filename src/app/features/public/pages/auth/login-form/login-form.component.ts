@@ -94,6 +94,16 @@ export class LoginFormComponent implements OnInit {
     return null;
   }
 
+  loginWhithGoogle() {
+    this.authService.loginGoogle().then((res) => {
+      res?.user?.getIdTokenResult().then((ten) => {
+        console.log(res.user?.email);
+        console.log(res.user?.displayName);
+        console.log(ten.token);
+      });
+    });
+  }
+
   onLogin() {
     const { email, password } = this.loginForm.value;
     this.user.email = email;
