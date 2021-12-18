@@ -37,7 +37,7 @@ export const AuthReducer = createReducer(
     return {
       ...state,
       isAuthenticated: false,
-      errorMessage: "no es correcto el email",
+      errorMessage: "No es correcto el email",
     };
   }),
   on(registerSuccess, (state, { email, token }) => {
@@ -54,7 +54,7 @@ export const AuthReducer = createReducer(
     return {
       ...state,
       isAuthenticated: false,
-      errorMessage: "no es correcto el email",
+      errorMessage: "No es correcto el email",
     };
   }),
   on(logOut, (state) => {

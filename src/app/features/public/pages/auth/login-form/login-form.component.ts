@@ -56,7 +56,6 @@ export class LoginFormComponent implements OnInit {
     private alert: AlertService,
     private store: Store<AppState>
   ) {
-    console.log(this.auth$);
     this.auth$ = this.store.select(selectAuth);
     this.user$ = this.store.select(selectUser);
     this.user = new Auth();
