@@ -16,18 +16,17 @@ import { UsersListComponent } from "./users-list/users-list.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
-import { ActividadesDetalleComponent } from './views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component';
+import { ActividadesDetalleComponent } from "./views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { MatProgressBarModule } from "@angular/material/progress-bar";
+import { SetupProgressComponent } from "./setup-progress/setup-progress/setup-progress.component";
 import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 import { CategoriesListComponent } from "./categories-list/categories-list.component";
 import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentsModule } from "../components/components.module";
 import { CategoriesDetailsComponent } from "./categories-details/categories-details.component";
-
 
 @NgModule({
   declarations: [
@@ -60,8 +59,7 @@ import { CategoriesDetailsComponent } from "./categories-details/categories-deta
     MatProgressSpinnerModule,
     MatProgressBarModule,
     ComponentsModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
   ],
-
 })
 export class PagesModule {}
