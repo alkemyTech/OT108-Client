@@ -21,6 +21,7 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
+import { CategoriesEffects } from "./state/effects/categories.effects";
 import { SlideEffects } from "./state/effects/slide.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
 
@@ -44,7 +45,7 @@ import { ActivitiesEffects } from "./state/effects/activites.effects";
     LoaderspinnerModule,
     MatProgressSpinnerModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([Usersffects,SlideEffects, ActivitiesEffects]),
+    EffectsModule.forRoot([Usersffects,SlideEffects, ActivitiesEffects,CategoriesEffects,]),
   ],
   providers: [],
   bootstrap: [AppComponent],
