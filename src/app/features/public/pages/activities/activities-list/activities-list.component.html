@@ -1,8 +1,8 @@
 <div *ngFor="let actividad of activities" class="card contenedor">
-  <div *ngIf="actividad.image != null">
+  <div *ngIf="!actividad.image">
     <img class="card-img-top" [src]="actividad.image" />
   </div>
-  <div *ngIf="actividad.image === null">
+  <div *ngIf="actividad.image">
     <img
       id="imagenNull"
       class="card-img-top"
