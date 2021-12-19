@@ -25,8 +25,9 @@ import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 import { CategoriesListComponent } from "./categories-list/categories-list.component";
 import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
-import { ComponentsModule } from "../components/components.module";
+import { ComponentssModule } from "../../../components/components.module";
 import { CategoriesDetailsComponent } from "./categories-details/categories-details.component";
+import { ComponentsModule } from "../components/components.module";
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { CategoriesDetailsComponent } from "./categories-details/categories-deta
     MatProgressBarModule,
     ComponentsModule,
     NgxSkeletonLoaderModule,
+    ComponentssModule,
   ],
 })
 export class PagesModule {}

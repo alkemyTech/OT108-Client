@@ -11,6 +11,10 @@ import { ActivitiesListComponent } from "./pages/activities/activities-list/acti
 const router: Routes = [
   {
     path: "",
+    component: HomeComponent,
+  },
+  {
+    path: "public",
     children: [
       { path: "login", component: LoginFormComponent },
       {
