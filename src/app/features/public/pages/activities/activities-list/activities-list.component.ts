@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivityService } from "src/app/services/activity.service";
+import { DialogService } from "src/app/services/dialog.service";
 
 @Component({
   selector: "app-activities-list",
@@ -9,14 +10,24 @@ import { ActivityService } from "src/app/services/activity.service";
 export class ActivitiesListComponent implements OnInit {
   activities: any[] = [];
   imagenNull: boolean = false;
-  constructor(private service: ActivityService) {}
+  load:boolean = false
+  constructor(
+    private service: ActivityService,
+    private serviceDialog: DialogService) {}
 
   ngOnInit(): void {
     this.getActivitys();
   }
   getActivitys() {
     this.service.getActivity().subscribe((data: any) => {
-      this.activities = data.data;
-    });
+      this.activities = data.data
+      this.load = true
+    },
+    (error) => {
+      this.serviceDialog.openErrorDialog();
+      this.load = true
+    }
+    );
+    
   }
 }

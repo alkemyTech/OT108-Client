@@ -1,3 +1,4 @@
+<app-loaderspinner *ngIf="load == false"></app-loaderspinner>
 <div *ngFor="let actividad of activities" class="card contenedor">
   <div *ngIf="!actividad.image">
     <img class="card-img-top" [src]="actividad.image" />
