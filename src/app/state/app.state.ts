@@ -7,12 +7,15 @@ import { Activity } from "../models/activities";
 import { ActivitiesReducer } from "./reducers/activities.reducers";
 import { slideReducer } from "./reducers/slide.reducer";
 import { Slides } from "../models/slides";
+import { Categories } from "../models/categories";
+import { categoriesReducer } from "./reducers/categories.reducers";
 
 export interface AppState {
   users: ReadonlyArray<User>;
   authState: auth.AuthState;
   activities: ReadonlyArray<Activity>;
   slide: ReadonlyArray<Slides>;
+  categories: ReadonlyArray<Categories>;
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
@@ -20,4 +23,5 @@ export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
   authState: auth.AuthReducer,
   activities: ActivitiesReducer,
   slide: slideReducer,
+  categories: categoriesReducer,
 };

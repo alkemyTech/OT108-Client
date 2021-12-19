@@ -24,6 +24,7 @@ import { Usersffects } from "./state/effects/users.effects";
 import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { AuthEffects } from "./state/effects/auth.effects";
+import { CategoriesEffects } from "./state/effects/categories.effects";
 import { SlideEffects } from "./state/effects/slide.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
 
@@ -55,6 +56,7 @@ import { ActivitiesEffects } from "./state/effects/activites.effects";
       SlideEffects,
       ActivitiesEffects,
       AuthEffects,
+      CategoriesEffects,
     ]),
   ],
   providers: [],

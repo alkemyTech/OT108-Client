@@ -6,6 +6,7 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { DonationsComponent } from "./pages/donations/donations.component";
 import { GiveTheTranksComponent } from "./pages/give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { ActivitiesListComponent } from "./pages/activities/activities-list/activities-list.component";
 
 const router: Routes = [
   {
@@ -27,6 +28,14 @@ const router: Routes = [
       {
         path: "thanks",
         component: GiveTheTranksComponent,
+      },
+      {
+        path: "home",
+        component: HomeComponent,
+      },
+      {
+        path: "actividades",
+        component: ActivitiesListComponent,
       },
     ],
   },

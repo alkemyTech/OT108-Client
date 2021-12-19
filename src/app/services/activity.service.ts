@@ -15,7 +15,7 @@ export class ActivityService {
     return this.https.post("activities", activity);
   }
 
-  getActivity(id: string) {
+  getActivity(id?: string) {
     return this.https.get("activities", id);
   }
 }
