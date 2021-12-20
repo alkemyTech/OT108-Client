@@ -1,5 +1,9 @@
 import { Component, OnInit } from "@angular/core";
+import { Store } from "@ngrx/store";
+import { observable, Observable } from "rxjs";
 import { ActivityService } from "src/app/services/activity.service";
+import { loadActivitiesList } from "src/app/state/actions/activities.actions";
+import { selectActivities } from "src/app/state/selectors/activities.selector";
 
 @Component({
   selector: "app-activities-list",
@@ -9,14 +13,12 @@ import { ActivityService } from "src/app/services/activity.service";
 export class ActivitiesListComponent implements OnInit {
   activities: any[] = [];
   imagenNull: boolean = false;
-  constructor(private service: ActivityService) {}
+  list$: Observable<any> = new Observable();
+  constructor(private store: Store) {
+    this.list$ = this.store.select(selectActivities);
+  }
 
   ngOnInit(): void {
-    this.getActivitys();
-  }
-  getActivitys() {
-    this.service.getActivity().subscribe((data: any) => {
-      this.activities = data.data;
-    });
+    this.store.dispatch(loadActivitiesList());
   }
 }
