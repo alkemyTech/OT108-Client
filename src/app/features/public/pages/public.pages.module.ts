@@ -12,9 +12,11 @@ import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspin
 import { PagesModule } from "../../backoffice/pages/pages.module";
 
 import { RouterModule } from "@angular/router";
-import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
-import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
 
+import { GoogleMapsModule } from "@angular/google-maps";
+import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
+import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -22,8 +24,8 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     DonationsComponent,
     GiveTheTranksComponent,
     HomeComponent,
-    ActivitiesListComponent,
     ActivitiesDetailsComponent,
+    ActivitiesListComponent,
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,9 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     ComponentsModule,
     LoaderspinnerModule,
     RouterModule,
-    PagesModule
+    GoogleMapsModule,
+    GooglePlaceModule,
+    PagesModule,
   ],
 })
 export class PublicPagesModule {}
