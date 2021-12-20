@@ -1,12 +1,16 @@
-<div id="link">
-  <button
-    class="btn btn-success"
-    [routerLink]="['/backoffice/categories/create']"
-  >
-    Agregar nueva actividad
-  </button>
-</div>
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="catContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
+
 <div class="px-4 py-5">
+  <div id="link">
+    <button
+      class="btn btn-success catAddBtn"
+      [routerLink]="['/backoffice/categories/create']"
+    >
+      Agregar nueva actividad
+    </button>
+  </div>
   <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
     <div class="col d-flex align-items-start" *ngFor="let item of list">
       <app-card-list
@@ -18,4 +22,5 @@
       ></app-card-list>
     </div>
   </div>
+</div>
 </div>

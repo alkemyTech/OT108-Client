@@ -9,6 +9,7 @@ import { CategoriesService } from "../../services/categories.service";
 })
 export class CategoriesListComponent implements OnInit {
   list: any[] = [];
+  control:boolean = false
   constructor(private service: CategoriesService, private router: Router) {}
 
   ngOnInit(): void {
@@ -24,4 +25,12 @@ export class CategoriesListComponent implements OnInit {
     this.router.navigate(["/backoffice/categories/" + id]);
     console.log(id);
   }
+
+  addItem() {
+    if(this.control == true){
+      this.control = false
+    }else{
+     this.control = true
+    }
+   }
 }

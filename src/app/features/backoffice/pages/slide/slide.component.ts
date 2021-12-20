@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 import * as slideActions from '../../../../state/actions/slide.actions';
 import * as slideSelector from '../../../../state/selectors/slide.selector';
 import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -19,9 +20,11 @@ export class SlideComponent implements OnInit {
   slides: Slides[] = [];
   imagenNull: boolean = false;
    slideStore$!: Subscription;
+   control:boolean = false
 
   constructor(
     private service: SlideService,
+   private router: Router,
     private store: Store<{ getAllSlides: any }>) {
      this.slide$ =  this.store.select(slideSelector.selectAllSlides)
     }
@@ -30,6 +33,19 @@ export class SlideComponent implements OnInit {
     this.store.dispatch(slideActions.getAllSlides())
  
   }
+
+  getDetail(id: string) {
+    this.router.navigate(["/backoffice/slides/" + id]);
+    console.log(id);
+  }
+
+  addItem() {
+    if(this.control == true){
+      this.control = false
+    }else{
+     this.control = true
+    }
+   }
 
 
 }
