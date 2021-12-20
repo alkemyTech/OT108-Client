@@ -1,21 +1,11 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LeafletMapsComponent } from './leaflet-maps/leaflet-maps.component';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { CardListComponent } from "./card-list/card-list.component";
 
 
 @NgModule({
-  declarations: [
-
-  
-    LeafletMapsComponent
-  ],
-  imports: [
-    CommonModule, 
-  ],
-  exports: [
-
-  ]
+  declarations: [CardListComponent],
+  imports: [CommonModule],
+  exports: [CardListComponent],
 })
-export class ComponentsModule { }
+export class ComponentssModule {}

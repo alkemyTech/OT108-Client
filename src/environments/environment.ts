@@ -11,6 +11,17 @@ export const environment = {
   activities: "http://ongapi.alkemy.org/api/activities",
   slides: "http://ongapi.alkemy.org/api/slides",
   contacts: "http://ongapi.alkemy.org/api/contacts",
+  Login: "http://ongapi.alkemy.org/api/login",
+  Register: "http://ongapi.alkemy.org/api/register",
+
+  firebaseConfig: {
+    apiKey: "AIzaSyAyyZ4ia5WiLtC6nAFrzWu43ZSEJD5BDGU",
+    authDomain: "somosmas-335419.firebaseapp.com",
+    projectId: "somosmas-335419",
+    storageBucket: "somosmas-335419.appspot.com",
+    messagingSenderId: "190541150638",
+    appId: "1:190541150638:web:729bdc277973cca982f03f",
+  },
 };
 
 /*

@@ -11,8 +11,8 @@ export class LeafletMapsComponent {
   streetMaps = tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   });
-  // Marker for the top of Mt. Ranier
-  summit = marker([ 46.8523, -121.7603 ], {
+  // Marker for the top of Buenos aires
+  summit = marker([ -34.61315, -58.37723 ], {
     icon: icon({
       iconSize: [ 25, 41 ],
       iconAnchor: [ 13, 41 ],
@@ -28,15 +28,15 @@ export class LeafletMapsComponent {
       'Street Maps': this.streetMaps,
     },
     overlays: {
-      'Mt. Rainier Summit': this.summit,
+      'Buenos Aires Summit': this.summit,
     }
   };
 
   // Set the initial set of displayed layers (we could also use the leafletLayers input binding for this)
   options = {
     layers: [ this.streetMaps, this.summit ],
-    zoom: 7,
-    center: latLng([ 46.879966, -121.726909 ])
+    zoom: 5,
+    center: latLng([ -38.416097, -63.616672 ])
   };
 
 }

@@ -7,10 +7,15 @@ import { DonationsComponent } from "./pages/donations/donations.component";
 import { GiveTheTranksComponent } from "./pages/give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { ContactoFormComponent } from "./pages/contacto-form/contacto-form.component";
+import { ActivitiesListComponent } from "./pages/activities/activities-list/activities-list.component";
 
 const router: Routes = [
   {
     path: "",
+    component: HomeComponent,
+  },
+  {
+    path: "public",
     children: [
       { path: "login", component: LoginFormComponent },
       {
@@ -32,6 +37,10 @@ const router: Routes = [
       {
         path: "contacts",
         component: ContactoFormComponent,
+      },
+      {
+        path: "actividades",
+        component: ActivitiesListComponent,
       },
     ],
   },

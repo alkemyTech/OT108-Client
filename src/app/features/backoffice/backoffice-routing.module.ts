@@ -20,11 +20,6 @@ import { CategoriesDetailsComponent } from "./pages/categories-details/categorie
 
 const router: Routes = [
   {
-    path: "",
-    component: DashboardComponent,
-  },
-
-  {
     path: "backoffice",
     children: [
       {
@@ -111,6 +106,10 @@ const router: Routes = [
       {
         path: "progress",
         component: SetupProgressComponent,
+      },
+      {
+        path: "Dashboard",
+        component: DashboardComponent,
       },
     ],
   },
