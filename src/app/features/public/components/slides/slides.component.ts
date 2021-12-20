@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,Input } from "@angular/core";
 import { Slides } from "src/app/models/slides";
 import { SlideService } from "src/app/services/slide.service";
 
@@ -8,15 +8,21 @@ import { SlideService } from "src/app/services/slide.service";
   styleUrls: ["./slides.component.scss"],
 })
 export class SlidesComponent implements OnInit {
-  images?: Slides[];
+  @Input()slideList:Slides[] | null = null
+  
+  
 
   constructor(private slideService: SlideService) {}
 
   ngOnInit(): void {
+    if(!this.slideList){
     this.slideService.getAllSlides().subscribe((slide) => {
       if (slide.success) {
-        (this.images = slide.data), console.log(this.images);
+        (this.slideList = slide.data);
       }
     });
   }
+  
+
+}
 }

@@ -11,6 +11,8 @@ import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
 import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/leafletmaps.module";
+import { PagesModule } from "../../backoffice/pages/pages.module";
+
 import { RouterModule } from "@angular/router";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
@@ -33,6 +35,7 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     LoaderspinnerModule,
     RouterModule,
     LeafletmapsModule,
+    PagesModule,
   ],
 })
-export class PagesModule {}
+export class PublicPagesModule {}

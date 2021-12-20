@@ -1,3 +1,7 @@
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="detContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
+
 <div class="container mt-5">
   <div
     class="card border-radius blur animate__animated animate__fadeIn"
@@ -71,4 +75,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

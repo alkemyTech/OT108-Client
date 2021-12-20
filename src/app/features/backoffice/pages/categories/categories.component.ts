@@ -53,7 +53,6 @@ export class CategoriesComponent implements OnInit {
       });
     } else {
       this.services.createCategory(category).subscribe((data) => {
-        console.log("creado: ", data);
         this.alert.messageGood("Categoria creada");
       });
     }

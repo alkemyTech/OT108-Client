@@ -27,6 +27,8 @@ import { NewsListComponent } from "./news-list/news-list.component";
 import { ComponentssModule } from "../../../components/components.module";
 import { CategoriesDetailsComponent } from "./categories-details/categories-details.component";
 import { ComponentsModule } from "../components/components.module";
+import { HomeFormComponent } from './home-form/home-form.component';
+import { SlideSearchComponent } from './home-form/slide-search/slide-search.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { ComponentsModule } from "../components/components.module";
     MemberListComponent,
     NewsListComponent,
     CategoriesDetailsComponent,
+    HomeFormComponent,
+    SlideSearchComponent,
   ],
   imports: [
     CommonModule,
@@ -61,5 +65,6 @@ import { ComponentsModule } from "../components/components.module";
     NgxSkeletonLoaderModule,
     ComponentssModule,
   ],
+  exports:[HomeFormComponent]
 })
 export class PagesModule {}
