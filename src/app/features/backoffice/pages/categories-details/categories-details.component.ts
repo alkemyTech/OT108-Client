@@ -13,7 +13,7 @@ export class CategoriesDetailsComponent implements OnInit {
   id: string | null = null;
   category: any;
   edits = false;
-  control:boolean = false
+  control: boolean = false;
   constructor(
     private serchId: ActivatedRoute,
     private router: Router,
@@ -26,7 +26,7 @@ export class CategoriesDetailsComponent implements OnInit {
     if (this.id) {
       this.service.getCategory(this.id).subscribe((data) => {
         this.category = data.data;
-        console.log(this.category);
+
         this.verificEdit();
       });
     } else {
@@ -49,10 +49,10 @@ export class CategoriesDetailsComponent implements OnInit {
   }
 
   addItem() {
-    if(this.control == true){
-      this.control = false
-    }else{
-     this.control = true
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
     }
-   }
+  }
 }

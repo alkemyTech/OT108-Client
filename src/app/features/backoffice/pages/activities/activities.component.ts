@@ -14,7 +14,7 @@ export class ActivitiesComponent implements OnInit {
   list: any;
   list$: Observable<any> = new Observable();
   loading$: Observable<boolean> = new Observable();
-  control:boolean = false
+  control: boolean = false;
   constructor(private store: Store<{ retrievedActivitiesList: any }>) {
     this.list$ = this.store.select(selectActivities);
   }
@@ -26,10 +26,10 @@ export class ActivitiesComponent implements OnInit {
   getDetail(id: string) {}
 
   addItem() {
-    if(this.control == true){
-      this.control = false
-    }else{
-     this.control = true
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
     }
-   }
+  }
 }

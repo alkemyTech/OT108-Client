@@ -1,20 +1,15 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+  selector: "app-sidebar",
+  templateUrl: "./sidebar.component.html",
+  styleUrls: ["./sidebar.component.scss"],
 })
 export class SidebarComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  
-
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   go(route: string) {
     switch (route) {
@@ -40,7 +35,4 @@ export class SidebarComponent implements OnInit {
         break;
     }
   }
-
-
-
 }

@@ -93,7 +93,6 @@ export class NewsComponent implements OnInit {
   getCategories() {
     this.service.getCategories().subscribe((data: any) => {
       this.categoria = data.data;
-      console.log("categorias: ", this.categoria);
     });
   }
 
