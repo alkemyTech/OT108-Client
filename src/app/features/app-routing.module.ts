@@ -8,15 +8,16 @@ const routes: Routes = [
     redirectTo: "public/donatios",
     pathMatch: "full",
   },
-  {
-    path: "backoffice",
-    loadChildren: () =>
-      import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
-  },
+
   {
     path: "public",
     loadChildren: () =>
       import("./public/public.module").then((m) => m.PublicModule),
+  },
+  {
+    path: "backoffice",
+    loadChildren: () =>
+      import("./backoffice/backoffice.module").then((m) => m.BackofficeModule),
   },
 ];
 
