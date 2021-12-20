@@ -1,0 +1,50 @@
+<div class="contenedor">
+  <nav
+    *ngIf="organization"
+    class="navbar navbar-expand-lg navbar-light bg-light"
+  >
+    <img id="logo" [src]="organization.logo" />
+    <p>{{ organization.name }}</p>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Donaciones <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Actividades<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Novedades<span class="sr-only">(current)</span></a
+          >
+        </li>
+      </ul>
+      <h2 class="nombres">Facebook</h2>
+      <a target="_blank" [href]="'https://' + organization.facebook_url"
+        ><img class="redes" src="../../../assets/images/facebook.jpg"
+      /></a>
+      <h2 class="nombres">Instagram</h2>
+      <a target="_blank" [href]="'https://' + organization.instagram_url"
+        ><img class="redes" src="../../../assets/images/ig.jpg"
+      /></a>
+      <h2 class="nombres">Linkedin</h2>
+      <a target="_blank" [href]="'https://' + organization.linkedin_url"
+        ><img class="redes" src="../../../assets/images/linkedin.png"
+      /></a>
+      <h2 class="nombres">Twitter</h2>
+      <a target="_blank" [href]="'https://' + organization.twitter_url"
+        ><img class="redes" src="../../../assets/images/twitter.jpg"
+      /></a>
+    </div>
+  </nav>
+</div>

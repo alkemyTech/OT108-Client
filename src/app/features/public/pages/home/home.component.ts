@@ -6,9 +6,9 @@ import { SlideService } from 'src/app/features/backoffice/services/slide.service
 import { Slides } from 'src/app/models/slides';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"],
 })
 export class HomeComponent implements OnInit {
 
@@ -48,5 +48,4 @@ export class HomeComponent implements OnInit {
     console.log("public home")
     
   }
-
 }

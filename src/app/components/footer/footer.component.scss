@@ -1,0 +1,66 @@
+.contenedor {
+  max-width: 200px;
+  margin-left: 180px;
+  background-color: white;
+}
+
+footer {
+  text-align: center;
+}
+
+.redes {
+  display: inline;
+  margin-bottom: 2%;
+  margin-left: 1%;
+
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+#logo {
+  display: block;
+  margin: auto;
+  margin-top: 1%;
+  margin-right: 55%;
+}
+
+.nombres {
+  display: none;
+}
+
+p {
+  font-size: 20px;
+  font-family: monospace;
+}
+
+h2 {
+  font-size: 15px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+img {
+  width: 100px;
+}
+
+@media screen and (min-width: 300px) {
+  p {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  p {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .nombres {
+    display: inline;
+  }
+  p {
+    display: block;
+  }
+}

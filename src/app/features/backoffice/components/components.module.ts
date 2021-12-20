@@ -2,15 +2,14 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { CardComponent } from "./card/card.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { CardsComponent } from "./cards/cards.component";
 import { SkeletonComponent } from "./skeleton/skeleton.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-
-
+import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [CardComponent, CardsComponent,SkeletonComponent],
-  imports: [CommonModule, ReactiveFormsModule,NgxSkeletonLoaderModule],
-  exports: [CardsComponent,SkeletonComponent],
+  declarations: [CardComponent, SkeletonComponent, HeaderComponent, SidebarComponent],
+  imports: [CommonModule, ReactiveFormsModule, NgxSkeletonLoaderModule],
+  exports: [SkeletonComponent,HeaderComponent,SidebarComponent],
 })
 export class ComponentsModule {}

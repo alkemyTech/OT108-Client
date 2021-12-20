@@ -6,10 +6,15 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { DonationsComponent } from "./pages/donations/donations.component";
 import { GiveTheTranksComponent } from "./pages/give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./pages/home/home.component";
+import { ActivitiesListComponent } from "./pages/activities/activities-list/activities-list.component";
 
 const router: Routes = [
   {
     path: "",
+    component: HomeComponent,
+  },
+  {
+    path: "public",
     children: [
       { path: "login", component: LoginFormComponent },
       {
@@ -27,6 +32,10 @@ const router: Routes = [
       {
         path: "home",
         component: HomeComponent,
+      },
+      {
+        path: "actividades",
+        component: ActivitiesListComponent,
       },
     ],
   },

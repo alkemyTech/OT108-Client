@@ -10,7 +10,7 @@ import { NewsComponent } from "./pages/news/news.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { OrganizationEditComponent } from "./pages/organization-edit/organization-edit.component";
 import { SlideComponent } from "./pages/slide/slide.component";
-import { SlidesComponent } from "./pages/slides/slides.component";
+import { SlideFormComponent } from "./pages/slide-form/slide-form.component";
 import { UsersListComponent } from "./pages/users-list/users-list.component";
 import { UsersComponent } from "./pages/users/users.component";
 import { ActividadesDetalleComponent } from "./pages/views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
@@ -20,11 +20,6 @@ import { CategoriesDetailsComponent } from "./pages/categories-details/categorie
 import { HomeFormComponent } from "./pages/home-form/home-form.component";
 
 const router: Routes = [
-  {
-    path: "",
-    component: DashboardComponent,
-  },
-
   {
     path: "backoffice",
     children: [
@@ -86,11 +81,11 @@ const router: Routes = [
       },
       {
         path: "slides/create",
-        component: SlidesComponent,
+        component: SlideFormComponent,
       },
       {
         path: "slides/edit/:id",
-        component: SlidesComponent,
+        component: SlideFormComponent,
       },
       {
         path: "user-list",
@@ -116,6 +111,10 @@ const router: Routes = [
       {
         path: "home-form",
         component: HomeFormComponent,
+      },
+      {  
+        path: "Dashboard",
+        component: DashboardComponent,
       },
     ],
   },
