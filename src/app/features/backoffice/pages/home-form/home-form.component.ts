@@ -3,7 +3,6 @@ import { CKEditorComponent } from "ng2-ckeditor";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Home } from 'src/app/models/home';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SlidesComponent } from '../slides/slides.component';
 import { SlideService } from '../../services/slide.service';
 import { Slides } from 'src/app/models/slides';
 import { AlertService } from 'src/app/services/alert.service';
