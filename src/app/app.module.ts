@@ -26,6 +26,8 @@ import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { SlideEffects } from "./state/effects/slide.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { GoogleMapsModule } from "@angular/google-maps";
 import { FirebaseModule } from "./firebase/firebase.module";
 import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
@@ -62,7 +64,12 @@ import { CategoriesEffects } from "./state/effects/categories.effects";
       AuthEffects,
       CategoriesEffects,
     ]),
+<<<<<<< HEAD
     LeafletModule,
+=======
+    GooglePlaceModule,
+    GoogleMapsModule,
+>>>>>>> main
   ],
   providers: [],
   bootstrap: [AppComponent],

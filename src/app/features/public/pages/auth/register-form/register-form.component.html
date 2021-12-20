@@ -33,7 +33,33 @@
           *El campo nombre no puede contener espacios.
         </span>
       </div>
-
+      <div class="form-group">
+        <label for="direccion">Direccion</label>
+        <input
+          formControlName="direction"
+          [ngClass]="{
+            'is-invalid': direction?.invalid && direction?.touched,
+            'is-valid': direction?.valid
+          }"
+          placeholder="Ingrese Direccion"
+          class="form-control"
+          ngx-google-places-autocomplete
+          #placesRef="ngx-places"
+          (onAddressChange)="handleAddressChange($event)"
+        />
+        <div class="mt-4 form-group" *ngIf="show && direction?.valid">
+          <google-map [center]="center" [zoom]="15">
+            <map-marker [position]="center" [label]="label"> </map-marker>
+          </google-map>
+        </div>
+        <span
+          span
+          class="invalid-feedback"
+          *ngIf="direction?.errors?.required && direction?.touched"
+        >
+          *El campo Direccion es requerido.
+        </span>
+      </div>
       <div class="form-group">
         <label for="email">Email</label>
         <input
@@ -90,7 +116,6 @@
             'is-valid': password?.valid
           }"
           required
-          autofocus
         />
 
         <!-- TANTOS SPAN ESTAN MAL PERO NO PUEDO HACERLO DE OTRA FORMA -->
@@ -181,7 +206,6 @@
             'is-valid': passwordTwo?.valid
           }"
           required
-          autofocus
         />
         <span
           class="invalid-feedback"

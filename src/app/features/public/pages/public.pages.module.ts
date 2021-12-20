@@ -14,9 +14,11 @@ import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/l
 import { PagesModule } from "../../backoffice/pages/pages.module";
 
 import { RouterModule } from "@angular/router";
-import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
-import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
 
+import { GoogleMapsModule } from "@angular/google-maps";
+import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
+import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -24,9 +26,9 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     DonationsComponent,
     GiveTheTranksComponent,
     HomeComponent,
-    ActivitiesListComponent,
     ActivitiesDetailsComponent,
     ContactoFormComponent,
+    ActivitiesListComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +37,8 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     LoaderspinnerModule,
     RouterModule,
     LeafletmapsModule,
+    GoogleMapsModule,
+    GooglePlaceModule,
     PagesModule,
   ],
 })
