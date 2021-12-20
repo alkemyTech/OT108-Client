@@ -1,0 +1,21 @@
+<div *ngFor="let slide of slideArray" class="card contenedor">
+    <div *ngIf="slide.image != null">
+      <img class="card-img-top" [src]="slide.image" />
+    </div>
+    <div *ngIf="slide.image === null">
+      <img
+        id="imagenNull"
+        class="card-img-top"
+        src="../../../../../assets/images/imagenull.png"
+      />
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><span>Titulo:</span>{{ slide.name }}</h5>
+      <h5 class="card-text"><span>Order:</span>{{ slide.order }}</h5>
+      <i class="far fa-edit text-primary"></i>
+      <i class="fas fa-trash-alt text-danger"></i>
+      <button (click)="addSlide(slide)"  type="button" class="btn btn-warning"  >Add</button>
+    </div>
+  </div>
+  <button (click)="closeSearch()" *ngIf="close" type="button"  >Close</button>
+  <button (click)="slideSearch()"  *ngIf="close != true" type="button"  >Seleccionar Slide</button>
