@@ -9,6 +9,7 @@ import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.compon
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
+import { PagesModule } from "../../backoffice/pages/pages.module";
 
 import { RouterModule } from "@angular/router";
 
@@ -34,6 +35,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     RouterModule,
     GoogleMapsModule,
     GooglePlaceModule,
+    PagesModule,
   ],
 })
-export class PagesModule {}
+export class PublicPagesModule {}
