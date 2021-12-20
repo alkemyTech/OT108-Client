@@ -64,12 +64,9 @@ import { CategoriesEffects } from "./state/effects/categories.effects";
       AuthEffects,
       CategoriesEffects,
     ]),
-<<<<<<< HEAD
     LeafletModule,
-=======
     GooglePlaceModule,
     GoogleMapsModule,
->>>>>>> main
   ],
   providers: [],
   bootstrap: [AppComponent],
