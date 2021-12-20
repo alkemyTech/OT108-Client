@@ -27,7 +27,8 @@ import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
 import { SlideEffects } from "./state/effects/slide.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
-
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { GoogleMapsModule } from "@angular/google-maps";
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
   imports: [
@@ -58,6 +59,8 @@ import { ActivitiesEffects } from "./state/effects/activites.effects";
       AuthEffects,
       CategoriesEffects,
     ]),
+    GooglePlaceModule,
+    GoogleMapsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
