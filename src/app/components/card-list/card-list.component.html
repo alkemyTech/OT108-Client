@@ -29,6 +29,14 @@
             [placeholder]="name"
             readonly
           />
+          <div *ngIf="description">
+            <label class="form-label">descripcion</label>
+            <div
+              class="pl-2 pt-2 pb-2 descripcion"
+              readonly
+              [innerHTML]="description"
+            ></div>
+          </div>
         </div>
       </div>
     </div>

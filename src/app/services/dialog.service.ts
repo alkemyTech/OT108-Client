@@ -11,7 +11,7 @@ export class DialogService {
   openConfirmDialog(text?: string) {
     this.dialog.open(DialogComponent, {
       width: "250px",
-      data: text,
+      data: text ? text : "guardado con exito",
       panelClass: "content-container",
       disableClose: true,
     });
@@ -20,7 +20,7 @@ export class DialogService {
   openErrorDialog(text?: string) {
     this.dialog.open(DialogErrorComponent, {
       width: "250px",
-      data: text,
+      data: text ? text : "Error Intente de nuevo",
       panelClass: "content-container",
       disableClose: true,
     });
