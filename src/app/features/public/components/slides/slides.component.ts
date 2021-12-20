@@ -15,7 +15,7 @@ export class SlidesComponent implements OnInit {
   ngOnInit(): void {
     this.slideService.getAllSlides().subscribe((slide) => {
       if (slide.success) {
-        (this.images = slide.data), console.log(this.images);
+        this.images = slide.data;
       }
     });
   }

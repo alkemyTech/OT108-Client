@@ -39,6 +39,9 @@ import { Router } from "@angular/router";
   ],
 })
 export class DashboardComponent implements OnInit {
+
+  control:boolean = false
+
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
@@ -66,5 +69,13 @@ export class DashboardComponent implements OnInit {
       case "novelties":
         break;
     }
+  }
+
+  addItem() {
+   if(this.control == true){
+     this.control = false
+   }else{
+    this.control = true
+   }
   }
 }
