@@ -71,26 +71,34 @@ export class ActivityFormComponent implements OnInit {
       this.ActivityService.editActivity(this.id, activity).subscribe(
         (act) => {
           if (act.success) {
-            this.alert.messageGood("La actividad fue editada con exito!!!");
+            this.serviceDialog.openConfirmDialog(
+              "La actividad fue editada con exito!!!"
+            );
           } else {
-            this.alert.messageError("Error en en la edicion del dato");
+            this.serviceDialog.openErrorDialog(
+              "Error en en la edicion del dato"
+            );
           }
         },
         (error) => {
-          this.alert.messageError("Error en en la peticion de editar del dato");
+          this.serviceDialog.openErrorDialog(
+            "Error en en la peticion de editar del dato"
+          );
         }
       );
     } else {
       this.ActivityService.creationActivity(activity).subscribe(
         (data) => {
           if (data.success) {
-            this.alert.messageGood("La actividad fue creada con exito !!");
+            this.serviceDialog.openConfirmDialog(
+              "La actividad fue creada con exito !!"
+            );
           } else {
-            this.alert.messageError("Error en en la creacion del dato");
+            this.serviceDialog.openErrorDialog("La actividad no fue creada");
           }
         },
         (error) => {
-          this.alert.messageError(
+          this.serviceDialog.openErrorDialog(
             "Error en en la peticion de creacion  del dato"
           );
         }
@@ -112,11 +120,13 @@ export class ActivityFormComponent implements OnInit {
             });
             this.images = act.data.image;
           } else {
-            this.alert.messageError("Error en en la carga del dato");
+            this.serviceDialog.openErrorDialog("Error en en la carga del dato");
           }
         },
         (error) => {
-          this.serviceDialog.openErrorDialog();
+          this.serviceDialog.openErrorDialog(
+            "Error en la busqueda de esta actidad"
+          );
         }
       );
     }
