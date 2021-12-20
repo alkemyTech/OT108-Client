@@ -9,6 +9,7 @@ import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.compon
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
+import { PagesModule } from "../../backoffice/pages/pages.module";
 
 import { RouterModule } from "@angular/router";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
@@ -30,6 +31,7 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     ComponentsModule,
     LoaderspinnerModule,
     RouterModule,
+    PagesModule
   ],
 })
-export class PagesModule {}
+export class PublicPagesModule {}

@@ -1,0 +1,46 @@
+.contenedor {
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 40rem;
+    width: 100%;
+    border: 3px solid grey;
+    overflow: hidden;
+  }
+  
+  h5 {
+    color: black;
+    font-family: monospace;
+    font-size: 20px;
+  }
+  
+  p {
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+  
+  span {
+    color: red;
+  }
+  
+  i {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  img {
+    width: 200px;
+    height: 200px;
+    margin-left: 10px;
+    border: 2px solid red;
+  }
+  
+  #link {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 25px;
+  }
