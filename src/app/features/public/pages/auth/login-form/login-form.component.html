@@ -18,8 +18,6 @@
             'is-invalid': email?.invalid && email?.touched,
             'is-valid': email?.valid
           }"
-          required
-          autofocus
         />
         <span
           span
@@ -52,8 +50,6 @@
             'is-invalid': password?.invalid && password?.touched,
             'is-valid': password?.valid
           }"
-          required
-          autofocus
         />
 
         <!-- TANTOS SPAN ESTAN MAL PERO NO PUEDO HACERLO DE OTRA FORMA -->
@@ -124,18 +120,25 @@
       <div class="row mt-6">
         <button
           type="submit"
-          class="btn-block"
+          [ngClass]="{
+            'btn-primary': this.loginForm.valid,
+            'btn-outline-primary': this.loginForm.invalid
+          }"
+          class="btn-block btn"
           (click)="onLogin()"
           [disabled]="loginForm.invalid"
         >
           Ingresar
+        </button>
+        <button (click)="loginWhithGoogle()" class="btn btn-block btn-google">
+          Ingresar con Google
         </button>
       </div>
     </form>
     <div>
       <p>
         No tienes una cuenta?<a
-          routerLink="../registro"
+          routerLink="../register"
           style="cursor: pointer; color: blueviolet"
           >Registrarse</a
         >

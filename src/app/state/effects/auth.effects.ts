@@ -14,6 +14,7 @@ import { AlertService } from "src/app/services/alert.service";
 import { AuthService } from "src/app/services/auth.service";
 import {
   loginFail,
+  loginGoogle,
   loginStart,
   loginSuccess,
   LOGIN_FAIL,
@@ -125,6 +126,28 @@ export class AuthEffects {
           localStorage.removeItem("token");
           this.router.navigate(["public/home"]);
         })
+      ),
+    { dispatch: false }
+  );
+
+  LoginGoogle$ = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(loginGoogle),
+        tap(() =>
+          this.loginService
+            .loginGoogle()
+            .then((res) => {
+              res?.user?.getIdTokenResult().then((ten) => {
+                localStorage.clear();
+                localStorage.setItem("token", ten.token);
+                this.router.navigate(["backoffice/Dashboard"]);
+              });
+            })
+            .catch(() => {
+              this.alert.messageError("no sepudo logear con google con exito");
+            })
+        )
       ),
     { dispatch: false }
   );

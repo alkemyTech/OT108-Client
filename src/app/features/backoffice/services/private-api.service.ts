@@ -36,7 +36,9 @@ export class PrivateApiService {
   post(rutter: string, body: object, auth?: boolean) {
     const httpHeaders = this.headers(auth);
     const urls = this.router(rutter);
-    return this.http.post(urls, JSON.stringify(body), { headers: httpHeaders });
+    return this.http.post<any>(urls, JSON.stringify(body), {
+      headers: httpHeaders,
+    });
   }
 
   router(rutter: string, id?: string) {

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { Observable, Subscriber } from "rxjs";
 import { Activity } from "src/app/models/activities";
 import { AlertService } from "src/app/services/alert.service";
+import { DialogService } from "src/app/services/dialog.service";
 import { ActivityService } from "../../services/activity.service";
 @Component({
   selector: "app-activity-form",
@@ -23,7 +24,8 @@ export class ActivityFormComponent implements OnInit {
     private serchId: ActivatedRoute,
     private router: Router,
     private ActivityService: ActivityService,
-    private alert: AlertService
+    private alert: AlertService,
+    private serviceDialog: DialogService
   ) {
     this.id = this.serchId.snapshot.paramMap.get("id");
   }
@@ -73,7 +75,6 @@ export class ActivityFormComponent implements OnInit {
           } else {
             this.alert.messageError("Error en en la edicion del dato");
           }
-          console.log(act);
         },
         (error) => {
           this.alert.messageError("Error en en la peticion de editar del dato");
@@ -115,7 +116,7 @@ export class ActivityFormComponent implements OnInit {
           }
         },
         (error) => {
-          console.log(error);
+          this.serviceDialog.openErrorDialog();
         }
       );
     }
