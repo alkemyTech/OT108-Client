@@ -135,13 +135,18 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(loginGoogle),
         tap(() =>
-          this.loginService.loginGoogle().then((res) => {
-            res?.user?.getIdTokenResult().then((ten) => {
-              localStorage.clear();
-              localStorage.setItem("token", ten.token);
-              this.router.navigate(["backoffice/Dashboard"]);
-            });
-          })
+          this.loginService
+            .loginGoogle()
+            .then((res) => {
+              res?.user?.getIdTokenResult().then((ten) => {
+                localStorage.clear();
+                localStorage.setItem("token", ten.token);
+                this.router.navigate(["backoffice/Dashboard"]);
+              });
+            })
+            .catch(() => {
+              this.alert.messageError("no sepudo logear con google con exito");
+            })
         )
       ),
     { dispatch: false }
