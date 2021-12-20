@@ -97,9 +97,13 @@ export class LoginFormComponent implements OnInit {
   loginWhithGoogle() {
     this.authService.loginGoogle().then((res) => {
       res?.user?.getIdTokenResult().then((ten) => {
-        console.log(res.user?.email);
-        console.log(res.user?.displayName);
-        console.log(ten.token);
+        //esato no queda asi pero necesito el auth reducers porq esos datos son los q tengo q agregar al observable
+        //console.log(res.user?.email);
+        //console.log(res.user?.displayName);
+        //console.log(ten.token);
+        localStorage.setItem("token", ten.token);
+        //modificacion de rutas con el authreducers
+        //this.router.navigate(["/backoffice/Dashboard"]);
       });
     });
   }
