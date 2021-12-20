@@ -76,13 +76,13 @@ export class RegisterFormComponent implements OnInit {
   }
   public handleAddressChange(address: any) {
     this.show = false;
-    this.directions = address.formatted_address;
     if (!address.geometry) {
       this.alert.messageError("Direccion no Valida");
       this.loginForm.get("direction")?.setErrors({ require: true });
       this.show = false;
       this.loginForm.get("direction")?.setValue("");
     } else {
+      this.directions = address.formatted_address;
       this.center.lat = address.geometry.location.lat();
       this.center.lng = address.geometry.location.lng();
       timer(500).subscribe(() => {
