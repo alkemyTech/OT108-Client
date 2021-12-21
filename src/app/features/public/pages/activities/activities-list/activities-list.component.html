@@ -1,3 +1,4 @@
+<app-loaderspinner *ngIf="load == false"></app-loaderspinner>
 <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
   <div class="col d-flex align-items-start" *ngFor="let item of list$ | async">
     <app-card-list

@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
   go(route: string) {
     switch (route) {
       case "members":
-        this.router.navigate(["memer"]);
+        this.router.navigate(["member"]);
         break;
       case "user":
         break;

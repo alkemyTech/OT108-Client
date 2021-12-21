@@ -36,6 +36,10 @@ const router: Routes = [
         component: ActivityFormComponent,
       },
       {
+        path: "actividades/:id",
+        component: ActividadesDetalleComponent,
+      },
+      {
         path: "categories-list",
         component: CategoriesListComponent,
       },
@@ -98,10 +102,6 @@ const router: Routes = [
       {
         path: "user/edit/:id",
         component: UsersComponent,
-      },
-      {
-        path: "actividades/:id",
-        component: ActividadesDetalleComponent,
       },
 
       {
