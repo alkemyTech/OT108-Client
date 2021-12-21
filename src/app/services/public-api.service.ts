@@ -5,7 +5,7 @@ import { AlertService } from "./alert.service";
   providedIn: "root",
 })
 export class PublicApiService {
-  private url: string = "http://ongapi.alkemy.org/api";
+  
 
   constructor(private http: HttpClient, private alert: AlertService) {}
 
@@ -21,9 +21,9 @@ export class PublicApiService {
   }
 
   router(rutter: string, id?: string) {
-    let route = this.url + "/" + rutter;
+    let route = rutter;
     if (id) {
-      route = this.url + "/" + rutter + "/" + id;
+      route =  rutter + "/" + id;
     }
     return route;
   }
