@@ -10,6 +10,7 @@ export const environment = {
   organization: "http://ongapi.alkemy.org/api/organization",
   activities: "http://ongapi.alkemy.org/api/activities",
   slides: "http://ongapi.alkemy.org/api/slides",
+  contacts: "http://ongapi.alkemy.org/api/contacts",
   Login: "http://ongapi.alkemy.org/api/login",
   Register: "http://ongapi.alkemy.org/api/register",
 
