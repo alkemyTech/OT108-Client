@@ -9,6 +9,8 @@ import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.compon
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
 import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
+import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
+import { LeafletmapsModule } from "src/app/components/leaflet-maps/leafletmaps/leafletmaps.module";
 import { PagesModule } from "../../backoffice/pages/pages.module";
 
 import { RouterModule } from "@angular/router";
@@ -26,6 +28,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     GiveTheTranksComponent,
     HomeComponent,
     ActivitiesDetailsComponent,
+    ContactoFormComponent,
     ActivitiesListComponent,
   ],
   imports: [
@@ -34,6 +37,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ComponentsModule,
     LoaderspinnerModule,
     RouterModule,
+    LeafletmapsModule,
     ComponentssModule,
     GoogleMapsModule,
     GooglePlaceModule,

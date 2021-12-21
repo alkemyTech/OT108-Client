@@ -18,10 +18,9 @@ import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from "./views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
-import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
-import { MatProgressBarModule } from "@angular/material/progress-bar";
-import { SetupProgressComponent } from "./setup-progress/setup-progress/setup-progress.component";
-import { ContactoFormComponent } from "./contacto-form/contacto-form.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { SetupProgressComponent } from './setup-progress/setup-progress/setup-progress.component';
 import { CategoriesListComponent } from "./categories-list/categories-list.component";
 import { MemberListComponent } from "./member-list/member-list.component";
 import { NewsListComponent } from "./news-list/news-list.component";
@@ -48,7 +47,6 @@ import { SlideSearchComponent } from './home-form/slide-search/slide-search.comp
     UsersListComponent,
     ActividadesDetalleComponent,
     SetupProgressComponent,
-    ContactoFormComponent,
     CategoriesListComponent,
     MemberListComponent,
     NewsListComponent,

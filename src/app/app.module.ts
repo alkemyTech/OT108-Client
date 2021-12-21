@@ -21,9 +21,9 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
 import { SlideEffects } from "./state/effects/slide.effects";
 import { ActivitiesEffects } from "./state/effects/activites.effects";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
@@ -31,6 +31,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { FirebaseModule } from "./firebase/firebase.module";
 import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
+
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -63,6 +64,7 @@ import { CategoriesEffects } from "./state/effects/categories.effects";
       AuthEffects,
       CategoriesEffects,
     ]),
+    LeafletModule,
     GooglePlaceModule,
     GoogleMapsModule,
   ],
