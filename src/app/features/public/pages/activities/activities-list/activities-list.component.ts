@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivityService } from "src/app/services/activity.service";
-import { DialogService } from "src/app/services/dialog.service";
+import { Store } from "@ngrx/store";
+import {  Observable } from "rxjs";
+import { loadActivitiesList } from "src/app/state/actions/activities.actions";
+import { selectActivities } from "src/app/state/selectors/activities.selector";
 
 @Component({
   selector: "app-activities-list",
@@ -10,24 +12,12 @@ import { DialogService } from "src/app/services/dialog.service";
 export class ActivitiesListComponent implements OnInit {
   activities: any[] = [];
   imagenNull: boolean = false;
-  load:boolean = false
-  constructor(
-    private service: ActivityService,
-    private serviceDialog: DialogService) {}
+  list$: Observable<any> = new Observable();
+  constructor(private store: Store) {
+    this.list$ = this.store.select(selectActivities);
+  }
 
   ngOnInit(): void {
-    this.getActivitys();
-  }
-  getActivitys() {
-    this.service.getActivity().subscribe((data: any) => {
-      this.activities = data.data
-      this.load = true
-    },
-    (error) => {
-      this.serviceDialog.openErrorDialog();
-      this.load = true
-    }
-    );
-    
+    this.store.dispatch(loadActivitiesList());
   }
 }

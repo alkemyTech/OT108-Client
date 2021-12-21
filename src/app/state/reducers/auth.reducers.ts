@@ -1,6 +1,8 @@
 import { createReducer, on } from "@ngrx/store";
 import {
   loginFail,
+  loginGoogle,
+  loginGoogleSuccess,
   loginStart,
   loginSuccess,
   logOut,
@@ -62,6 +64,12 @@ export const AuthReducer = createReducer(
       ...state,
       isAuthenticated: false,
       user: null,
+    };
+  }),
+  on(loginGoogle, (state) => {
+    return {
+      ...state,
+      isAuthenticated: true,
     };
   })
 );

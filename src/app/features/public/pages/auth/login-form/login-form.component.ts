@@ -13,7 +13,7 @@ import { Auth } from "src/app/models/auth";
 import { AuthService } from "src/app/services/auth.service";
 import { AppState } from "src/app/state/app.state";
 import { Store } from "@ngrx/store";
-import { loginStart } from "src/app/state/actions/auth.actions";
+import { loginGoogle, loginStart } from "src/app/state/actions/auth.actions";
 import { Observable } from "rxjs";
 import { selectAuth, selectUser } from "src/app/state/selectors/auth.selector";
 @Component({
@@ -101,6 +101,10 @@ export class LoginFormComponent implements OnInit {
     }
 
     return null;
+  }
+
+  loginWhithGoogle() {
+    this.store.dispatch(loginGoogle());
   }
 
   onLogin() {

@@ -1,19 +1,11 @@
-<app-loaderspinner *ngIf="load == false"></app-loaderspinner>
-<div *ngFor="let actividad of activities" class="card contenedor">
-  <div *ngIf="!actividad.image">
-    <img class="card-img-top" [src]="actividad.image" />
-  </div>
-  <div *ngIf="actividad.image">
-    <img
-      id="imagenNull"
-      class="card-img-top"
-      src="../../../../../assets/images/imagenull.png"
-    />
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><span>Nombre:</span>{{ actividad.name }}</h5>
-    <h5 class="card-text"><span>Creacion:</span>{{ actividad.created_at }}</h5>
-    <i class="far fa-edit text-primary"></i>
-    <i class="fas fa-trash-alt text-danger"></i>
+<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+  <div class="col d-flex align-items-start" *ngFor="let item of list$ | async">
+    <app-card-list
+      class="sober"
+      [image]="item?.image"
+      [id]="item?.id"
+      [name]="item?.name"
+      [description]="item?.description"
+    ></app-card-list>
   </div>
 </div>

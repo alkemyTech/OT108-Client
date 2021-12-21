@@ -1,5 +1,9 @@
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="dashContainer">
+<app-sidebar *ngIf="control"></app-sidebar>
 <div class="px-5 py-5 animate__animated animate__fadeIn">
   <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    
     <div @left class="col-3 mb-5 d-flex">
       <div
         class="card text-white bg-info cardcorrecciones"
@@ -135,4 +139,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

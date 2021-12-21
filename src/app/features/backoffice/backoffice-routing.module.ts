@@ -17,6 +17,7 @@ import { ActividadesDetalleComponent } from "./pages/views/activities/detail/act
 import { SetupProgressComponent } from "./pages/setup-progress/setup-progress/setup-progress.component";
 import { CategoriesListComponent } from "./pages/categories-list/categories-list.component";
 import { CategoriesDetailsComponent } from "./pages/categories-details/categories-details.component";
+import { HomeFormComponent } from "./pages/home-form/home-form.component";
 
 const router: Routes = [
   {
@@ -108,6 +109,10 @@ const router: Routes = [
         component: SetupProgressComponent,
       },
       {
+        path: "home-form",
+        component: HomeFormComponent,
+      },
+      {  
         path: "Dashboard",
         component: DashboardComponent,
       },

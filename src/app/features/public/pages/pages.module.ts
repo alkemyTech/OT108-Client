@@ -8,11 +8,12 @@ import { DonationsComponent } from "./donations/donations.component";
 import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
-import { LoaderspinnerModule } from "src/app/components/loaderspinner/loaderspinner.module";
 
+import { LoaderspinnerModule } from "../../../components/loaderspinner/loaderspinner.module";
 import { RouterModule } from "@angular/router";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
+import { ComponentssModule } from "../../../components/components.module";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
     ComponentsModule,
     LoaderspinnerModule,
     RouterModule,
+    ComponentssModule,
   ],
 })
 export class PagesModule {}

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { Auth } from "src/app/models/auth";
 import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
@@ -16,6 +16,8 @@ import { AppState } from "src/app/state/app.state";
 import { registerStart } from "src/app/state/actions/auth.actions";
 import { Observable, timer } from "rxjs";
 import { selectAuth } from "src/app/state/selectors/auth.selector";
+import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
+import { Address } from "ngx-google-places-autocomplete/objects/address";
 @Component({
   selector: "app-register-form",
   templateUrl: "./register-form.component.html",
@@ -42,6 +44,21 @@ import { selectAuth } from "src/app/state/selectors/auth.selector";
   ],
 })
 export class RegisterFormComponent implements OnInit {
+  @ViewChild("placesRef") placesRef: GooglePlaceDirective | null = null;
+  directions: string = "";
+  position = {
+    lat: -34.681,
+    lng: -58.371,
+  };
+  label = {
+    text: "Usted Esta Aqui",
+  };
+  center: google.maps.LatLngLiteral = {
+    lat: this.position.lat,
+    lng: this.position.lng,
+  };
+
+  show: boolean = false;
   private emailPattern: any =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   public user: Auth;
@@ -56,6 +73,26 @@ export class RegisterFormComponent implements OnInit {
   ) {
     this.auth$ = this.store.select(selectAuth);
     this.user = new Auth();
+  }
+  public handleAddressChange(address: any) {
+    this.show = false;
+    if (!address.geometry) {
+      this.alert.messageError("Direccion no Valida");
+      this.loginForm.get("direction")?.setErrors({ require: true });
+      this.show = false;
+      this.loginForm.get("direction")?.setValue("");
+    } else {
+      this.directions = address.formatted_address;
+      this.center.lat = address.geometry.location.lat();
+      this.center.lng = address.geometry.location.lng();
+      timer(500).subscribe(() => {
+        this.show = true;
+      });
+    }
+  }
+
+  get direction() {
+    return this.loginForm.get("direction");
   }
 
   get name() {
@@ -89,6 +126,7 @@ export class RegisterFormComponent implements OnInit {
       [Validators.required, Validators.minLength(6), this.validatorPassword],
     ],
     passwordTwo: ["", [Validators.required, this.validatorPassword]],
+    direction: ["", [Validators.required]],
   });
 
   validatorName(control: AbstractControl) {
