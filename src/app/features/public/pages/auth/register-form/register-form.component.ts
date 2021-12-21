@@ -18,6 +18,9 @@ import { Observable, timer } from "rxjs";
 import { selectAuth } from "src/app/state/selectors/auth.selector";
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { Address } from "ngx-google-places-autocomplete/objects/address";
+import{MatDialogConfig, MatDialog}  from '@angular/material/dialog';
+import { DialogconfirmationComponent } from "../../../components/dialogconfirmation/dialogconfirmation.component";
+
 @Component({
   selector: "app-register-form",
   templateUrl: "./register-form.component.html",
@@ -69,7 +72,8 @@ export class RegisterFormComponent implements OnInit {
     private formB: FormBuilder,
     private authService: AuthService,
     private alert: AlertService,
-    private store: Store<AppState>
+    private store: Store<AppState>,
+    private dialog: MatDialog,
   ) {
     this.auth$ = this.store.select(selectAuth);
     this.user = new Auth();
@@ -185,4 +189,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+  openDialog(){
+ this.dialog.open(DialogconfirmationComponent)
+  }
 }

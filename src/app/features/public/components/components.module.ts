@@ -6,9 +6,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { TitlesComponent } from "./titles/titles.component";
 import { RouterModule } from "@angular/router";
 import { FooterComponent } from "src/app/components/footer/footer.component";
+import { DialogconfirmationComponent } from './dialogconfirmation/dialogconfirmation.component';
 
 @NgModule({
-  declarations: [SlidesComponent, NavbarComponent,TitlesComponent, FooterComponent],
+  declarations: [SlidesComponent, NavbarComponent,TitlesComponent, FooterComponent, DialogconfirmationComponent],
   imports: [CommonModule, NgbModule,RouterModule,],
   exports: [
     SlidesComponent,
