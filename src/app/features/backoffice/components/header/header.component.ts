@@ -12,23 +12,12 @@ import { selectAuth, selectUser } from "src/app/state/selectors/auth.selector";
 })
 export class HeaderComponent implements OnInit {
   @Output() newItemEvent = new EventEmitter<boolean>();
-  auth$: Observable<boolean> = new Observable();
-  user$: Observable<any> = new Observable();
-  auth: boolean = false;
-  email: string | null = null;
-  constructor(private store: Store<AppState>) {
-    this.auth$ = this.store.select(selectAuth);
-    this.user$ = this.store.select(selectUser);
-  }
 
-  ngOnInit(): void {
-    this.auth$.subscribe((auth) => {
-      this.auth = auth;
-    });
-    this.user$.subscribe((user) => {
-      this.email = user;
-    });
-  }
+  token: string | null = localStorage.getItem("token");
+
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit(): void {}
   logOut() {
     this.store.dispatch(logOut());
   }

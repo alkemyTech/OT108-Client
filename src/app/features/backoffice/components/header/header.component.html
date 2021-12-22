@@ -7,7 +7,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="!auth">
+    <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="!token">
       <li class="nav-item">
         <a class="btn btn-outline-primary" routerLink="/public/login"
           >Ingresar</a
@@ -19,10 +19,7 @@
         >
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="auth">
-      <li class="nav-item" *ngIf="email">
-        <a class="btn-outline-primary">{{ email }}</a>
-      </li>
+    <ul class="nav navbar-nav navbar-right ml-auto" *ngIf="token">
       <li class="nav-item">
         <button class="btn btn-outline-danger" (click)="logOut()">
           <i class="bi bi-box-arrow-right"></i> Salir

@@ -15,10 +15,7 @@ import { selectAuth } from "src/app/state/selectors/auth.selector";
   providedIn: "root",
 })
 export class AuthGuard implements CanActivate {
-  auth$: Observable<boolean> = new Observable();
-  constructor(private store: Store<AppState>, private router: Router) {
-    this.auth$ = this.store.select(selectAuth);
-  }
+  constructor(private router: Router) {}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -27,10 +24,7 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    let auths: boolean = false;
-    this.auth$.subscribe((auth) => {
-      auths = auth;
-    });
+    let auths = localStorage.getItem("token");
     if (auths) {
       return true;
     } else {
