@@ -13,7 +13,7 @@ import { SlideFormComponent } from "./slide-form/slide-form.component";
 import { TestimonialsComponent } from "./testimonials/testimonials.component";
 import { UsersComponent } from "./users/users.component";
 import { UsersListComponent } from "./users-list/users-list.component";
-import { ReactiveFormsModule } from "@angular/forms";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { RouterModule } from "@angular/router";
 import { ActividadesDetalleComponent } from "./views/activities/detail/actividades-detalle/actividades-detalle/actividades-detalle.component";
@@ -64,6 +64,7 @@ import { SlideSearchComponent } from './home-form/slide-search/slide-search.comp
     ComponentsModule,
     NgxSkeletonLoaderModule,
     ComponentssModule,
+    FormsModule
   ],
   exports:[HomeFormComponent]
 })

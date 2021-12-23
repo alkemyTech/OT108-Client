@@ -1,0 +1,12 @@
+<h2>Search News</h2>
+<form [formGroup]="buscador" (ngSubmit)="btnSearchOnClick()">
+  <input formControlName="name" type="text" autofocus />
+  <button
+    id="search"
+    [disabled]="buscador.invalid"
+    type="submit"
+    class="btn btn-danger" 
+  > 
+    SEARCH
+  </button>
+</form>

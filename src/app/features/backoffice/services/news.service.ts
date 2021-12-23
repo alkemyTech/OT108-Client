@@ -21,6 +21,10 @@ export class NewsService {
     return this.https.get("news" + id);
   }
 
+  getAllNews(): Observable<any> {
+    return this.https.get("news");
+  }
+
   getCategories() {
     return this.https.get("categories");
   }
