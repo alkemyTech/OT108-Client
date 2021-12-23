@@ -114,6 +114,9 @@ export class RegisterFormComponent implements OnInit {
   get password() {
     return this.loginForm.get("password");
   }
+  get checkConfi(){
+    return this.loginForm.get("checkConfi");
+  }
 
   loginForm = this.formB.group({
     name: [
@@ -131,8 +134,9 @@ export class RegisterFormComponent implements OnInit {
     ],
     passwordTwo: ["", [Validators.required, this.validatorPassword]],
     direction: ["", [Validators.required]],
+    checkConfi: [false , [Validators.required,  Validators.pattern('true')]],
   });
-
+ 
   validatorName(control: AbstractControl) {
     const name = <string>control.value;
     const space = name.includes(" ");
@@ -172,7 +176,7 @@ export class RegisterFormComponent implements OnInit {
     const { name, email, password, passwordTwo } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-    try {
+     try {
       if (password === passwordTwo) {
         this.store.dispatch(
           registerStart({ email: email, password: password, name: name })
@@ -190,6 +194,12 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit(): void {}
   openDialog(){
- this.dialog.open(DialogconfirmationComponent)
+ const dialogRef= this.dialog.open(DialogconfirmationComponent,{
+  width: "500px"
+ });
+    dialogRef.afterClosed().subscribe(res=>{
+      console.log(res);
+    })
   }
+
 }

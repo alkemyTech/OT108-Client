@@ -15,6 +15,7 @@ export class User {
   longitude?: number;
   address?: string;
   profile_image: string;
+  checkConfi?:boolean;
 
   constructor(
     name: string,
@@ -31,7 +32,8 @@ export class User {
     latitude: number,
     longitude: number,
     address: string,
-    profile_image: string
+    profile_image: string,
+    checkConfi:boolean
   ) {
     (this.name = name), (this.email = email), (this.role_id = role_id);
     this.description = description;
@@ -46,5 +48,6 @@ export class User {
     this.longitude = longitude;
     this.address = address;
     this.profile_image = profile_image;
+    this.checkConfi= checkConfi
   }
 }
