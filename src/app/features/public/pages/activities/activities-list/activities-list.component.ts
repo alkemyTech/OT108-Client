@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Store } from "@ngrx/store";
-import { observable, Observable } from "rxjs";
-import { ActivityService } from "src/app/services/activity.service";
+import {  Observable } from "rxjs";
 import { loadActivitiesList } from "src/app/state/actions/activities.actions";
 import { selectActivities } from "src/app/state/selectors/activities.selector";
 
@@ -14,11 +13,13 @@ export class ActivitiesListComponent implements OnInit {
   activities: any[] = [];
   imagenNull: boolean = false;
   list$: Observable<any> = new Observable();
+  load:boolean = false;
   constructor(private store: Store) {
     this.list$ = this.store.select(selectActivities);
   }
 
   ngOnInit(): void {
     this.store.dispatch(loadActivitiesList());
+    this.load = true;
   }
 }

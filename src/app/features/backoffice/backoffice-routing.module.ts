@@ -18,8 +18,14 @@ import { SetupProgressComponent } from "./pages/setup-progress/setup-progress/se
 import { CategoriesListComponent } from "./pages/categories-list/categories-list.component";
 import { CategoriesDetailsComponent } from "./pages/categories-details/categories-details.component";
 import { HomeFormComponent } from "./pages/home-form/home-form.component";
+import { AuthGuard } from "../guards/auth.guard";
+import { HomeComponent } from "../public/pages/home/home.component";
 
 const router: Routes = [
+  {
+    path: "",
+    component: HomeComponent,
+  },
   {
     path: "backoffice",
     children: [
@@ -34,6 +40,10 @@ const router: Routes = [
       {
         path: "activities/edit/:id",
         component: ActivityFormComponent,
+      },
+      {
+        path: "actividades/:id",
+        component: ActividadesDetalleComponent,
       },
       {
         path: "categories-list",
@@ -99,10 +109,6 @@ const router: Routes = [
         path: "user/edit/:id",
         component: UsersComponent,
       },
-      {
-        path: "actividades/:id",
-        component: ActividadesDetalleComponent,
-      },
 
       {
         path: "progress",
@@ -112,11 +118,12 @@ const router: Routes = [
         path: "home-form",
         component: HomeFormComponent,
       },
-      {  
+      {
         path: "Dashboard",
         component: DashboardComponent,
       },
     ],
+    canActivate: [AuthGuard],
   },
 ];
 
