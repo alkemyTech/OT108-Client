@@ -27,22 +27,22 @@ export class SearchNewsComponent implements OnInit {
   ngOnInit(): void {
     this._route.queryParams.subscribe((params) => {
       if (params["search"] !== undefined) {
-        this.buscarSuperheroe(params["search"]);
+        this.searchNews(params["search"]);
       }
     });
   }
 
   btnSearchOnClick() {
     let name = this.buscador.get("name")?.value;
-    this.buscarSuperheroe(name);
+    this.searchNews(name);
     this.agregarSearchURL(name);
   }
 
-  buscarSuperheroe(name: string) {
-    this.servicio.getNews(name).subscribe(
+  searchNews(name: string) {
+    this.servicio.searchNews(name).subscribe(
       (data) => {
-        console.log(data);
-        this.news = data.data;
+        console.log('la data ',data);
+        this.news = data.data.name;
         console.log("esta es la lista: ", this.news);
       },
       (error) => {
