@@ -12,6 +12,8 @@ import { News } from "../../../../models/news";
 export class SearchNewsComponent implements OnInit {
   buscador: FormGroup;
   news: News[] = [];
+  allNews: News[] = [];
+  validacion: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,25 +27,43 @@ export class SearchNewsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this._route.queryParams.subscribe((params) => {
       if (params["search"] !== undefined) {
         this.searchNews(params["search"]);
       }
     });
+  
   }
 
   btnSearchOnClick() {
-    let name = this.buscador.get("name")?.value;
+    let name = this.buscador.value.name;
     this.searchNews(name);
     this.agregarSearchURL(name);
   }
 
   searchNews(name: string) {
-    this.servicio.searchNews(name).subscribe(
-      (data) => {
-        console.log('la data ',data);
-        this.news = data.data.name;
-        console.log("esta es la lista: ", this.news);
+    this.servicio.getAllNews().subscribe(
+      (res) => {
+        if (this.buscador.value.name.length >= 3) {
+          this.validacion = true;
+          for (let i = 0; i < res.data.length; i++) {
+            if (res.data[i].name === this.buscador.value.name) {
+              this.news.push(
+                res.data[i].name.charAt(0).toUpperCase() +
+                  res.data[i].name.slice(1)
+              );
+            }
+          }
+        }
+        if (this.buscador.value.name.length < 3) {
+          for (let i = 0; i < res.data.length; i++) {
+            this.allNews.push(
+              res.data[i].name.charAt(0).toUpperCase() +
+                res.data[i].name.slice(1)
+            );
+          }
+        }
       },
       (error) => {
         console.log("imprimiendo error ", error);

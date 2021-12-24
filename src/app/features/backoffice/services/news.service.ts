@@ -8,7 +8,7 @@ import { environment } from "src/environments/environment";
   providedIn: "root",
 })
 export class NewsService {
-  url= environment.news
+  url = environment.news;
   constructor(private https: PrivateApiService) {}
 
   createNews(novedad: News): Observable<any> {
@@ -29,9 +29,5 @@ export class NewsService {
 
   getCategories() {
     return this.https.get(this.url);
-  }
-
-  searchNews(name:string):Observable<any> {
-    return this.https.get(this.url +  "/search/" + name )
   }
 }
