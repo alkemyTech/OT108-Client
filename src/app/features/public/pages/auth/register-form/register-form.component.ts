@@ -11,13 +11,13 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+
 import { State, Store } from "@ngrx/store";
 import { AppState } from "src/app/state/app.state";
 import { registerStart } from "src/app/state/actions/auth.actions";
 import { Observable, timer } from "rxjs";
 import { selectAuth } from "src/app/state/selectors/auth.selector";
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
-import { Address } from "ngx-google-places-autocomplete/objects/address";
 @Component({
   selector: "app-register-form",
   templateUrl: "./register-form.component.html",
@@ -46,16 +46,13 @@ import { Address } from "ngx-google-places-autocomplete/objects/address";
 export class RegisterFormComponent implements OnInit {
   @ViewChild("placesRef") placesRef: GooglePlaceDirective | null = null;
   directions: string = "";
-  position = {
-    lat: -34.681,
-    lng: -58.371,
-  };
+
   label = {
     text: "Usted Esta Aqui",
   };
-  center: google.maps.LatLngLiteral = {
-    lat: this.position.lat,
-    lng: this.position.lng,
+  center = {
+    lat: -34.681,
+    lng: -58.371,
   };
 
   show: boolean = false;

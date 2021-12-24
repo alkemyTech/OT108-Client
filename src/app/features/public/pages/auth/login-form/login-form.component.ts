@@ -9,6 +9,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+
 import { Auth } from "src/app/models/auth";
 import { AuthService } from "src/app/services/auth.service";
 import { AppState } from "src/app/state/app.state";
@@ -49,13 +50,7 @@ export class LoginFormComponent implements OnInit {
   public user: Auth;
   public imagenPerfil: string = "";
 
-  constructor(
-    private router: Router,
-    private formB: FormBuilder,
-    private authService: AuthService,
-    private alert: AlertService,
-    private store: Store<AppState>
-  ) {
+  constructor(private formB: FormBuilder, public store: Store<AppState>) {
     this.auth$ = this.store.select(selectAuth);
     this.user$ = this.store.select(selectUser);
     this.user = new Auth();
@@ -111,7 +106,7 @@ export class LoginFormComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-
+    console.log(this.user);
     this.store.dispatch(loginStart({ email: email, password: password }));
   }
 
