@@ -230,9 +230,19 @@
       </div>
       <div class="form-group checkbox">
         <label>
-          <input type="checkbox"> Confirme que ha leído los Términos y
-          Condiciones
+          <input type="checkbox"
+          id="checkConfi"
+          formControlName="checkConfi"
+          
+          />  
+          <a style="color:blue;" (click)= "openDialog()"> Confirme que ha leído los Términos y Condiciones</a>
         </label>
+       <span
+       class="invalid-feedback"
+       *ngIf="checkConfi?.errors?.required && checkConfi?.touched"
+        >
+        *El campo Terminos y condiciones es requerido.
+      </span>
       </div>
       <div class="row mt-6">
         <button
