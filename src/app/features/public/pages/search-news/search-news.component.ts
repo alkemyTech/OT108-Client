@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
 import { NewsService } from "../../../backoffice/services/news.service";
 import { News } from "../../../../models/news";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: "app-search-news",
@@ -14,49 +14,53 @@ export class SearchNewsComponent implements OnInit {
   news: News[] = [];
   allNews: News[] = [];
   validacion: boolean = false;
+  texto: string = "";
 
   constructor(
     private fb: FormBuilder,
-    private _route: ActivatedRoute,
     private servicio: NewsService,
-    private _router: Router
+    private toastr: ToastrService
   ) {
     this.buscador = this.fb.group({
       name: ["", Validators.required],
     });
   }
 
-  ngOnInit(): void {
-    
-    this._route.queryParams.subscribe((params) => {
-      if (params["search"] !== undefined) {
-        this.searchNews(params["search"]);
-      }
-    });
-  
-  }
+  ngOnInit(): void {}
 
   btnSearchOnClick() {
     let name = this.buscador.value.name;
     this.searchNews(name);
-    this.agregarSearchURL(name);
   }
 
   searchNews(name: string) {
+    this.news = [];
+    this.allNews = [];
+    let encontrado = false;
     this.servicio.getAllNews().subscribe(
       (res) => {
         if (this.buscador.value.name.length >= 3) {
           this.validacion = true;
           for (let i = 0; i < res.data.length; i++) {
-            if (res.data[i].name === this.buscador.value.name) {
+            if (res.data[i].name.toLowerCase() === this.buscador.value.name.toLowerCase()) {
+              encontrado = true;
               this.news.push(
                 res.data[i].name.charAt(0).toUpperCase() +
                   res.data[i].name.slice(1)
               );
             }
           }
+
+          if (!encontrado) {
+            this.toastr.toastrConfig.preventDuplicates = true;
+            this.toastr.error("That news doesn't exist", "Error", {
+              timeOut: 2000,
+            });
+          }
         }
         if (this.buscador.value.name.length < 3) {
+          this.validacion = false;
+          this.texto = "All the news";
           for (let i = 0; i < res.data.length; i++) {
             this.allNews.push(
               res.data[i].name.charAt(0).toUpperCase() +
@@ -69,20 +73,5 @@ export class SearchNewsComponent implements OnInit {
         console.log("imprimiendo error ", error);
       }
     );
-  }
-
-  agregarSearchURL(searchValue: string) {
-    // changes the route without moving from the current view or
-    // triggering a navigation event,
-    this._router.navigate([], {
-      relativeTo: this._route,
-      queryParams: {
-        search: searchValue,
-      },
-      queryParamsHandling: "merge",
-      // preserve the existing query params in the route
-      skipLocationChange: false,
-      // do not trigger navigation
-    });
   }
 }
