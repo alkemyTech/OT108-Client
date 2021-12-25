@@ -9,7 +9,7 @@ import { FirebaseModule } from "../firebase/firebase.module";
 import { Auth } from "../models/auth";
 import { AuthService } from "./auth.service";
 
-describe("AuthService", () => {
+fdescribe("AuthService", () => {
   let service: AuthService;
 
   beforeEach(() => {
