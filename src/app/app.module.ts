@@ -31,6 +31,7 @@ import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -66,6 +67,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LeafletModule,
     GooglePlaceModule,
     GoogleMapsModule,
+    NgxExtendedPdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

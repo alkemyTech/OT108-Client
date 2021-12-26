@@ -115,5 +115,10 @@ export class LoginFormComponent implements OnInit {
     this.store.dispatch(loginStart({ email: email, password: password }));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let token = localStorage.getItem("token");
+    if (token) {
+      this.router.navigate(["/"]);
+    }
+  }
 }
