@@ -1,12 +1,6 @@
 import { HttpClientModule } from "@angular/common/http";
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from "@angular/common/http/testing";
 import { TestBed } from "@angular/core/testing";
-import { PrivateApiService } from "../features/backoffice/services/private-api.service";
 import { FirebaseModule } from "../firebase/firebase.module";
-import { Auth } from "../models/auth";
 import { AuthService } from "./auth.service";
 
 describe("AuthService", () => {
