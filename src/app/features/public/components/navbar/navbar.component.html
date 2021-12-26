@@ -50,12 +50,18 @@
     </ul>
     <ul class="nav navbar-nav navbar-right ml-auto">
       <li class="nav-item">
-        <a class="btn btn-outline-primary" routerLink="/public/login"
+        <a
+          *ngIf="!token"
+          class="btn btn-outline-primary"
+          routerLink="/public/login"
           >Ingresar</a
         >
       </li>
       <li class="nav-item">
-        <a class="btn btn-outline-primary" routerLink="/public/register"
+        <a
+          *ngIf="!token"
+          class="btn btn-outline-primary"
+          routerLink="/public/register"
           >Registrar</a
         >
       </li>
