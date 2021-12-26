@@ -31,7 +31,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { FirebaseModule } from "./firebase/firebase.module";
 import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
-
+import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
@@ -67,6 +67,7 @@ import { CategoriesEffects } from "./state/effects/categories.effects";
     LeafletModule,
     GooglePlaceModule,
     GoogleMapsModule,
+    NgxExtendedPdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
