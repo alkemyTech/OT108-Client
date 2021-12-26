@@ -42,7 +42,10 @@ export class SearchNewsComponent implements OnInit {
         if (this.buscador.value.name.length >= 3) {
           this.validacion = true;
           for (let i = 0; i < res.data.length; i++) {
-            if (res.data[i].name.toLowerCase() === this.buscador.value.name.toLowerCase()) {
+            if (
+              res.data[i].name.toLowerCase() ===
+              this.buscador.value.name.toLowerCase()
+            ) {
               encontrado = true;
               this.news.push(
                 res.data[i].name.charAt(0).toUpperCase() +
