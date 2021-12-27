@@ -11,6 +11,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+
 import { State, Store } from "@ngrx/store";
 import { AppState } from "src/app/state/app.state";
 import { registerStart } from "src/app/state/actions/auth.actions";
@@ -18,7 +19,7 @@ import { Observable, timer } from "rxjs";
 import { selectAuth } from "src/app/state/selectors/auth.selector";
 import { GooglePlaceDirective } from "ngx-google-places-autocomplete";
 import { Address } from "ngx-google-places-autocomplete/objects/address";
-import{MatDialogConfig, MatDialog}  from '@angular/material/dialog';
+import { MatDialogConfig, MatDialog } from "@angular/material/dialog";
 import { DialogconfirmationComponent } from "../../../components/dialogconfirmation/dialogconfirmation.component";
 
 @Component({
@@ -49,16 +50,13 @@ import { DialogconfirmationComponent } from "../../../components/dialogconfirmat
 export class RegisterFormComponent implements OnInit {
   @ViewChild("placesRef") placesRef: GooglePlaceDirective | null = null;
   directions: string = "";
-  position = {
-    lat: -34.681,
-    lng: -58.371,
-  };
+
   label = {
     text: "Usted Esta Aqui",
   };
-  center: google.maps.LatLngLiteral = {
-    lat: this.position.lat,
-    lng: this.position.lng,
+  center = {
+    lat: -34.681,
+    lng: -58.371,
   };
 
   show: boolean = false;
@@ -73,7 +71,7 @@ export class RegisterFormComponent implements OnInit {
     private authService: AuthService,
     private alert: AlertService,
     private store: Store<AppState>,
-    private dialog: MatDialog,
+    private dialog: MatDialog
   ) {
     this.auth$ = this.store.select(selectAuth);
     this.user = new Auth();
@@ -114,7 +112,7 @@ export class RegisterFormComponent implements OnInit {
   get password() {
     return this.loginForm.get("password");
   }
-  get checkConfi(){
+  get checkConfi() {
     return this.loginForm.get("checkConfi");
   }
 
@@ -134,9 +132,9 @@ export class RegisterFormComponent implements OnInit {
     ],
     passwordTwo: ["", [Validators.required, this.validatorPassword]],
     direction: ["", [Validators.required]],
-    checkConfi: [false , [Validators.required,  Validators.pattern('true')]],
+    checkConfi: [false, [Validators.required, Validators.pattern("true")]],
   });
- 
+
   validatorName(control: AbstractControl) {
     const name = <string>control.value;
     const space = name.includes(" ");
@@ -176,7 +174,7 @@ export class RegisterFormComponent implements OnInit {
     const { name, email, password, passwordTwo } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-     try {
+    try {
       if (password === passwordTwo) {
         this.store.dispatch(
           registerStart({ email: email, password: password, name: name })
@@ -193,13 +191,12 @@ export class RegisterFormComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  openDialog(){
- const dialogRef= this.dialog.open(DialogconfirmationComponent,{
-  width: "500px"
- });
-    dialogRef.afterClosed().subscribe(res=>{
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogconfirmationComponent, {
+      width: "500px",
+    });
+    dialogRef.afterClosed().subscribe((res) => {
       console.log(res);
-    })
+    });
   }
-
 }

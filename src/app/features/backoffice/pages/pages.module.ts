@@ -65,6 +65,7 @@ import { SlideSearchComponent } from "./home-form/slide-search/slide-search.comp
     ComponentsModule,
     NgxSkeletonLoaderModule,
     ComponentssModule,
+    FormsModule,
   ],
   exports: [HomeFormComponent],
 })
