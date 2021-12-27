@@ -14,7 +14,7 @@
   "dependencies": {
     "@agm/core": "^3.0.0-beta.0",
     "@angular/animations": "^13.0.3",
-    "@angular/cdk": "^10.2.7",
+    "@angular/cdk": "^12.2.13",
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
@@ -22,7 +22,7 @@
     "@angular/forms": "~12.2.0",
     "@angular/google-maps": "^13.1.1",
     "@angular/localize": "~12.2.0",
-    "@angular/material": "^10.2.7",
+    "@angular/material": "^12.2.13",
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",

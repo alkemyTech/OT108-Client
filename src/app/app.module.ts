@@ -2,12 +2,10 @@ import { FeaturesModule } from "./features/features.module";
 import { CoreModule } from "./core/core.module";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ToastrModule } from "ngx-toastr";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from "@angular/forms";
 import { CKEditorModule } from "ng2-ckeditor";
 import { NgxSkeletonLoaderModule } from "ngx-skeleton-loader";
 import { DialogComponent } from "./components/dialog/dialog.component";
@@ -31,7 +29,9 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { FirebaseModule } from "./firebase/firebase.module";
 import { AuthEffects } from "./state/effects/auth.effects";
 import { CategoriesEffects } from "./state/effects/categories.effects";
-import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer'
 
 @NgModule({
   declarations: [AppComponent, DialogComponent, DialogErrorComponent],
