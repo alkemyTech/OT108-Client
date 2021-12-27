@@ -13,6 +13,7 @@ export const environment = {
   contacts: "http://ongapi.alkemy.org/api/contacts",
   Login: "http://ongapi.alkemy.org/api/login",
   Register: "http://ongapi.alkemy.org/api/register",
+  news: "http://ongapi.alkemy.org/api/news",
 
   firebaseConfig: {
     apiKey: "AIzaSyAyyZ4ia5WiLtC6nAFrzWu43ZSEJD5BDGU",

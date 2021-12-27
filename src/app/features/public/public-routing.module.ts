@@ -8,6 +8,7 @@ import { GiveTheTranksComponent } from "./pages/give-the-tranks/give-the-tranks.
 import { HomeComponent } from "./pages/home/home.component";
 import { ContactoFormComponent } from "./pages/contacto-form/contacto-form.component";
 import { ActivitiesListComponent } from "./pages/activities/activities-list/activities-list.component";
+import { SearchNewsComponent } from "./pages/search-news/search-news.component";
 
 const router: Routes = [
   {
@@ -42,6 +43,10 @@ const router: Routes = [
         path: "actividades",
         component: ActivitiesListComponent,
       },
+      {
+        path: "searchNews",
+        component: SearchNewsComponent,
+      }
     ],
   },
 ];

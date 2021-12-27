@@ -3,8 +3,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CommonModule } from "@angular/common";
 import { LoginFormComponent } from "./auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./auth/register-form/register-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
-import { DonationsComponent } from "./donations/donations.component";
+import { ReactiveFormsModule, FormsModule  } from "@angular/forms";
+import { DonationsComponent} from "./donations/donations.component";
 import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
@@ -20,6 +20,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { SearchNewsComponent } from "./search-news/search-news.component";
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -30,6 +31,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ActivitiesDetailsComponent,
     ContactoFormComponent,
     ActivitiesListComponent,
+    SearchNewsComponent
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     GoogleMapsModule,
     GooglePlaceModule,
     PagesModule,
+    FormsModule
   ],
 })
 export class PublicPagesModule {}

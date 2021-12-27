@@ -1,0 +1,23 @@
+<h1>Search News</h1>
+<form [formGroup]="buscador" (ngSubmit)="btnSearchOnClick()">
+  <input formControlName="name" type="text" autofocus />
+  <button
+    id="search"
+    [disabled]="buscador.invalid"
+    type="submit"
+    class="btn btn-danger"
+  >
+    SEARCH
+  </button>
+</form>
+<div *ngIf="validacion">
+  <div *ngFor="let novedad of news">
+    <h2>{{ novedad }}</h2>
+  </div>
+</div>
+<div *ngIf="!validacion">
+  <h2 id="texto">{{ texto }}</h2>
+  <div *ngFor="let novedad of allNews">
+    <h2>{{ novedad }}</h2>
+  </div>
+</div>
