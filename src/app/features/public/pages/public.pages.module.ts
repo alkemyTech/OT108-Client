@@ -20,6 +20,7 @@ import { GoogleMapsModule } from "@angular/google-maps";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -30,6 +31,7 @@ import { GooglePlaceModule } from "ngx-google-places-autocomplete";
     ActivitiesDetailsComponent,
     ContactoFormComponent,
     ActivitiesListComponent,
+    ToycampaignComponent,
   ],
   imports: [
     CommonModule,

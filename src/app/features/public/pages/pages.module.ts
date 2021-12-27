@@ -14,6 +14,7 @@ import { RouterModule } from "@angular/router";
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { ActivitiesDetailsComponent } from "./activities/activities-details/activities-details.component";
 import { ComponentssModule } from "../../../components/components.module";
+import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { ComponentssModule } from "../../../components/components.module";
     HomeComponent,
     ActivitiesListComponent,
     ActivitiesDetailsComponent,
+    ToycampaignComponent,
+
   ],
   imports: [
     CommonModule,

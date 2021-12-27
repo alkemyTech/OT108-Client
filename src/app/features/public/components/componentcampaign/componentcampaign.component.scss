@@ -1,0 +1,103 @@
+
+.banner{
+    width: 100%;
+    height: 20%;
+}
+img#img_banner{
+    display: block;
+    margin: auto;
+    width: 100%;
+    height: 20%;
+
+}
+.titleCam{
+    margin-top: 30px; 
+}
+.colText{
+    margin-top: 40px;
+    margin-bottom: 2px;
+    font-size:16px;   
+}
+.descrip{
+    margin-top: 60px;
+}
+#days{
+    color: rgb(255, 174, 0);
+    font-size:24px;
+    text-shadow: 0.1em 0.1em #333;
+    font-weight:bold;
+    font-style:italic;  
+}
+// Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+
+// Small devices (landscape phones, 576px and up)
+
+@media (min-width: 360px) { 
+    img#img_campaña{
+       display: none;
+    }
+   
+    .descrip{
+        text-align: center;
+        font-size: 12px; 
+        margin-top: 30px;
+    }
+    .countdown{
+        display: none;
+    }
+    #days{
+        
+        font-size:18px;
+    }
+    .titleCam{
+        font-size:20px; 
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { 
+    img#img_campaña{
+        display: none;
+     }
+    
+     .descrip{
+         text-align: center;
+         font-size: 16px; 
+         margin-top: 30px;
+     }
+    
+     #days{
+         
+         font-size:18px;
+     }
+     .countdown{
+        display: block;
+        
+    }
+   
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { 
+    img#img_campaña{
+        display: block;
+     } 
+     .countdown{
+        display: block;
+        
+    }
+   
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    img#img_campaña{
+        display: block;
+     } 
+     .countdown{
+        display: block;
+        
+    }
+    
+ }
