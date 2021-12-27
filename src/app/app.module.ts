@@ -19,7 +19,7 @@ import { StoreModule } from "@ngrx/store";
 import { ROOT_REDUCERS } from "src/app/state/app.state";
 import { EffectsModule } from "@ngrx/effects";
 import { Usersffects } from "./state/effects/users.effects";
-import {LeafletModule} from "@asymmetrik/ngx-leaflet";
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 import { environment } from "src/environments/environment";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { SlideEffects } from "./state/effects/slide.effects";
