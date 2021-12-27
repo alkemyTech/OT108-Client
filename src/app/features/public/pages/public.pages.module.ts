@@ -3,8 +3,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { CommonModule } from "@angular/common";
 import { LoginFormComponent } from "./auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./auth/register-form/register-form.component";
-import { ReactiveFormsModule } from "@angular/forms";
-import { DonationsComponent } from "./donations/donations.component";
+import { ReactiveFormsModule, FormsModule  } from "@angular/forms";
+import { DonationsComponent} from "./donations/donations.component";
 import { GiveTheTranksComponent } from "./give-the-tranks/give-the-tranks.component";
 import { HomeComponent } from "./home/home.component";
 import { ComponentsModule } from "../components/components.module";
@@ -21,6 +21,7 @@ import { ActivitiesDetailsComponent } from "./activities/activities-details/acti
 import { ActivitiesListComponent } from "./activities/activities-list/activities-list.component";
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
+import { SearchNewsComponent } from "./search-news/search-news.component";
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -32,6 +33,7 @@ import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
     ContactoFormComponent,
     ActivitiesListComponent,
     ToycampaignComponent,
+    SearchNewsComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +46,7 @@ import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
     GoogleMapsModule,
     GooglePlaceModule,
     PagesModule,
+    FormsModule
   ],
 })
 export class PublicPagesModule {}
