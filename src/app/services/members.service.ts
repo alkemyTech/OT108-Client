@@ -12,7 +12,7 @@ export class MembersService {
     return this.https.post("members", members);
   }
 
-  getMember(id: string) {
+  getMember(id?: string) {
     return this.https.get("members", id);
   }
 }

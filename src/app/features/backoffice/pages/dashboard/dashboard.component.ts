@@ -49,16 +49,19 @@ export class DashboardComponent implements OnInit {
   go(route: string) {
     switch (route) {
       case "members":
-        this.router.navigate(["member"]);
+        this.router.navigate(["backoffice/member-list"]);
         break;
       case "user":
+        this.router.navigate(["backoffice/user-list"]);
         break;
       case "slides":
         this.router.navigate(["backoffice/slides"]);
         break;
       case "community":
+        this.router.navigate(["backoffice/home-form"]);
         break;
       case "testimony":
+        this.router.navigate(["backoffice/organization"]);
         break;
       case "categories":
         this.router.navigate(["backoffice/categories-list"]);
@@ -67,6 +70,7 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(["backoffice/activities-list"]);
         break;
       case "novelties":
+        this.router.navigate(["backoffice/news-list"]);
         break;
     }
   }

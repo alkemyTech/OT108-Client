@@ -1,4 +1,7 @@
-<div class="container mt-5">
+<app-header (newItemEvent)="addItem()"></app-header>
+<div class="detContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
+<div class="container contain mt-5">
   <form [formGroup]="formulario" (ngSubmit)="creacionYEdicionUsuario()">
     <div class="row">
       <div class="col-md-12 mb-5">
@@ -113,4 +116,5 @@
       </div>
     </div>
   </form>
+</div>
 </div>

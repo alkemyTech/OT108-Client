@@ -22,6 +22,7 @@ export class NewsComponent implements OnInit {
   image: string = "";
   titleImage: string = "Imagen";
   edit: boolean = false;
+  control: boolean = false;
 
   constructor(
     private frB: FormBuilder,
@@ -149,5 +150,12 @@ export class NewsComponent implements OnInit {
 
     editor.config.removeButtons =
       "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

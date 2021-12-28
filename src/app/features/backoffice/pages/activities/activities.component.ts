@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { loadActivitiesList } from "src/app/state/actions/activities.actions";
@@ -15,7 +16,7 @@ export class ActivitiesComponent implements OnInit {
   list$: Observable<any> = new Observable();
   loading$: Observable<boolean> = new Observable();
   control: boolean = false;
-  constructor(private store: Store<{ retrievedActivitiesList: any }>) {
+  constructor(private store: Store<{ retrievedActivitiesList: any }>,private router: Router) {
     this.list$ = this.store.select(selectActivities);
   }
 
@@ -23,7 +24,9 @@ export class ActivitiesComponent implements OnInit {
     this.store.dispatch(loadActivitiesList());
   }
 
-  getDetail(id: string) {}
+  getDetail(id: string) {
+    this.router.navigate(["/backoffice/activities/" + id]);
+  }
 
   addItem() {
     if (this.control == true) {

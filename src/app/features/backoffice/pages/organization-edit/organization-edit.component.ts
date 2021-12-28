@@ -26,6 +26,7 @@ export class OrganizationEditComponent implements OnInit {
   logo?: string = "";
   tituloImage: string = "Profile Photo (formato .jpg o .png)";
   edit: boolean = false;
+  control: boolean = false;
 
   ngAfterViewChecked() {
     let editor = this.ckEditor.instance;
@@ -147,5 +148,12 @@ export class OrganizationEditComponent implements OnInit {
         this.dialogService.openErrorDialog();
       }
     );
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

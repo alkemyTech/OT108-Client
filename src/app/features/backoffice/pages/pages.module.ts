@@ -29,6 +29,11 @@ import { CategoriesDetailsComponent } from "./categories-details/categories-deta
 import { ComponentsModule } from "../components/components.module";
 import { HomeFormComponent } from "./home-form/home-form.component";
 import { SlideSearchComponent } from "./home-form/slide-search/slide-search.component";
+import { ActivitiesDetailsComponent } from './activities-details/activities-details.component';
+import { NewsDetailComponent } from './news-detail/news-detail.component';
+import { SlidesDetailComponent } from './slides-detail/slides-detail.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
+import { MemberDetailComponent } from './member-detail/member-detail.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,11 @@ import { SlideSearchComponent } from "./home-form/slide-search/slide-search.comp
     CategoriesDetailsComponent,
     HomeFormComponent,
     SlideSearchComponent,
+    ActivitiesDetailsComponent,
+    NewsDetailComponent,
+    SlidesDetailComponent,
+    UserDetailComponent,
+    MemberDetailComponent,
   ],
   imports: [
     CommonModule,

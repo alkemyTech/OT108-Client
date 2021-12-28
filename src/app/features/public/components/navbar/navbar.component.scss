@@ -9,13 +9,15 @@
     vertical-align:initial;
 }
 
-.login{
-      margin-top: 5px;
-      margin-bottom: 5px;
+.log{
+ color: blue;
 }
-.register{
-    margin-top: 5px;
-    margin-bottom: 5px;
+.reg{
+    color: blue;
+}
+
+.menu{
+    margin-left: 10px;
 }
 
 
@@ -31,11 +33,7 @@
     .navbar-collapse{
         display: inline;
     }
-    .logReg{
-        justify-content: center;
-        display: flex;
-        flex-flow: row;
-    }
+   
 
     .campSlogan{
         display: none;
@@ -51,11 +49,7 @@
         display:block;
     }
 
-    .logReg{
-        justify-content: center;
-        display: flex;
-        flex-flow: row;
-    }
+  
 
     .campSlogan{
         display: none;
@@ -70,11 +64,7 @@
     p {
       display: block;
     }
-    .logReg{
-        justify-content: center;
-        display: flex;
-        flex-flow: row;
-    }
+ 
 
     .campSlogan{
         display: block;
