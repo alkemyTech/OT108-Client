@@ -5,7 +5,7 @@
 </div>
 <div *ngIf="!load" class="container home-container">
 
-  <app-navbar></app-navbar>
+  <app-navbar [slogan]="probandoSlogan" [campLogo]="probandoLogo"></app-navbar>
   
   <div class="slides-home">
     <app-slides [slideList] = "slideEdit"></app-slides>
