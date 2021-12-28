@@ -21,15 +21,30 @@
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Campañas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/public/toycampaign">Campaña Juguetes</a>
+          <a class="dropdown-item" href="#">Campaña </a>
+        </div>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right ml-auto logReg">
       <li class="nav-item">
-        <a class="btn btn-outline-primary login" routerLink="/public/login"
+        <a
+          *ngIf="!token"
+          class="btn btn-outline-primary"
+          routerLink="/public/login"
           >Ingresar</a
         >
       </li>
-      <li class="nav-item ">
-        <a class="btn btn-outline-primary register" routerLink="/public/register"
+      <li class="nav-item">
+        <a
+          *ngIf="!token"
+          class="btn btn-outline-primary"
+          routerLink="/public/register"
           >Registrar</a
         >
       </li>

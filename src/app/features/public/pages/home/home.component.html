@@ -1,16 +1,13 @@
-
 <div *ngIf="load">
   <app-loaderspinner></app-loaderspinner>
-
 </div>
 <div *ngIf="!load" class="container home-container">
 
   <app-navbar [slogan]="probandoSlogan" [campLogo]="probandoLogo"></app-navbar>
   
   <div class="slides-home">
-    <app-slides [slideList] = "slideEdit"></app-slides>
+    <app-slides [slideList]="slideEdit"></app-slides>
   </div>
-
   <div class="home-bienvenida" [innerHTML]="welcomeText"></div>
   <div class="titulo-header">
     <app-titles></app-titles>

@@ -19,7 +19,7 @@ import { PublicModule } from "./public/public.module";
     FormsModule,
     CKEditorModule,
     BackofficeModule,
-    PublicModule,
+    PublicModule
   ],
 })
 export class FeaturesModule {}

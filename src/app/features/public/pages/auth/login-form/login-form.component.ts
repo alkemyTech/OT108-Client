@@ -1,7 +1,7 @@
 import { AbstractControl, FormBuilder, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { AlertService } from "src/app/services/alert.service";
+
 import {
   animate,
   state,
@@ -9,6 +9,7 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
+
 import { Auth } from "src/app/models/auth";
 import { AuthService } from "src/app/services/auth.service";
 import { AppState } from "src/app/state/app.state";
@@ -16,6 +17,7 @@ import { Store } from "@ngrx/store";
 import { loginGoogle, loginStart } from "src/app/state/actions/auth.actions";
 import { Observable } from "rxjs";
 import { selectAuth, selectUser } from "src/app/state/selectors/auth.selector";
+import { Route } from "@angular/compiler/src/core";
 @Component({
   selector: "app-login-form",
   templateUrl: "./login-form.component.html",
@@ -50,11 +52,9 @@ export class LoginFormComponent implements OnInit {
   public imagenPerfil: string = "";
 
   constructor(
-    private router: Router,
     private formB: FormBuilder,
-    private authService: AuthService,
-    private alert: AlertService,
-    private store: Store<AppState>
+    public store: Store<AppState>,
+    private router: Router
   ) {
     this.auth$ = this.store.select(selectAuth);
     this.user$ = this.store.select(selectUser);
@@ -111,9 +111,14 @@ export class LoginFormComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-
+    console.log(this.user);
     this.store.dispatch(loginStart({ email: email, password: password }));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let token = localStorage.getItem("token");
+    if (token) {
+      this.router.navigate(["/"]);
+    }
+  }
 }
