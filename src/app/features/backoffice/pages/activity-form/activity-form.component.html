@@ -1,5 +1,8 @@
-<div class="behind">
-  <div class="container mt-5">
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="detContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
+
+  <div class="container mt-5 contain">
     <form [formGroup]="activityForm" (ngSubmit)="createAndEdit()">
       <div class="row">
         <div class="col-md-12 mb-5">
@@ -108,18 +111,18 @@
       <div class="row mt-4">
         <div class="col-md-12 d-grid gap-2">
           <button
+            *ngIf="activityForm.invalid"
+            style="background-color: red"
             type="submit"
-            class="btn-block btn"
-            [ngClass]="{
-              'btn-outline-primary': activityForm.invalid,
-              'btn-primary': activityForm.valid
-            }"
+            class="btn-block"
             [disabled]="activityForm.invalid"
           >
-            Aceptar
+            Completar campos
           </button>
+          <button class="btn-block" *ngIf="activityForm.valid">Aceptar</button>
         </div>
       </div>
     </form>
   </div>
+
 </div>

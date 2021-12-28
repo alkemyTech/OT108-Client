@@ -1,3 +1,6 @@
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="detContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
 <div class="container contain mt-5">
   <form [formGroup]="formulario" (ngSubmit)="createAndEditCategory()">
     <div class="row">
@@ -95,4 +98,5 @@
       </div>
     </div>
   </form>
+</div>
 </div>

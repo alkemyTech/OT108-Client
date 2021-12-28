@@ -54,6 +54,7 @@ export class SlideFormComponent implements OnInit {
   orderChk?: any = [];
   ordPres: any;
   image: string = "";
+  control: boolean = false;
 
   public formulario: FormGroup;
   constructor(
@@ -167,5 +168,12 @@ export class SlideFormComponent implements OnInit {
 
       return this.ordPres ? { orderTaken: true } : null;
     };
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

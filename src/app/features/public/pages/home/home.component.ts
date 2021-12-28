@@ -12,6 +12,9 @@ import { Slides } from 'src/app/models/slides';
 })
 export class HomeComponent implements OnInit {
 
+  probandoSlogan:string = "slogan de campaña";
+  probandoLogo:string = "../../../../../assets/images/corazon.jpg";
+
   welcomeText:string = `<H1>SOMOS MAS ONG</H1>`
   itemList:any; 
   load: boolean= true;

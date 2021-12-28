@@ -7,6 +7,7 @@ import { ActivityFormComponent } from "./pages/activity-form/activity-form.compo
 import { CategoriesComponent } from "./pages/categories/categories.component";
 import { MemberFormComponent } from "./pages/member-form/member-form.component";
 import { NewsComponent } from "./pages/news/news.component";
+import { NewsListComponent } from "./pages/news-list/news-list.component";
 import { OrganizationComponent } from "./pages/organization/organization.component";
 import { OrganizationEditComponent } from "./pages/organization-edit/organization-edit.component";
 import { SlideComponent } from "./pages/slide/slide.component";
@@ -20,7 +21,12 @@ import { CategoriesDetailsComponent } from "./pages/categories-details/categorie
 import { HomeFormComponent } from "./pages/home-form/home-form.component";
 import { AuthGuard } from "../guards/auth.guard";
 import { HomeComponent } from "../public/pages/home/home.component";
-
+import { ActivitiesDetailsComponent } from "./pages/activities-details/activities-details.component";
+import { NewsDetailComponent } from "./pages/news-detail/news-detail.component";
+import { SlidesDetailComponent } from "./pages/slides-detail/slides-detail.component";
+import { UserDetailComponent } from "./pages/user-detail/user-detail.component";
+import { MemberListComponent } from "./pages/member-list/member-list.component";
+import { MemberDetailComponent } from "./pages/member-detail/member-detail.component";
 const router: Routes = [
   {
     path: "",
@@ -46,6 +52,10 @@ const router: Routes = [
         component: ActividadesDetalleComponent,
       },
       {
+        path: "activities/:id",
+        component: ActivitiesDetailsComponent,
+      },
+      {
         path: "categories-list",
         component: CategoriesListComponent,
       },
@@ -66,6 +76,14 @@ const router: Routes = [
         component: MemberFormComponent,
       },
       {
+        path: "member-list",
+        component: MemberListComponent,
+      },
+      {
+        path: "member/:id",
+        component: MemberDetailComponent,
+      },
+      {
         path: "member/edit/:id",
         component: MemberFormComponent,
       },
@@ -74,8 +92,16 @@ const router: Routes = [
         component: NewsComponent,
       },
       {
+        path: "news/:id",
+        component: NewsDetailComponent,
+      },
+      {
         path: "news/edit/:id",
         component: NewsComponent,
+      },
+      {
+        path: "news-list",
+        component: NewsListComponent,
       },
       {
         path: "organization",
@@ -90,6 +116,10 @@ const router: Routes = [
         component: SlideComponent,
       },
       {
+        path: "slides/:id",
+        component: SlidesDetailComponent,
+      },
+      {
         path: "slides/create",
         component: SlideFormComponent,
       },
@@ -100,6 +130,10 @@ const router: Routes = [
       {
         path: "user-list",
         component: UsersListComponent,
+      },
+      {
+        path: "user/:id",
+        component: UserDetailComponent,
       },
       {
         path: "user/create",

@@ -13,6 +13,7 @@ export class OrganizationComponent implements OnInit {
   name: any;
   logo: string | undefined;
   short_description: string | undefined;
+  control: boolean = false;
 
   constructor(
     private organizationService: OrganizationService,
@@ -29,5 +30,12 @@ export class OrganizationComponent implements OnInit {
       this.logo = res.data?.logo;
       this.short_description = res.data?.short_description;
     });
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

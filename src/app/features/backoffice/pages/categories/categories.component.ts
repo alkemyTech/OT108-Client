@@ -19,6 +19,7 @@ export class CategoriesComponent implements OnInit {
   image: string = "";
   edit: boolean = false;
   tituloImage: string = "Imagen (formato .jpg o .png)";
+  control: boolean = false;
 
   constructor(
     private frB: FormBuilder,
@@ -136,5 +137,13 @@ export class CategoriesComponent implements OnInit {
 
     editor.config.removeButtons =
       "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
+  }
+
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

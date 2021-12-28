@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { loadUsersList } from "src/app/state/actions/users.actions";
@@ -15,13 +16,25 @@ export class UsersListComponent implements OnInit {
   email: string = "";
   imagenNull: boolean = false;
   loader:boolean =  true;
-  totalCount =5;
+  control: boolean = false;
 
-  constructor(private store: Store<{ retrievedUsersList: any }>) {
+  constructor(private store: Store<{ retrievedUsersList: any }>,private router: Router) {
     this.users$ = this.store.select(selectUsers);
   }
 
   ngOnInit(): void {
     this.store.dispatch(loadUsersList());
+  }
+
+  getDetail(id: string) {
+    this.router.navigate(["/backoffice/user/" + id]);
+  }
+
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

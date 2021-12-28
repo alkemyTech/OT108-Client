@@ -19,6 +19,7 @@ export class ActivityFormComponent implements OnInit {
   edit: boolean = false;
   editImage: boolean = false;
   id: string | null = null;
+  control: boolean = false;
   constructor(
     private frB: FormBuilder,
     private serchId: ActivatedRoute,
@@ -158,5 +159,12 @@ export class ActivityFormComponent implements OnInit {
       subscriber.next(fileReader.result);
       subscriber.complete;
     };
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

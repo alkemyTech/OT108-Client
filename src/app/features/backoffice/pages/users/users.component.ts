@@ -18,6 +18,7 @@ export class UsersComponent implements OnInit {
   image: string = "";
   titleImage: string = "Profile Photo (formato .jpg o .png)";
   edit: boolean = false;
+  control: boolean = false;
 
   constructor(
     private frB: FormBuilder,
@@ -104,5 +105,13 @@ export class UsersComponent implements OnInit {
       subscriber.next(fileReader.result);
       subscriber.complete;
     };
+  }
+
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }

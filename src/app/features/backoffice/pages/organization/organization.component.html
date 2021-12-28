@@ -1,3 +1,7 @@
+<app-header (newItemEvent)="addItem()" ></app-header>
+<div class="detContainer">
+  <app-sidebar *ngIf="control"></app-sidebar>
+<div class="container mt-5 org">
 <div class="card" style="width: 18rem">
   <img class="card-img-top" [src]="logo" alt="Card image cap" />
   <div class="card-body">
@@ -10,4 +14,6 @@
       Ver mas
     </button>
   </div>
+</div>
+</div>
 </div>

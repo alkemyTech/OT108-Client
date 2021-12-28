@@ -20,7 +20,7 @@ export class NewsService {
   }
 
   getNews(id: string): Observable<any> {
-    return this.https.get(this.url + id);
+    return this.https.get(this.url + "/"+ id);
   }
 
   getAllNews(): Observable<any> {

@@ -16,6 +16,7 @@ export class MemberFormComponent implements OnInit {
   title: string = "AGREGAR MIEMBROS";
   id: string | null;
   image: string = "";
+  control: boolean = false;
 
   ngAfterViewChecked() {
     let editor = this.ckEditor.instance;
@@ -132,6 +133,13 @@ export class MemberFormComponent implements OnInit {
         });
         this.image = members.data.image;
       });
+    }
+  }
+  addItem() {
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
     }
   }
 }
