@@ -1,0 +1,26 @@
+<div class="container-fluid benner">
+  <img src="{{imgbanner}}" id="img_banner" alt="juguetes" />
+  <div class="text-center titleCam">
+    <span style="font-size: 24pt; bottom: 50px 0 0 0; color: #3366ff; font-family: comic sans ms,sans-serif;">{{titleCampa}}</span>
+    <div class="row">
+      <div class="col-12 colText text-center">
+        <!-- <img style="margin-right: 10px; margin-bottom: 2px; float: left;" alt="camreju2012" src="/ayuntamiento/images/phocagallery/Noticias/Bienestar/juguetes12/camreju2012.jpg" height="150" width="150"> -->
+        <img id ="img_campaña" style='float:left;width:200px;height:200px; margin-right:10px;'
+            src="{{img1}}" />
+        <p class="descrip">
+          {{description}}
+        </p>
+      </div>
+        <div class="col-12 colText">
+          <p>
+            <span id="days">
+              {{days}}
+             </span>
+          </p>
+        </div> 
+    </div>
+    <div class="countdown">
+      <app-countdown></app-countdown>
+    </div>
+  </div>
+</div>
