@@ -39,8 +39,7 @@ import { Router } from "@angular/router";
   ],
 })
 export class DashboardComponent implements OnInit {
-
-  control:boolean = false
+  control: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -55,7 +54,7 @@ export class DashboardComponent implements OnInit {
         this.router.navigate(["backoffice/user-list"]);
         break;
       case "slides":
-        this.router.navigate(["backoffice/slides"]);
+        this.router.navigate(["backoffice/slides-list"]);
         break;
       case "community":
         this.router.navigate(["backoffice/home-form"]);
@@ -76,10 +75,10 @@ export class DashboardComponent implements OnInit {
   }
 
   addItem() {
-   if(this.control == true){
-     this.control = false
-   }else{
-    this.control = true
-   }
+    if (this.control == true) {
+      this.control = false;
+    } else {
+      this.control = true;
+    }
   }
 }
