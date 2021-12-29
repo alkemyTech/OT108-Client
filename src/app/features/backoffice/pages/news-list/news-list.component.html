@@ -2,7 +2,7 @@
 <div class="detContainer">
   <app-sidebar *ngIf="control"></app-sidebar>
 
-  <div class="px-4 py-5">
+  <div class="container">
     <div id="link">
       <button
         class="btn btn-success catAddBtn"
@@ -11,8 +11,22 @@
         Agregar nueva Novedad
       </button>
     </div>
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="search"
+        placeholder="Buscar Novedad por nombre/description"
+        (keyup)="filter()"
+      />
+    </div>
+    <div *ngIf="listCopy && listCopy.length === 0">
+      <app-empty-card
+        [text]="'No Se encontro ninguna Novedad con ese nombre'"
+      ></app-empty-card>
+    </div>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start" *ngFor="let item of list">
+      <div class="col d-flex align-items-start" *ngFor="let item of listCopy">
         <app-card-list
           (click)="getDetail(item?.id)"
           class="sober"
