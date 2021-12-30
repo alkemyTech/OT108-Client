@@ -48,7 +48,7 @@ export class SlideFormComponent implements OnInit {
     editor.config.removeButtons =
       "Source,Save,Templates,Find,Replace,Scayt,SelectAll,Form,Radio";
   }
-
+  id: string | null;
   slides?: Slides = new Slides();
   slidesArray?: Slides[];
   orderChk?: any = [];
@@ -70,10 +70,12 @@ export class SlideFormComponent implements OnInit {
       description: [this.slides?.description, [Validators.required]],
       image: [this.slides?.image, [Validators.required]],
     });
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    console.log(this.id);
   }
 
   ngOnInit(): void {
-    this.slideService.getAllSlides().subscribe((slide:any) => {
+    this.slideService.getAllSlides().subscribe((slide: any) => {
       if (slide.success) {
         this.slidesArray = slide.data;
         this.checkOrder();
@@ -140,16 +142,13 @@ export class SlideFormComponent implements OnInit {
   }
 
   loadSlide(): void {
-    this.activatedRoute.params.subscribe((params) => {
-      let id = params["id"];
-      if (id) {
-        this.slideService.getSlide(id).subscribe((slide:any) => {
-          (this.slides = slide.data),
-            (this.image = slide.data.image),
-            this.formulario.patchValue({ image: this.image });
-        });
-      }
-    });
+    if (this.id) {
+      this.slideService.getSlide(this.id).subscribe((slide: any) => {
+        (this.slides = slide.data),
+          (this.image = slide.data.image),
+          this.formulario.patchValue({ image: this.image });
+      });
+    }
   }
 
   checkOrder() {

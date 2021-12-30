@@ -22,16 +22,21 @@
           Menu
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" routerLink="/public/toycampaign">Campaña Juguetes</a>
-          <a class="dropdown-item" href="#">Campaña </a>
-          <a *ngIf="!token"
-            class="dropdown-item log"
-            routerLink="/public/login"
-            >Ingresar</a>
-          <a *ngIf="!token"
+          <a class="dropdown-item" routerLink="/public/toycampaign"
+            >Campaña Juguetes</a
+          >
+          <a class="dropdown-item" routerLink="/public/schoolCampaign"
+            >Campaña Escolar
+          </a>
+          <a *ngIf="!token" class="dropdown-item log" routerLink="/public/login"
+            >Ingresar</a
+          >
+          <a
+            *ngIf="!token"
             class="dropdown-item reg"
             routerLink="/public/register"
-            >Registrar</a>
+            >Registrar</a
+          >
         </div>
       </li>
     </ul>

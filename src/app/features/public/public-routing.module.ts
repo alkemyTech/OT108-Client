@@ -10,6 +10,7 @@ import { ContactoFormComponent } from "./pages/contacto-form/contacto-form.compo
 import { ActivitiesListComponent } from "./pages/activities/activities-list/activities-list.component";
 import { ToycampaignComponent } from "./pages/toycampaign/toycampaign.component";
 import { SearchNewsComponent } from "./pages/search-news/search-news.component";
+import { SchoolcampaignComponent } from "./pages/schoolcampaign/schoolcampaign.component";
 
 const router: Routes = [
   {
@@ -52,7 +53,10 @@ const router: Routes = [
         path: "toycampaign",
         component: ToycampaignComponent,
       },
-
+      {
+        path: "schoolCampaign",
+        component: SchoolcampaignComponent,
+      },
     ],
   },
 ];

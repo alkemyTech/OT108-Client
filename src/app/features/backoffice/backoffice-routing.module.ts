@@ -52,10 +52,6 @@ const router: Routes = [
         component: ActividadesDetalleComponent,
       },
       {
-        path: "activities/:id",
-        component: ActivitiesDetailsComponent,
-      },
-      {
         path: "categories-list",
         component: CategoriesListComponent,
       },
@@ -112,7 +108,7 @@ const router: Routes = [
         component: OrganizationEditComponent,
       },
       {
-        path: "slides",
+        path: "slides-list",
         component: SlideComponent,
       },
       {
@@ -136,7 +132,7 @@ const router: Routes = [
         component: UserDetailComponent,
       },
       {
-        path: "user/create",
+        path: "user/create/:id",
         component: UsersComponent,
       },
       {
