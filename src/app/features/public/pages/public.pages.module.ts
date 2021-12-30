@@ -22,6 +22,7 @@ import { ActivitiesListComponent } from "./activities/activities-list/activities
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { ToycampaignComponent } from "./toycampaign/toycampaign.component";
 import { SearchNewsComponent } from "./search-news/search-news.component";
+import { SchoolcampaignComponent } from './schoolcampaign/schoolcampaign.component';
 @NgModule({
   declarations: [
     LoginFormComponent,
@@ -34,6 +35,7 @@ import { SearchNewsComponent } from "./search-news/search-news.component";
     ActivitiesListComponent,
     ToycampaignComponent,
     SearchNewsComponent,
+    SchoolcampaignComponent,
   ],
   imports: [
     CommonModule,

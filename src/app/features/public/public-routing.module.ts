@@ -11,6 +11,7 @@ import { ActivitiesListComponent } from "./pages/activities/activities-list/acti
 import { ToycampaignComponent } from "./pages/toycampaign/toycampaign.component";
 import { SearchNewsComponent } from "./pages/search-news/search-news.component";
 import { RegisterGuard } from "../guards/register.guard";
+import { SchoolcampaignComponent } from "./pages/schoolcampaign/schoolcampaign.component";
 
 const router: Routes = [
   {
@@ -53,6 +54,10 @@ const router: Routes = [
       {
         path: "toycampaign",
         component: ToycampaignComponent,
+      },
+      {
+        path: "schoolCampaign",
+        component: SchoolcampaignComponent,
       },
     ],
   },
