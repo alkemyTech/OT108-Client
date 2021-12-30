@@ -19,6 +19,7 @@ export class ActivitiesComponent implements OnInit {
   listCopy: Activity[] | null = null;
   search: string = "";
   control: boolean = false;
+  skeleton:boolean = true
   constructor(
     private store: Store<{ retrievedActivitiesList: any }>,
     private router: Router
@@ -27,15 +28,19 @@ export class ActivitiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
     this.store.dispatch(loadActivitiesList());
     if (!this.list) {
       this.list$.subscribe((list: any) => {
+        
         this.list = null;
         this.listCopy = [];
         this.list = list;
         this.listCopy = list;
+       
       });
     }
+    
   }
 
   getDetail(id: number) {
@@ -51,6 +56,7 @@ export class ActivitiesComponent implements OnInit {
   }
 
   filter() {
+    this.skeleton = false;
     this.listCopy = this.list;
     if (this.listCopy && this.search.length > 3) {
       const listFilter = this.listCopy?.filter((activities: Activity) => {

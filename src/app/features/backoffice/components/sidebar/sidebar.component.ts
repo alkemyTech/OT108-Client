@@ -37,6 +37,9 @@ export class SidebarComponent implements OnInit {
       case "novelties":
         this.router.navigate(["backoffice/news-list"]);
         break;
+        case "home":
+        this.router.navigate(["public/home"]);
+        break;
     }
   }
 }

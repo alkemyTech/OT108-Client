@@ -13,6 +13,7 @@ export class MemberListComponent implements OnInit {
   list: any[] = [];
   listCopy: any[] = [];
   search: string = "";
+  skeleton:boolean = true
 
   constructor(private service: MembersService, private router: Router) {}
 
@@ -40,6 +41,7 @@ export class MemberListComponent implements OnInit {
   }
 
   filter() {
+    this.skeleton = false;
     this.listCopy = this.list;
     if (this.listCopy && this.search.length > 3) {
       const listFilter = this.listCopy?.filter((member: Members) => {

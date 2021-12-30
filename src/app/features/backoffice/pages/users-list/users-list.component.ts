@@ -21,6 +21,7 @@ export class UsersListComponent implements OnInit {
   search: string = "";
   list: User[] | null = null;
   listCopy: User[] | null = null;
+  skeleton:boolean = true
 
   constructor(
     private store: Store<{ retrievedUsersList: any }>,
@@ -54,6 +55,7 @@ export class UsersListComponent implements OnInit {
   }
 
   filter() {
+    this.skeleton = false;
     this.listCopy = null;
     this.listCopy = this.list;
     if (this.listCopy && this.search.length > 3) {

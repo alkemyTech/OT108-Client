@@ -3,6 +3,9 @@
   <app-sidebar *ngIf="control"></app-sidebar>
 
   <div class="container">
+    <div *ngIf="listCopy && listCopy.length === 0">
+      <app-skeleton *ngIf="skeleton"></app-skeleton>
+    </div>
     <div id="link">
       <button
         class="btn btn-success catAddBtn"

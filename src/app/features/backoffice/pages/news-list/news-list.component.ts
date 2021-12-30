@@ -13,6 +13,7 @@ export class NewsListComponent implements OnInit {
   listCopy: any[] = [];
   search: string = "";
   control: boolean = false;
+  skeleton:boolean = true
   constructor(private service: NewsService, private router: Router) {}
 
   ngOnInit(): void {
@@ -38,6 +39,7 @@ export class NewsListComponent implements OnInit {
   }
 
   filter() {
+    this.skeleton = false;
     this.listCopy = this.list;
     if (this.listCopy && this.search.length > 3) {
       const listFilter = this.listCopy?.filter((news: News) => {
