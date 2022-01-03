@@ -24,7 +24,6 @@ export class CountdownComponent implements OnInit {
     
     this.clock = this.source.subscribe(t => {
       this.now = new Date();
-      // this.end = new Date('01/24/' + (this.now.getFullYear() + 1) +' 00:00');
       this.end = new Date('01/24/' + (this.now.getFullYear()) +' 00:00');
       this.showDate();
     });
