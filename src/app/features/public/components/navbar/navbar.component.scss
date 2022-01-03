@@ -1,84 +1,64 @@
-.campSlogan{
-    vertical-align:baseline;
-    vertical-align: text-bottom; 
-    margin-top: 13px;
-    
-
-}
-.navbar-collapse{
-    vertical-align:initial;
+.campSlogan {
+  vertical-align: baseline;
+  vertical-align: text-bottom;
+  margin-top: 13px;
+  margin-right: 3%;
 }
 
-.log{
- color: blue;
+.log {
+  color: blue;
 }
-.reg{
-    color: blue;
-}
-
-.menu{
-    margin-left: 10px;
+.reg {
+  color: blue;
 }
 
-
+.menu {
+  margin-left: 10px;
+}
 
 @media screen and (min-width: 300px) {
-    .ongLogo{
-        display:none;
-    }
-    .headerCamp{
-        justify-content: center;
-    }
-    
-    .navbar-collapse{
-        display: inline;
-    }
-   
-
-    .campSlogan{
-        display: none;
-    }
-    
+  .ongLogo {
+    display: none;
   }
-  
-  @media screen and (min-width: 600px) {
-    .ongLogo{
-        display:block;
-    }
-    .campLogo{
-        display:block;
-    }
-
-  
-
-    .campSlogan{
-        display: none;
-    }
-  
-  }
-  
-  @media screen and (min-width: 900px) {
-    .nombres {
-      display: inline;
-    }
-    p {
-      display: block;
-    }
- 
-
-    .campSlogan{
-        display: block;
-    }
-
+  .headerCamp {
+    justify-content: center;
   }
 
-  @media screen and (min-width: 1440px) {
-   .headerCamp{
+  .campSlogan {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .ongLogo {
+    display: block;
+  }
+  .campLogo {
+    display: block;
+  }
+
+  .campSlogan {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .nombres {
+    display: inline;
+  }
+  p {
+    display: block;
+  }
+
+  .campSlogan {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .headerCamp {
     opacity: 0.6;
     position: relative;
     z-index: 100000;
-   } 
-    
- 
-
   }
+}

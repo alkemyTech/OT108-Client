@@ -58,6 +58,7 @@ export class AuthEffects {
         ofType(loginSuccess),
         tap((action) => {
           localStorage.setItem("token", action.token);
+          localStorage.setItem("email", action.email);
           this.router.navigate(["backoffice/Dashboard"]);
         })
       ),
@@ -99,6 +100,7 @@ export class AuthEffects {
       this.actions$.pipe(
         ofType(registerSuccess),
         tap((action) => {
+          localStorage.setItem("email", action.email);
           localStorage.setItem("token", action.token);
           this.alert.messageGood("se Registro perfectamente");
           this.router.navigate(["backoffice/Dashboard"]);
@@ -124,6 +126,7 @@ export class AuthEffects {
         ofType(logOut),
         tap((action) => {
           localStorage.removeItem("token");
+          localStorage.removeItem("email");
           this.router.navigate(["public/home"]);
         })
       ),
@@ -141,6 +144,9 @@ export class AuthEffects {
               res?.user?.getIdTokenResult().then((ten) => {
                 localStorage.clear();
                 localStorage.setItem("token", ten.token);
+                if (res.user?.email) {
+                  localStorage.setItem("email", res.user?.email);
+                }
                 this.router.navigate(["backoffice/Dashboard"]);
               });
             })

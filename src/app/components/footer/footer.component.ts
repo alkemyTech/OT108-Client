@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit {
 
   getOrganization() {
     this.serivce.getOrganization(1).subscribe((res) => {
-      this.organization = res.data;
+      this.organization = res?.data;
     });
   }
 }

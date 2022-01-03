@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light headerCamp">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light headerCamp">
   <a class="navbar-brand ongLogo" routerLink="/public/home"
     ><img height="80px" src="../../../../../assets/images/logo.png"
   /></a>
@@ -28,17 +28,106 @@
           <a class="dropdown-item" routerLink="/public/schoolCampaign"
             >Campaña Escolar
           </a>
-          <a *ngIf="!token" class="dropdown-item log" routerLink="/public/login"
-            >Ingresar</a
+      
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav> -->
+<nav
+  class="navbar navbar-light navbar-expand-lg"
+  style="background-color: #d8e6f0"
+>
+  <a class="navbar-brand" href="#">
+    <img height="80px" src="../../../../../assets/images/logo.png" />
+  </a>
+  <a class="navbar-brand camplogo"
+    ><img height="80px" src="{{ campLogo }}"
+  /></a>
+
+  <h4 class="campSlogan">{{ slogan }}</h4>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/public/home"
+          >Inicio <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLinkActive="router-link-active"
+          routerLink="/public/actividades"
+          >Actividades</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/public/contacts">Contacto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/public/donations">Contribuye</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="token" routerLink="/backoffice/Dashboard"
+          >BackOffice</a
+        >
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdownMenuLink"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Campañas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/public/toycampaign"
+            >Campaña Juguetes</a
           >
-          <a
-            *ngIf="!token"
-            class="dropdown-item reg"
-            routerLink="/public/register"
-            >Registrar</a
+          <a class="dropdown-item" routerLink="/public/schoolCampaign"
+            >Campaña Escolar</a
           >
         </div>
       </li>
+    </ul>
+    <ul class="navbar-nav mt-0 mt-lg-0" *ngIf="!token">
+      <button
+        class="btn btn-outline-primary my-2 my-sm-0"
+        routerLink="/public/login"
+      >
+        Ingresar
+      </button>
+      <button
+        class="btn btn-outline-success my-2 my-sm-0"
+        routerLink="/public/register"
+      >
+        Registrar
+      </button>
+    </ul>
+    <ul class="navbar-nav mt-0 mt-lg-0" *ngIf="token">
+      <li class="nav-item">
+        <a class="nav-link">
+          {{ this.email }}
+        </a>
+      </li>
+      <button class="btn btn-outline-danger my-2 my-sm-0" (click)="logOut()">
+        Salir
+      </button>
     </ul>
   </div>
 </nav>
