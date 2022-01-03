@@ -23,7 +23,7 @@ export class SlideSearchComponent implements OnInit {
   slideSearch(){
     this.service.getAllSlides().subscribe(res =>{
       this.slideArray = res.data 
-      console.log(this.slideArray)
+      
      })
      this.close = true;
 

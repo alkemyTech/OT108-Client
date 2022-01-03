@@ -14,7 +14,7 @@ export class TitlesComponent implements OnInit {
   constructor(private service: NewsService) {}
 
   ngOnInit(): void {
-    this.service.getNews("054").subscribe((res) => {
+    this.service.getNews("1203").subscribe((res) => {
       this.image = res.data.image;
       this.title = res.data.name;
     });

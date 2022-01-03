@@ -23,6 +23,7 @@ export class SlideComponent implements OnInit, OnDestroy {
   search: string = "";
   list: Slides[] | null = null;
   listCopy: Slides[] | null = null;
+  skeleton:boolean = true
   constructor(
     private service: SlideService,
     private router: Router,
@@ -60,6 +61,7 @@ export class SlideComponent implements OnInit, OnDestroy {
   }
 
   filterSlider() {
+    this.skeleton = false;
     this.listCopy = null;
     this.listCopy = this.list;
     if (this.listCopy && this.search.length > 3) {

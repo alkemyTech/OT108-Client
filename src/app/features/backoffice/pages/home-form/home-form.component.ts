@@ -76,11 +76,11 @@ export class HomeFormComponent implements OnInit {
   }
 
   getEditSlide(id: number) {
-    console.log(this.itemList);
+   
     if (this.itemList) {
       for (let i = 0; i < this.itemList.length; i++) {
         if (this.itemList[i].id == id) {
-          console.log(this.itemList[i]);
+          
           return this.itemList[i];
         }
       }
@@ -89,7 +89,7 @@ export class HomeFormComponent implements OnInit {
 
   slideAdd(slide: any) {
     this.slideArray.push(slide);
-    console.log(this.slideArray);
+    
   }
 
   editWelcomeText() {

@@ -111,7 +111,7 @@ export class LoginFormComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this.user.email = email;
     this.user.pass = password;
-    console.log(this.user);
+    
     this.store.dispatch(loginStart({ email: email, password: password }));
   }
 
